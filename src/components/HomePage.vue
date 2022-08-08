@@ -15,7 +15,7 @@
           <button class="tgf-right-button">去创作</button>
         </div>
       </div>
-      <el-image src="1.svg" fit="contain" style="width: 100%"></el-image>
+      <el-image src="Home1.svg" fit="contain" style="width: 100%"></el-image>
     </div>
     <div class="carousel">
       <el-carousel height="800px" :autoplay="false">
@@ -28,10 +28,14 @@
                 The quick brown fox jumps over the lazy dog
               </div>
             </div>
-            <el-image src="2.svg" fit="contain" style="width: 100%;transform: rotate(0);"></el-image>
+            <el-image
+              src="Home2.svg"
+              fit="contain"
+              style="width: 100%"
+            ></el-image>
             <el-image
               class="carousel-image-mask"
-              src="2-1.svg"
+              src="Home2-1.svg"
               fit="contain"
               style="width: 100%"
             ></el-image>
@@ -39,12 +43,59 @@
         </el-carousel-item>
       </el-carousel>
     </div>
+    <div class="top5">
+      <div class="top5-header">
+        <div class="top5-header-title-up">today's top picks</div>
+        <div class="top5-header-title-down">今日的TOP5生成艺术作品</div>
+      </div>
+      <!-- swiper实现 -->
+      <div class="top5-swiper">
+        <swiper
+          :centeredSlides="true"
+          :spaceBetween="-400"
+          :slidesPerView="3.8"
+          :initialSlide="2"
+        >
+          <swiper-slide
+            v-for="(item, index) in 5"
+            data-index="index"
+            :key="index"
+          >
+            <div class="swiper-item">
+              <div class="swiper-item-text">
+                <div class="swiper-item-category">category</div>
+                <div class="swiper-item-description">分类描述+作者信息</div>
+              </div>
+              <el-image :src="'Home3-' + item + '.svg'" fit="cover"></el-image>
+            </div>
+          </swiper-slide>
+        </swiper>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import { ref } from "@vue/reactivity";
 export default {
   name: "HomePage",
+  components: { Swiper, SwiperSlide },
+  setup() {
+    let swiperOption = ref({
+      loop: true, // 循环模式选项
+      autoplay: true, //自动循环
+      slidesPerView: 3.8, //设置slider容器能够同时显示的slides数量(carousel模式)。
+      spaceBetween: -160, //在slide之间设置距离（单位px）。
+      centeredSlides: true, //设置活动块居中
+      width: 150,
+    });
+    console.log(swiperOption);
+    return {
+      swiperOption,
+    };
+  },
 };
 </script>
 
@@ -54,6 +105,8 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 .to-generate {
   height: 100%;
@@ -105,6 +158,7 @@ export default {
   border: none;
   margin: 10rem;
 }
+
 .carousel {
   width: 100%;
   height: 100%;
@@ -133,7 +187,6 @@ export default {
   display: flex;
   flex-direction: column;
   margin: 3rem;
-  transform: rotate(0);
 }
 .carousel-text-title {
   font-family: "Arimo";
@@ -152,5 +205,113 @@ export default {
   line-height: 2.5rem;
   text-transform: uppercase;
   color: #ffffff;
+}
+
+.top5 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    #754abc 0%,
+    rgba(255, 255, 255, 0) 74.04%
+  );
+  margin: 1rem;
+}
+.top5-header {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+.top5-header-title-up {
+  font-family: "Arimo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fafafa;
+}
+.top5-header-title-down {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.75rem;
+  line-height: 2.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.top5-swiper {
+  width: 90%;
+  margin: auto;
+}
+.swiper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+.swiper-slide {
+  text-align: center;
+  height: 70%;
+  /* width: 50%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 300ms;
+  transform: scale(0.7);
+}
+.swiper-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  position: relative;
+}
+.swiper-slide-active,
+.swiper-slide-duplicate-active {
+  transform: scale(0.9);
+}
+.swiper-slide-next {
+  transform: scale(0.8);
+  z-index: 998 !important;
+}
+.swiper-slide-prev {
+  transform: scale(0.8);
+}
+.swiper-slide-active {
+  z-index: 999 !important;
+}
+.swiper-item-text {
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #ffffff;
+  z-index: 1000;
+  margin: 3rem;
+}
+.swiper-item-category {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  text-transform: uppercase;
+}
+
+.swiper-item-description {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
 }
 </style>

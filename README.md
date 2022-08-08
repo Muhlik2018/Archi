@@ -3,7 +3,7 @@
 vue3
 vue-router@4
 elementUI plus
-less
+swiper
 
 ## Project setup
 ```
