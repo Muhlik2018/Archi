@@ -52,7 +52,7 @@
       <div class="top5-swiper">
         <swiper
           :centeredSlides="true"
-          :spaceBetween="-400"
+          :spaceBetween="-190"
           :slidesPerView="3.8"
           :initialSlide="2"
         >
@@ -72,28 +72,79 @@
         </swiper>
       </div>
     </div>
+    <div class="category">
+      <div class="category-header">分类</div>
+      <div class="category-box">
+        <div
+          class="category-item"
+          v-for="item in categoryContext"
+          :key="item.id"
+        >
+          <div class="category-item-text">
+            <div class="category-item-title">{{ item.title }}</div>
+            <div class="category-item-detail">{{ item.detail }}</div>
+          </div>
+          <el-image
+            :src="'Home4-' + item.id + '.svg'"
+            fit="contain"
+            style="width: 100%"
+          ></el-image>
+        </div>
+      </div>
+    </div>
+    <div class="collection">
+      <div class="collection-header">你的收藏</div>
+      <div class="collection-box">
+        <swiper
+          navigation
+          :modules="modules"
+          :slidesPerView="5"
+        >
+          <swiper-slide
+            v-for="(item, index) in 7"
+            data-index="index"
+            :key="index"
+          >
+            <div class="collection-swiper-item">
+              <el-image :src="'Home5-' + item + '.svg'" fit="cover"></el-image>
+            </div>
+          </swiper-slide>
+        </swiper>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation } from "swiper";
 import "swiper/css";
-import { ref } from "@vue/reactivity";
+import "swiper/css/navigation";
+import { reactive } from "@vue/reactivity";
 export default {
   name: "HomePage",
   components: { Swiper, SwiperSlide },
   setup() {
-    let swiperOption = ref({
-      loop: true, // 循环模式选项
-      autoplay: true, //自动循环
-      slidesPerView: 3.8, //设置slider容器能够同时显示的slides数量(carousel模式)。
-      spaceBetween: -160, //在slide之间设置距离（单位px）。
-      centeredSlides: true, //设置活动块居中
-      width: 150,
-    });
-    console.log(swiperOption);
+    let categoryContext = reactive([
+      {
+        id: 1,
+        title: "地区",
+        detail: "在不同地区之间探索艺术作品",
+      },
+      {
+        id: 2,
+        title: "主题",
+        detail: "依据主题来开启艺术之旅",
+      },
+      {
+        id: 3,
+        title: "颜色",
+        detail: "根据颜色来发现艺术作品",
+      },
+    ]);
     return {
-      swiperOption,
+      categoryContext,
+      modules: [Navigation],
     };
   },
 };
@@ -249,13 +300,13 @@ export default {
   width: 90%;
   margin: auto;
 }
-.swiper {
+.top5-swiper .swiper {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 90%;
 }
-.swiper-slide {
+.top5-swiper .swiper-slide {
   text-align: center;
   height: 70%;
   /* width: 50%; */
@@ -265,27 +316,27 @@ export default {
   transition: 300ms;
   transform: scale(0.7);
 }
-.swiper-item {
+.top5-swiper .swiper-item {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
   position: relative;
 }
-.swiper-slide-active,
-.swiper-slide-duplicate-active {
+.top5-swiper .swiper-slide-active,
+.top5-swiper .swiper-slide-duplicate-active {
   transform: scale(0.9);
 }
-.swiper-slide-next {
+.top5-swiper .swiper-slide-next {
   transform: scale(0.8);
   z-index: 998 !important;
 }
-.swiper-slide-prev {
+.top5-swiper .swiper-slide-prev {
   transform: scale(0.8);
 }
-.swiper-slide-active {
+.top5-swiper .swiper-slide-active {
   z-index: 999 !important;
 }
-.swiper-item-text {
+.top5-swiper .swiper-item-text {
   position: absolute;
   width: 100%;
   z-index: 1000;
@@ -296,7 +347,7 @@ export default {
   z-index: 1000;
   margin: 3rem;
 }
-.swiper-item-category {
+.top5-swiper .swiper-item-category {
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
@@ -304,8 +355,7 @@ export default {
   line-height: 2.5rem;
   text-transform: uppercase;
 }
-
-.swiper-item-description {
+.top5-swiper .swiper-item-description {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -313,5 +363,82 @@ export default {
   line-height: 1.5rem;
   text-transform: uppercase;
   margin-top: 0.5rem;
+}
+
+.category {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem;
+}
+.category-header,
+.collection-header {
+  margin-left: 1.5rem;
+  font-family: "Eczar";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.5rem;
+  line-height: 4rem;
+  color: #000000;
+}
+.category-box {
+  display: flex;
+  justify-content: space-around;
+}
+.category-item {
+  margin: 1.5rem;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+.category-item-text {
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  background: linear-gradient(
+    180deg,
+    rgba(217, 217, 217, 0) 0%,
+    rgba(0, 0, 0, 0.61) 82.03%
+  );
+}
+.category-item-title {
+  font-family: "Amaranth";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: 0.02rem;
+  text-transform: uppercase;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+.category-item-detail {
+  font-family: "Amaranth";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 2rem;
+  letter-spacing: 0.01rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.collection {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem;
+}
+.collection .swiper-slide{
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
 }
 </style>
