@@ -1,17 +1,11 @@
 <template>
-  <HomePage></HomePage>
-  <DetailPage></DetailPage>
+  <router-view></router-view>
 </template>
 
 <script>
-import DetailPage from './components/DetailPage.vue';
-import HomePage from './components/HomePage.vue';
 export default {
   name: "App",
-  components: {
-    DetailPage,
-    HomePage
-},
+  components: {},
 };
 </script>
 

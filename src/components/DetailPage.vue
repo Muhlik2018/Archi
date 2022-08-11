@@ -3,7 +3,7 @@
     <div class="back-button">&lt; 返回</div>
     <div class="photo-detail">
       <div class="photo-preview">
-        <el-image src="Detail-1.svg" fit="contain"></el-image>
+        <el-image :src="picutreId" fit="contain"></el-image>
         <div class="photo-preview-text">
           Text description pop-up window of the element selected in the svg.
           Text description pop-up window of the element selected in the svg.
@@ -71,11 +71,17 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import { reactive } from "@vue/reactivity";
+import { useRouter, useRoute } from "vue-router";
 
 export default {
   name: "DetailPage",
   components: { Swiper, SwiperSlide },
   setup() {
+    const router = useRouter();
+    const route = useRoute();
+    let detailId = router.currentRoute.value.params.id;
+    let picutreId = "Home3-" + detailId + ".svg";
+    console.log("id", detailId);
     let morePhotoContext = reactive([
       {
         id: 1,
@@ -100,6 +106,10 @@ export default {
     ]);
     return {
       morePhotoContext,
+      detailId,
+      picutreId,
+      router,
+      route,
     };
   },
 };

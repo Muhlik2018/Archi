@@ -60,6 +60,7 @@
             v-for="(item, index) in 5"
             data-index="index"
             :key="index"
+            @click="goDetail(item)"
           >
             <div class="swiper-item">
               <div class="swiper-item-text">
@@ -95,11 +96,7 @@
     <div class="collection">
       <div class="collection-header">你的收藏</div>
       <div class="collection-box">
-        <swiper
-          navigation
-          :modules="modules"
-          :slidesPerView="5"
-        >
+        <swiper navigation :modules="modules" :slidesPerView="5">
           <swiper-slide
             v-for="(item, index) in 7"
             data-index="index"
@@ -121,10 +118,13 @@ import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import { reactive } from "@vue/reactivity";
+import { useRouter } from "vue-router";
+
 export default {
   name: "HomePage",
   components: { Swiper, SwiperSlide },
   setup() {
+    const router = useRouter();
     let categoryContext = reactive([
       {
         id: 1,
@@ -144,8 +144,14 @@ export default {
     ]);
     return {
       categoryContext,
+      router,
       modules: [Navigation],
     };
+  },
+  methods: {
+    goDetail(id) {
+      this.router.push({ name: "detail", params: { id } });
+    },
   },
 };
 </script>
@@ -436,7 +442,7 @@ export default {
   justify-content: center;
   margin: 1rem;
 }
-.collection .swiper-slide{
+.collection .swiper-slide {
   margin: 0.5rem;
   display: flex;
   justify-content: center;
