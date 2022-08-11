@@ -1,26 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div style="overflow-x: hidden">
+    <!-- 
+  这里要加overflow-x: hidden因为要隐藏浏览器和移动端的左右移动框
+ -->
+    <!-- <HeadNav></HeadNav> -->
+    <CulturalCreation></CulturalCreation>
+    <!-- <FooterNav></FooterNav> -->
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import CulturalCreation from "./components/CulturalCreation.vue";
+// import FooterNav from "./components/FooterNav.vue";
+// import HeadNav from "./components/HeadNav.vue";
+import "./js/flexible.js";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    CulturalCreation,
+    // FooterNav,
+    // HeadNav
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@media screen and (max-width: 360px) {
+  html {
+    font-size: 3px !important;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  html {
+    font-size: 16px !important;
+  }
 }
 </style>
