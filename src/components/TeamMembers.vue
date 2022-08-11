@@ -118,10 +118,10 @@
 import HeadNav from "./HeadNav.vue";
 import FooterNav from "./FooterNav.vue";
 export default {
-  components:{
+  components: {
     HeadNav,
-    FooterNav
-}
+    FooterNav,
+  },
 };
 </script>
 
@@ -380,6 +380,7 @@ export default {
 }
 .activity {
   position: relative;
+  margin: 0 auto;
 }
 .activity > div {
   display: inline-block;
@@ -390,7 +391,7 @@ export default {
   text-align: center;
 }
 .activity > div:nth-child(1) {
-  background: url("../assets/Rectangle5732.svg");
+  background: url("../assets/Rectangle5736.svg");
   background-size: cover;
 }
 .activity > div:nth-child(2) {
@@ -398,6 +399,7 @@ export default {
   background-size: cover;
 }
 .activityTransparent {
+  
   width: 100%;
   height: 20rem;
 
@@ -465,22 +467,28 @@ export default {
   z-index: 10;
 }
 .rightArrow {
-  left: 111.25rem;
+  left: 107.5rem;
 }
 .leftArrow {
-  left: 3.4375rem;
+  left: 6.25rem;
 }
 .rightArrow img {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+
+  height: 1.7777rem;
+  width: 2.0315rem;
 }
 .leftArrow img {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+
+  height: 1.7777rem;
+  width: 2.0315rem;
 }
 
 .bottomActivity {
@@ -495,8 +503,6 @@ export default {
 .bottomActivity > div {
   flex: 1;
   height: 51.8125rem;
-
-  
 }
 .bottomActivity > div:nth-of-type(1) {
   background: url("../assets/Rectangle5734.svg");
@@ -532,8 +538,6 @@ transform: rotate(90deg);*/
   width: 120rem;
   height: 1.6875rem;
 
-
-
   background: linear-gradient(
     90deg,
     rgba(83, 29, 171, 0.8) 0%,
@@ -550,6 +554,17 @@ transform: rotate(90deg);*/
 .bluelineTarget {
   position: absolute;
   left: 1.375rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 2.875rem;
+  height: 2.875rem;
+}
+.bluelineTarget img {
+  width: 2.875rem;
+  height: 2.875rem;
+
+    position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -574,4 +589,4 @@ transform: rotate(90deg);*/
 </style>
 
 
-<!-- 20220811 晚-->
+<!-- 20220811 晚2-->
