@@ -5,7 +5,7 @@
         <div class="frame"><img src="../assets/ArchiLogo.svg" alt="" /></div>
         <div class="home"><img src="../assets/Home.svg" alt="" /></div>
       </div>
-      <div style="flex: 1;display:flex;">
+      <div>
         <div class="nav">
           <div>关于我们</div>
           <div>创作</div>
@@ -51,13 +51,14 @@ export default {};
 .nav > div {
   display: inline-block;
   width: 6.25rem;
+  height: 4.5625rem;
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 1.5rem;
   /* align-items: center; */
-  line-height: 6.25rem;
+  line-height: 4.5625rem;
 
   text-align: center;
   color: #531dab;
@@ -117,3 +118,5 @@ export default {};
   height: 1.75rem;
 }
 </style>
+
+<!-- 20220811 -->
