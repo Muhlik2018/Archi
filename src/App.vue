@@ -29,14 +29,17 @@ export default {
 
 <style>
 @media screen and (max-width: 360px) {
-  html {
+  html{
     font-size: 3px !important;
   }
 }
 
 @media screen and (min-width: 1920px) {
-  html {
+  html{
     font-size: 16px !important;
   }
+}
+body{
+  margin: 0;
 }
 </style>

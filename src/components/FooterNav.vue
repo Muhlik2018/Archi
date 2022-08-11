@@ -61,7 +61,7 @@ export default {};
 
 <style>
 .footerNav {
-  width: 120rem;
+  width: 113.125rem;
   height: 15.9375rem;
   display: flex;
   margin: 0 auto;
