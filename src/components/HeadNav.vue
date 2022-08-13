@@ -38,7 +38,7 @@ export default {};
   margin: 0 auto;
   position: relative;
 
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 .Headnav > div {
   width: 120rem;
