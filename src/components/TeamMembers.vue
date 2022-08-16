@@ -64,7 +64,7 @@
       </div>
     </div>
 
-    <div class="teamActivity">
+    <!-- <div class="teamActivity">
       <span class="Arrow leftArrow"
         ><img src="../assets/Vector_left.svg" alt=""
       /></span>
@@ -91,7 +91,53 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
+
+    <el-carousel
+      :interval="5000"
+      arrow="always"
+      class="teamActivity"
+      :autoplay="false"
+    >
+      <template v-for="item in swiper" :key="item.id">
+        <template v-if="item.id % 2 == 0">
+          <!-- 一次跳两张，一次放入两张轮播图 -->
+
+          <el-carousel-item>
+            <div
+              :style="{
+                'background-image': 'url(' + item.img + ')',
+              }"
+              class="swiperItem"
+            >
+              <div class="activityTransparent">
+                <!-- 图片阴影部分 -->
+
+                <h2>{{ item.title }}</h2>
+                <div>
+                  {{ item.description }}
+                </div>
+              </div>
+            </div>
+            <div
+              :style="{
+                'background-image': 'url(' + swiper[item.id + 1].img + ')', //<!-- 获取id为奇数的轮播图数据 -->
+              }"
+              class="swiperItem"
+            >
+              <div class="activityTransparent">
+                <!-- 图片阴影部分 -->
+                <h2>{{ swiper[item.id + 1].title }}</h2>
+                <!-- 获取id为奇数的轮播图数据 -->
+                <div>
+                  {{ swiper[item.id + 1].description }}
+                </div>
+              </div>
+            </div>
+          </el-carousel-item>
+        </template>
+      </template>
+    </el-carousel>
 
     <div class="bottomActivity">
       <div><span></span></div>
@@ -121,6 +167,54 @@ export default {
   components: {
     HeadNav,
     FooterNav,
+  },
+  data() {
+    return {
+      swiper: [
+        {
+          title: "活动标题1",
+          description:
+            "111111111111111案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么",
+          img: require("@/assets/Rectangle5732.svg"),
+          id: 0,
+        },
+        {
+          title: "活动标题2",
+          description:
+            "2222222222案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么",
+          img: require("@/assets/Rectangle5736.svg"),
+          id: 1,
+        },
+        {
+          title: "活动标题3",
+          description:
+            "33333333333案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么",
+          img: require("@/assets/Rectangle5732.svg"),
+          id: 2,
+        },
+        {
+          title: "活动标题4",
+          description:
+            "4444444444444案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么",
+          img: require("@/assets/Rectangle5736.svg"),
+          id: 3,
+        },
+        {
+          title: "活动标题5",
+          description:
+            "555555555555案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么",
+          img: require("@/assets/Rectangle5732.svg"),
+          id: 4,
+        },
+        {
+          title: "活动标题6",
+          description:
+            "666666666案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么",
+          img: require("@/assets/Rectangle5736.svg"),
+          id: 5,
+        },
+      ],
+    };
   },
 };
 </script>
@@ -390,16 +484,8 @@ export default {
 
   text-align: center;
 }
-.activity > div:nth-child(1) {
-  background: url("../assets/Rectangle5736.svg");
-  background-size: cover;
-}
-.activity > div:nth-child(2) {
-  background: url("../assets/Rectangle5736.svg");
-  background-size: cover;
-}
+
 .activityTransparent {
-  
   width: 100%;
   height: 20rem;
 
@@ -467,16 +553,12 @@ export default {
   z-index: 10;
 }
 
-
 .rightArrow {
-
   left: 111.25rem;
 }
 .leftArrow {
   left: 3.4375rem;
 }
-
-
 
 .rightArrow img {
   position: absolute;
@@ -570,9 +652,16 @@ transform: rotate(90deg);*/
   width: 2.875rem;
   height: 2.875rem;
 
-    position: absolute;
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
+}
+.swiperItem {
+  height: 43.75rem;
+  width: 50%;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .more {
   margin: 0 auto;
@@ -592,7 +681,46 @@ transform: rotate(90deg);*/
 
   color: #3a3a3a;
 }
+
+.el-carousel__item h3 {
+  color: #475669;
+  font-size: 18px;
+  opacity: 0.75;
+  line-height: 300px;
+  margin: 0;
+}
+
+.el-carousel__container {
+  height: 100%;
+  position: relative;
+}
+.el-carousel__arrow {
+  width: 6.25rem;
+  height: 6.25rem;
+  border-radius: 50%;
+
+  background: rgba(217, 217, 217, 0.4);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  position: absolute;
+  top: 20rem;
+
+  z-index: 10;
+}
+.el-carousel__arrow:nth-of-type(1) {
+  left: 3.4375rem;
+}
+.el-carousel__arrow:nth-of-type(2) {
+  left: 111.25rem;
+}
+.el-icon>svg {
+  width: 2.0313rem;
+  height: 1.7775rem;
+}
 </style>
+
+
+
 
 
 <!-- 20220811 晚4-->
