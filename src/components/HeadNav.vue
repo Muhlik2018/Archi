@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import "../js/flexible.js";
+// import "../js/flexible.js";
 import { useRouter } from "vue-router";
 export default {
     setup() {
@@ -47,14 +47,14 @@ export default {
 
 <style>
 .Headnav {
-  width: 120rem;
+  width: 100%;
   margin: 0 auto;
   position: relative;
 
   /* margin-bottom: 2rem; */
 }
 .Headnav > div {
-  width: 120rem;
+  width: 100%;
   height: 4.5625rem;
 }
 .nav {

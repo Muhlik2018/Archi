@@ -265,6 +265,7 @@ export default {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  margin-bottom: 3rem;
 }
 .todo-button-inner {
   width: 70%;

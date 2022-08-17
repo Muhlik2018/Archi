@@ -15,6 +15,6 @@ export default {
   min-width: 1600px;
   min-height: 900px;
   max-width: 2560px;
-  max-height: 1440px;
+  /* max-height: 1440px; */
 }
 </style>

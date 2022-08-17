@@ -74,14 +74,12 @@ export default {
 
 <style>
 .footerNav {
-  width: 113.125rem;
+  width: 100%;
   height: 15.9375rem;
   display: flex;
   margin: 0 auto;
   border-top: 0.0625rem solid;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  margin-top: 18.75rem;
+  margin-top: 10rem;
 }
 
 .bottomnav {

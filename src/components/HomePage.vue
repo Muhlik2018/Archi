@@ -175,7 +175,7 @@ export default {
   width: 100%;
 }
 .to-generate {
-  height: 100%;
+  width: 100%;
   display: flex;
   align-items: flex-end;
   position: relative;
