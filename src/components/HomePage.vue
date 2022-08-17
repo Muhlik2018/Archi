@@ -1,5 +1,6 @@
 <template>
   <div class="HomePage">
+    <HeadNav></HeadNav>
     <div class="to-generate">
       <div class="to-generate-footer">
         <div class="tgf-left">
@@ -109,10 +110,13 @@
         </swiper>
       </div>
     </div>
+  <FooterNav></FooterNav>
   </div>
 </template>
 
 <script>
+import HeadNav from "./HeadNav.vue";
+import FooterNav from "./FooterNav.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation } from "swiper";
 import "swiper/css";
@@ -122,7 +126,12 @@ import { useRouter } from "vue-router";
 
 export default {
   name: "HomePage",
-  components: { Swiper, SwiperSlide },
+  components: { 
+    Swiper, 
+    SwiperSlide,     
+    HeadNav,
+    FooterNav
+    },
   setup() {
     const router = useRouter();
     let categoryContext = reactive([

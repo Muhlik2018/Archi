@@ -1,5 +1,6 @@
 <template>
   <div class="DetailPage">
+  <HeadNav></HeadNav>
     <div class="back-button">&lt; 返回</div>
     <div class="photo-detail">
       <div class="photo-preview">
@@ -64,10 +65,13 @@
       </div>
     </div>
     <hr style="width: 95%" />
+  <FooterNav></FooterNav>
   </div>
 </template>
 
 <script>
+import HeadNav from "./HeadNav.vue";
+import FooterNav from "./FooterNav.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import { reactive } from "@vue/reactivity";
@@ -75,7 +79,11 @@ import { useRouter, useRoute } from "vue-router";
 
 export default {
   name: "DetailPage",
-  components: { Swiper, SwiperSlide },
+  components: { 
+    Swiper, 
+    SwiperSlide,     
+    HeadNav,
+    FooterNav},
   setup() {
     const router = useRouter();
     const route = useRoute();
