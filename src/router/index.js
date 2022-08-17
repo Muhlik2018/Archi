@@ -4,6 +4,7 @@ const Home = () => import('@/components/HomePage.vue');
 const Detail = () => import('@/components/DetailPage.vue');
 const TeamMembers = () => import('@/components/TeamMembers.vue');
 const CulturalCreation = () => import('@/components/CulturalCreation.vue');
+const GenerateArt2 = () => import('@/components/GenerateArt2.vue')
 
 
 const routes = [
@@ -26,6 +27,11 @@ const routes = [
         path: '/CulturalCreation',
         name: 'CulturalCreation',
         component: CulturalCreation,
+    },
+    {
+        path: '/GenerateArt2',
+        name: 'GenerateArt2',
+        component: GenerateArt2,
     }
 ]
 const router = createRouter({
