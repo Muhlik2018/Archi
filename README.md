@@ -1,4 +1,9 @@
-# project
+# Archi
+首页两个页面
+vue3
+vue-router@4
+elementUI plus
+swiper
 
 ## Project setup
 ```
@@ -22,14 +27,3 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-
-
-123123
-
-
-
-
-
-
-
-

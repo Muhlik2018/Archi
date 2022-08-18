@@ -9,7 +9,6 @@
 }
 
 @include b(message) {
-  width: fit-content;
   max-width: calc(100% - 32px);
   box-sizing: border-box;
   border-radius: getCssVar('border-radius-base');

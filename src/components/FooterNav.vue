@@ -1,8 +1,8 @@
 <template>
   <div class="footerNav">
     <span style="flex: 1" class="bottomnav">
-      <span>首页</span> | <span>收藏&周边</span> | <span>活动</span> |
-      <span>关于我们</span>
+      <span @click="goPage('Home')">首页</span> | <span @click="goPage('Home')">收藏&周边</span> | <span @click="goPage('Home')">活动</span> |
+      <span @click="goPage('TeamMembers')">关于我们</span>
       <div class="copyright">CiMEM 团队 版权所有 隐私保护</div>
     </span>
 
@@ -56,19 +56,30 @@
 </template>
 
 <script>
-export default {};
+import { useRouter } from "vue-router";
+export default {
+    setup() {
+    const router = useRouter();
+    return {
+      router,
+    };
+  },
+    methods: {
+    goPage(pageName) {
+      this.router.push({name: pageName});
+    },
+  },
+};
 </script>
 
 <style>
 .footerNav {
-  width: 113.125rem;
+  width: 100%;
   height: 15.9375rem;
   display: flex;
   margin: 0 auto;
   border-top: 0.0625rem solid;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  margin-top: 18.75rem;
+  margin-top: 10rem;
 }
 
 .bottomnav {

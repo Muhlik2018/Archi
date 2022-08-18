@@ -680,6 +680,8 @@ transform: rotate(90deg);*/
   text-align: center;
 
   color: #3a3a3a;
+
+  cursor: pointer;
 }
 
 .el-carousel__item h3 {
