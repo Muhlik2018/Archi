@@ -76,80 +76,81 @@ export default {
 .footerNav {
   width: 100%;
   height: 15.9375rem;
-  display: flex;
+  
   margin: 0 auto;
   border-top: 0.0625rem solid;
   margin-top: 10rem;
+
+  display: flex;
+  
 }
 
 .bottomnav {
   margin-left: 4.25rem;
   margin-top: 3.1875rem;
+
   font-family: "Abel";
   font-style: normal;
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5625rem;
-  /* or 179% */
-
   letter-spacing: 0.1em;
-
   color: #597ef7;
 }
 .bottomnav span {
   color: #000000;
+
   cursor: pointer;
 }
 
 .copyright {
+  margin-top: 1.375rem;
+
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.5625rem;
-  /* identical to box height, or 208% */
-
   color: #8c8c8c;
-  margin-top: 1.375rem;
+  
 }
 
 .bottomname {
+  margin-top: 0.625rem;
+  margin-left: 1.875rem;
+
   font-family: "Big Shoulders Inline Display";
   font-style: normal;
   font-weight: 800;
   font-size: 3rem;
   line-height: 5rem;
-  /* or 150% */
-
   letter-spacing: 0.065em;
   text-transform: uppercase;
-
   background: linear-gradient(89.77deg, #754abc 15.08%, #009fe8 80.82%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
 
-  margin-top: 0.625rem;
-  margin-left: 1.875rem;
+  
 }
 .bottomname img {
   width: 16.75rem;
   height: 4.25rem;
 }
 .title {
+  width: 16.375rem;
+
+  margin-left: 1.875rem;
+
   font-family: "Abel";
   font-style: normal;
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5625rem;
-  /* identical to box height, or 179% */
-
   color: #597ef7;
-
   text-align: center;
-  width: 16.375rem;
-  margin-left: 1.875rem;
+  
 }
 .description {
   font-family: "Abel";
@@ -157,14 +158,13 @@ export default {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5625rem;
-  /* or 179% */
-
   color: #000000;
 }
 
 .description > div {
   width: 17.5625rem;
   height: 6.1875rem;
+
   margin-left: 1.875rem;
   margin-top: 0.625rem;
 }
@@ -176,46 +176,44 @@ export default {
 .contact > div {
   width: 100%;
   height: 11.25rem;
-  border-left: 0.0625rem solid #597ef7;
 
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-
+  border-left: 0.0625rem solid #597ef7; 
   padding: 0 1.875rem;
   box-sizing: border-box;
+
+  position: absolute;
+
+  top: 50%;
+  transform: translateY(-50%);
 }
 .followus {
+  width: 12rem;
+  height: 2.25rem;
+
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 700;
   font-size: 2rem;
   line-height: 3.125rem;
-  /* identical to box height, or 112% */
-
-  /* Black */
-
   color: #000000;
 
-  width: 12rem;
-  height: 2.25rem;
 }
 .phone {
+  width: 11.5625rem;
+  height: 6.625rem;
+
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5625rem;
-  /* or 179% */
-
   color: #000000;
-
-  width: 11.5625rem;
-  height: 6.625rem;
 }
 .biglogo {
   margin-left: -5rem;
+
   position: absolute;
+
   top: 50%;
   transform: translateY(-50%);
 }
@@ -234,4 +232,3 @@ export default {
 }
 </style>
 
-<!-- 20220811 晚-->

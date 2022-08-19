@@ -116,28 +116,30 @@ export default {
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1.5625rem;
-  /* or 104% */
-
   color: #000000;
+
   cursor: pointer;
 }
 .GenerateArt {
-  margin-top: 3.625rem;
-  margin-left: 6.3125rem;
   width: 107.4375rem;
   height: 31.625rem;
+
+  margin-top: 3.625rem;
+  margin-left: 6.3125rem;
+  border-radius: 1.25rem;
+  
   background: #AB97FF;
-border-radius: 1.25rem;
-
-
+  
   position: relative;
 }
 .GenerateArt > div {
   height: 8rem;
-  position: absolute;
+
   left: 50%;
   top: 50%;
   transform: translateY(-50%) translateX(-50%);
+  
+  position: absolute;
 
   font-family: "Arimo";
   font-style: normal;
@@ -146,53 +148,51 @@ border-radius: 1.25rem;
   line-height: 4.375rem;
   text-align: center;
   text-transform: uppercase;
-
   color: #ffffff;
 }
 .GenerateArtShadow {
-  position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  
   border-radius: 1.25rem;
+
+  position: absolute;
+  
+  background: rgba(0, 0, 0, 0.7);
 }
 .stepOne {
   margin: 0 auto;
-
   margin-top: 5.6875rem;
+
   font-family: "Arimo";
   font-style: normal;
   font-weight: 700;
   font-size: 4rem;
   line-height: 4.375rem;
-  /* identical to box height */
-
   text-align: center;
   text-transform: uppercase;
-
   color: #531dab;
 }
 .choose-your-scenario {
+  margin-top: 1.25rem;
+
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 2.25rem;
   line-height: 2.75rem;
-  /* identical to box height */
-
   text-align: center;
   text-transform: uppercase;
-
   color: #531dab;
-
-  margin-top: 1.25rem;
 }
 
 .Generate {
-  margin: 0 auto;
-  margin-top: 3.875rem;
   height: 40.625rem;
   width: 107.5rem;
+
+  margin: 0 auto;
+  margin-top: 3.875rem;
+  
   display: flex;
   flex-wrap: wrap;
   /* position: relative; */
@@ -201,12 +201,14 @@ border-radius: 1.25rem;
 .Generate div {
   height: 40.625rem;
   width: 31.25rem;
-  /* border: 1px solid; */
-  box-sizing: border-box;
+  
   margin-right: 6.25rem;
   margin-bottom: 6.25rem;
-  background: rgba(83, 29, 171, 0.2);
   border-radius: 1.25rem;
+  box-sizing: border-box;
+  
+  background: rgba(83, 29, 171, 0.2);
+  
   position: relative;
 
   cursor: pointer;
@@ -220,56 +222,57 @@ border-radius: 1.25rem;
   margin-right: 0px;
 }
 .Generate p {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 35.5rem;
-  margin: 0;
   height: auto;
-
+  
+  left: 50%;
+  top: 35.5rem;
+  transform: translateX(-50%);
+  margin: 0;
+  
+  position: absolute;
+  
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 2.25rem;
   line-height: 2.75rem;
-  /* identical to box height */
-
   text-align: center;
   text-transform: uppercase;
-
   color: #531dab;
 }
 .Generate .currentGenerate {
   background: rgba(83, 29, 171, 0.4);
 }
 .Generate img {
-  position: absolute;
+  
+  width: 65%;
+  
   left: 50%;
   top: 10%;
   transform: translateX(-50%);
-  width: 65%;
-  /* top: 2rem; */
+  
+  position: absolute;
+  
 }
 .nextStep {
-  margin: 0 auto;
   width: 20.1875rem;
   height: 6.25rem;
+
+  margin: 0 auto;
   margin-top: 8rem;
+  border-radius: 1.25rem;
 
   background: #faed00;
   box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
-  border-radius: 1.25rem;
+  
 
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 2.25rem;
   line-height: 6.25rem;
-  /* identical to box height */
-
   text-align: center;
   text-transform: uppercase;
-
   color: #531dab;
 
   cursor: pointer;

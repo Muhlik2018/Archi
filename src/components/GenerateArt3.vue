@@ -39,11 +39,46 @@
               </div>
             </div>
           </div>
+
+          <div class="color-group">
+            <span class="select-color">
+              <img
+                src="../assets/Polygon2.svg"
+                :class="{ hide: !color[0].isSelected }" />
+              <img
+                src="../assets/color1.svg"
+                class="color"
+                @click="handleSelectColor(0)"
+              />
+            </span>
+            <span class="select-color">
+              <img
+                src="../assets/Polygon2.svg"
+                :class="{ hide: !color[1].isSelected }" />
+              <img
+                src="../assets/color2.svg"
+                class="color"
+                @click="handleSelectColor(1)"
+                />
+            </span>
+            <span class="select-color">
+              <img
+                src="../assets/Polygon2.svg"
+                :class="{ hide: !color[2].isSelected }" />
+              <img
+                src="../assets/color3.svg"
+                class="color"
+                @click="handleSelectColor(2)"
+              />
+            </span>
+          </div>
         </div>
 
         <div>
           <div class="RightDate">2022.08.04</div>
-          <div style="margin:0 auto;text-align: center;"><input class="RightinputName" v-model="inputName" /></div>
+          <div style="margin: 0 auto; text-align: center">
+            <input class="RightinputName" v-model="inputName" />
+          </div>
           <p class="RightinputNameDesc">输入你的名字</p>
           <img
             src="../assets/Group483.svg"
@@ -87,10 +122,27 @@ export default {
     goPage(pageName) {
       this.router.push({ name: pageName });
     },
+    handleSelectColor(index){
+      for(var i=0;i<this.color.length;i++){
+        this.color[i].isSelected=false;
+      }
+      this.color[index].isSelected=true;
+    }
   },
   data() {
     return {
       inputName: "小锅焖大米",
+      color: [
+        {
+          isSelected: true,
+        },
+        {
+          isSelected: false,
+        },
+        {
+          isSelected: false,
+        },
+      ],
     };
   },
 };
@@ -99,6 +151,7 @@ export default {
 <style>
 .GenerateArt1 {
   width: 120rem;
+
   margin: 0 auto;
 }
 .GenerateArtBack3 {
@@ -111,25 +164,27 @@ export default {
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1.5625rem;
-  /* or 104% */
-
   color: #000000;
 
   cursor: pointer;
 }
 .GenerateArt3 {
-  margin-top: 3.625rem;
-  margin-left: 6.3125rem;
   width: 107.4375rem;
   height: 31.625rem;
-  background-color: #786ab3;
+
+  margin-top: 3.625rem;
+  margin-left: 6.3125rem;
   border-radius: 1.25rem;
 
+  background-color: #786ab3;
+  
   position: relative;
 }
 .GenerateArt3 > div {
   height: 8rem;
+
   position: absolute;
+
   left: 50%;
   top: 50%;
   transform: translateY(-50%) translateX(-50%);
@@ -141,61 +196,59 @@ export default {
   line-height: 4.375rem;
   text-align: center;
   text-transform: uppercase;
-
   color: #ffffff;
 }
 .GenerateArtShadow {
-  position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  
   border-radius: 1.25rem;
+
+  position: absolute;
+  
+  background: rgba(0, 0, 0, 0.7);
+  
 }
 .stepOne3 {
   margin: 0 auto;
-
   margin-top: -3rem;
+
   font-family: "Arimo";
   font-style: normal;
   font-weight: 700;
   font-size: 4rem;
   line-height: 4.375rem;
-  /* identical to box height */
-
   text-align: center;
   text-transform: uppercase;
-
   color: #531dab;
 }
 .choose-your-scenario {
+  margin-top: 1.25rem;
+
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 2.25rem;
   line-height: 2.75rem;
-  /* identical to box height */
-
   text-align: center;
   text-transform: uppercase;
-
   color: #531dab;
-
-  margin-top: 1.25rem;
 }
 .GenerateArtDownload {
+  width: 94.75rem;
+  height: 72.8125rem;
+
   margin: 0 auto;
   margin-top: 11.6875rem;
-  width: 93.75rem;
-  height: 65.625rem;
   margin-left: 13.125rem;
+  border-radius: 1.875rem;
 
   background: linear-gradient(
     90deg,
     rgba(83, 29, 171, 0.6) 0%,
     rgba(131, 249, 255, 0.6) 96.6%
   );
-  border-radius: 1.875rem;
-
+  
   display: flex;
 }
 .GenerateArtDownload > div {
@@ -203,22 +256,28 @@ export default {
 }
 .GenerateArtImg {
   width: 41.25rem;
-  height: 60.5rem;
-  margin-left: 2.625rem;
-  margin-top: 2.5rem;
+  height: 58.125rem;
+
+  margin-left: 3.6875rem;
+  margin-top: 3.75rem;
+
   background-color: #ffffff;
+
   position: relative;
 }
 .GenerateArtImg > img {
+  width: 38.125rem;
+  height: 51.5625rem;
+
   margin-top: 1.25rem;
   margin-left: 1.5625rem;
 
-  width: 38.125rem;
-  height: 53.9375rem;
+  
 }
 .GenerateArtImg > div {
   height: 5.3125rem;
   width: 100%;
+
   position: absolute;
   display: flex;
 
@@ -226,16 +285,12 @@ export default {
   transform: translateY(-100%);
 }
 .GenerateArtImg .inputName {
-  margin-top: 1.25rem;
-  margin-left: 1.5625rem;
-
   width: 6.5rem;
 
+  margin-top: 1.25rem;
+  margin-left: 1.5625rem;
   border: 0;
   outline: 0;
-  /* height: 1.9375rem; */
-
-  /* line-height: 1.9375rem; */
 
   font-family: "Inter";
   font-style: normal;
@@ -246,7 +301,6 @@ export default {
   align-items: center;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-
   color: #bfbfbf;
 }
 .GenerateArtImg .inputName::-webkit-input-placeholder {
@@ -265,13 +319,10 @@ export default {
   color: #bfbfbf;
 }
 .GenerateArtImg .date {
+  width: 6.375rem;
+
   margin-top: 0.5rem;
   margin-left: 1.5625rem;
-
-  width: 6.375rem;
-  /* height: 1.4375rem; */
-
-  /* line-height: 1.4375rem; */
 
   font-family: "Inter";
   font-style: normal;
@@ -282,81 +333,78 @@ export default {
   align-items: center;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-
   color: #bfbfbf;
 }
 .google {
   width: 14.8125rem;
   height: 100%;
+  
+  margin-right: 0.75rem;
+
   display: inline-block;
   position: relative;
+
   vertical-align: top;
-  margin-right: 0.75rem;
+
 }
 .google img {
-  /* width: 3.5rem;
-  height: 1.1875rem;
-  vertical-align: top; */
   position: absolute;
-  top: 1.1875rem;
 
+  top: 1.1875rem;
   left: 100%;
   transform: translateX(-100%);
 }
 .google div {
+  width: 9.125rem;
+  height: 1.875rem;
+
   position: absolute;
+  display: block;
+
   top: 2.5rem;
   left: 100%;
   transform: translateX(-100%);
-
-  width: 9.125rem;
-  height: 1.875rem;
 
   font-family: "Microsoft YaHei";
   font-style: normal;
   font-weight: 400;
   font-size: 0.6875rem;
-
-  display: block;
-  /* or 127% */
-
   text-align: right;
   text-transform: capitalize;
-
   color: #8c8c8c;
 }
 .logo {
-  /* margin: 0; */
-  padding-left: 0.8125rem;
   width: 100%;
   height: 3.4375rem;
-  border-left: 0.0313rem solid #9d9d9d;
-  /* height: 100%; */
+  
   display: inline-block;
-  /* margin-bottom: 0.9375rem; */
-  vertical-align: top;
-
   position: absolute;
+  
   top: 50%;
   transform: translateY(-50%);
+
+  padding-left: 0.8125rem;
+  border-left: 0.0313rem solid #9d9d9d;
+
+  vertical-align: top;
 }
 .logo img {
   width: 2.3125rem;
   height: 3.4375rem;
 
   position: absolute;
+
   top: 50%;
   transform: translateY(-50%);
 }
 .RightDate {
-  margin: 0 auto;
-  margin-top: 6.6875rem;
   width: 16.625rem;
   height: 2.9375rem;
 
+  margin: 0 auto;
+  margin-top: 6.6875rem;
+ 
   line-height: 2.9375rem;
-
-  /* text-align: center; */
 
   font-family: "Inter";
   font-style: normal;
@@ -366,19 +414,22 @@ export default {
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
   color: #ffffff;
 }
 .RightinputName {
-  margin: 0 auto;
-  padding: 0 2.5rem;
-  box-sizing: border-box;
-  margin-top: 0.125rem;
   width: 22.5rem;
   height: 3.75rem;
 
-  background: rgba(117, 74, 188, 0.25);
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  margin-top: 0.125rem;
   border-radius: 0.9375rem;
+  box-sizing: border-box;
+  border: 0;
+  outline: none;
+  
+  background: rgba(117, 74, 188, 0.25);
+
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
@@ -386,14 +437,7 @@ export default {
   text-align: center;
   align-items: center;
   letter-spacing: 0.08em;
-
-  
-  /* text-transform: uppercase; */
-
-  outline: none;
-  border: 0;
-
-  color: #ffffff;
+  color: #ffffff; 
 }
 .RightinputNameDesc {
   font-family: "Inter";
@@ -405,18 +449,17 @@ export default {
   text-align: center;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-
   color: #8c8c8c;
 }
 .codeScan {
   width: 23.625rem;
   height: 4.875rem;
-
-  background: #faed00;
-  border-radius: 0.3125rem;
-
+  
   margin: 0 auto;
   margin-top: 2.375rem;
+  border-radius: 0.3125rem;
+
+  background: #faed00;  
 
   font-family: "Inter";
   font-style: normal;
@@ -427,9 +470,34 @@ export default {
   text-align: center;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-
   color: #3a3a3a;
 
   cursor: pointer;
+}
+.color-group {
+  margin-left: 3.8125rem;
+  margin-top: 1.75rem;
+}
+.select-color {
+  width: 4.0625rem;
+  height: 6.8125rem;
+
+  margin-right: 1.625rem;
+  
+  display: inline-block;
+
+  text-align: center;
+  vertical-align: bottom;
+}
+.select-color .color {
+  width: 4.0625rem;
+  height: 4.0625rem;
+  
+  display: block;
+  
+  cursor: pointer;
+}
+.hide {
+  visibility: hidden;
 }
 </style>
