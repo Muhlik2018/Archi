@@ -40,7 +40,7 @@
             style="width: 100%; height: 100%; background: rgba(0, 0, 0, 0)"
           >
             <el-carousel-item v-for="item in swiper" :key="item">
-              <img :src="item.img" />
+              <img :src="item.img"/>
             </el-carousel-item>
             <div class="footer">
               <div style="flex: 1">
@@ -251,7 +251,7 @@ export default {
   height: 72.8125rem; */
 
   width: 93.75rem;
-  height: 65.75rem;
+  height: 66.25rem;
 
   margin: 0 auto;
   margin-top: 11.6875rem;
@@ -615,7 +615,7 @@ export default {
   font-size: 8.5rem;
 }
 .GenerateArt1 .el-carousel__indicators {
-  top: 63.2rem;
+  top: 63.125rem;
   left: 25rem;
 }
 .GenerateArt1 .el-carousel__indicator--horizontal .el-carousel__button {
