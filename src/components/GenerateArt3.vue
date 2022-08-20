@@ -3,7 +3,6 @@
     <HeadNav></HeadNav>
     <div class="GenerateArt1">
       <div class="GenerateArt3">
-        <!-- <span class="GenerateArtShadow"></span> -->
         <div>generative art<br />生成艺术</div>
       </div>
 
@@ -14,12 +13,37 @@
       <div class="stepOne3">STEP THREE</div>
       <div class="choose-your-scenario">Dowloead YOUR Work</div>
       <div class="GenerateArtDownload">
-        <div>
+        <!-- <div>
           <div class="GenerateArtImg">
             <img src="../assets/image13.svg" />
             <div>
               <div style="flex: 1">
-                <!-- <div class="inputName">输入你的名字</div> -->
+                <div class="inputName">输入你的名字</div>
+                <div class="date">2022.08.04</div>
+              </div>
+              <div style="flex: 1">
+                <div class="google">
+                  <img src="../assets/GoogleFrame.svg" />
+                  <div>developer Summit<br />China 2022</div>
+                </div>
+                <div class="logo">
+                  <img src="../assets/BigLogo.svg" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <div>
+          <el-carousel
+            :interval="100000"
+            arrow="always"
+            style="width: 100%; height: 100%; background: rgba(0, 0, 0, 0)"
+          >
+            <el-carousel-item v-for="item in swiper" :key="item">
+              <img :src="item.img" />
+            </el-carousel-item>
+            <div class="footer">
+              <div style="flex: 1">
                 <input
                   type="text"
                   v-model="inputName"
@@ -38,40 +62,7 @@
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="color-group">
-            <span class="select-color">
-              <img
-                src="../assets/Polygon2.svg"
-                :class="{ hide: !color[0].isSelected }" />
-              <img
-                src="../assets/color1.svg"
-                class="color"
-                @click="handleSelectColor(0)"
-              />
-            </span>
-            <span class="select-color">
-              <img
-                src="../assets/Polygon2.svg"
-                :class="{ hide: !color[1].isSelected }" />
-              <img
-                src="../assets/color2.svg"
-                class="color"
-                @click="handleSelectColor(1)"
-                />
-            </span>
-            <span class="select-color">
-              <img
-                src="../assets/Polygon2.svg"
-                :class="{ hide: !color[2].isSelected }" />
-              <img
-                src="../assets/color3.svg"
-                class="color"
-                @click="handleSelectColor(2)"
-              />
-            </span>
-          </div>
+          </el-carousel>
         </div>
 
         <div>
@@ -122,25 +113,47 @@ export default {
     goPage(pageName) {
       this.router.push({ name: pageName });
     },
-    handleSelectColor(index){
-      for(var i=0;i<this.color.length;i++){
-        this.color[i].isSelected=false;
+    handleSelectColor(index) {
+      for (var i = 0; i < this.color.length; i++) {
+        this.color[i].isSelected = false;
       }
-      this.color[index].isSelected=true;
-    }
+      this.color[index].isSelected = true;
+    },
   },
   data() {
     return {
       inputName: "小锅焖大米",
-      color: [
+      // color: [
+      //   {
+      //     isSelected: true,
+      //   },
+      //   {
+      //     isSelected: false,
+      //   },
+      //   {
+      //     isSelected: false,
+      //   },
+      // ],
+      swiper: [
         {
-          isSelected: true,
+          img: require("@/assets/image13.svg"),
+          id: 0,
         },
         {
-          isSelected: false,
+          img: require("@/assets/image13.svg"),
+          id: 1,
         },
         {
-          isSelected: false,
+          img: require("@/assets/image13.svg"),
+          id: 2,
+        },
+        {
+          img: require("@/assets/image13.svg"),
+          id: 3,
+        },
+        {
+          img: require("@/assets/image13.svg"),
+          id: 4,
         },
       ],
     };
@@ -177,7 +190,7 @@ export default {
   border-radius: 1.25rem;
 
   background-color: #786ab3;
-  
+
   position: relative;
 }
 .GenerateArt3 > div {
@@ -201,13 +214,12 @@ export default {
 .GenerateArtShadow {
   width: 100%;
   height: 100%;
-  
+
   border-radius: 1.25rem;
 
   position: absolute;
-  
+
   background: rgba(0, 0, 0, 0.7);
-  
 }
 .stepOne3 {
   margin: 0 auto;
@@ -235,8 +247,11 @@ export default {
   color: #531dab;
 }
 .GenerateArtDownload {
-  width: 94.75rem;
-  height: 72.8125rem;
+  /* width: 94.75rem;
+  height: 72.8125rem; */
+
+  width: 93.75rem;
+  height: 65.75rem;
 
   margin: 0 auto;
   margin-top: 11.6875rem;
@@ -248,34 +263,46 @@ export default {
     rgba(83, 29, 171, 0.6) 0%,
     rgba(131, 249, 255, 0.6) 96.6%
   );
-  
+
   display: flex;
 }
-.GenerateArtDownload > div {
-  flex: 1;
+.GenerateArtDownload > div:nth-of-type(1) {
+  flex: 55;
+}
+.GenerateArtDownload > div:nth-of-type(2) {
+  flex: 45;
 }
 .GenerateArtImg {
-  width: 41.25rem;
+  /* width: 41.25rem;
   height: 58.125rem;
 
   margin-left: 3.6875rem;
-  margin-top: 3.75rem;
+  margin-top: 3.75rem; */
+
+  width: 41.25rem;
+  height: 60.5rem;
+
+  margin-left: 2.625rem;
+  margin-top: 2.5rem;
 
   background-color: #ffffff;
 
   position: relative;
 }
 .GenerateArtImg > img {
-  width: 38.125rem;
+  /* width: 38.125rem;
   height: 51.5625rem;
 
   margin-top: 1.25rem;
-  margin-left: 1.5625rem;
+  margin-left: 1.5625rem; */
+  width: 38.125rem;
+  height: 53.9375rem;
 
-  
+  margin-top: 1.25rem;
+  margin-left: 1.5625rem;
 }
 .GenerateArtImg > div {
-  height: 5.3125rem;
+  /* height: 5.3125rem; */
   width: 100%;
 
   position: absolute;
@@ -284,7 +311,7 @@ export default {
   top: 100%;
   transform: translateY(-100%);
 }
-.GenerateArtImg .inputName {
+.inputName {
   width: 6.5rem;
 
   margin-top: 1.25rem;
@@ -308,17 +335,44 @@ export default {
 }
 .GenerateArtImg .inputName::-moz-placeholder {
   /* Mozilla Firefox 19+ */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: #bfbfbf;
 }
 .GenerateArtImg .inputName:-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: #bfbfbf;
 }
 .GenerateArtImg .inputName:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: #bfbfbf;
 }
-.GenerateArtImg .date {
+.date {
   width: 6.375rem;
 
   margin-top: 0.5rem;
@@ -335,17 +389,26 @@ export default {
   text-transform: uppercase;
   color: #bfbfbf;
 }
+.GenerateArt1 .footer {
+  width: 100%;
+  height: 6.5625rem;
+
+  top: 100%;
+  transform: translateY(-100%);
+
+  position: absolute;
+  display: flex;
+}
 .google {
   width: 14.8125rem;
   height: 100%;
-  
+
   margin-right: 0.75rem;
 
   display: inline-block;
   position: relative;
 
   vertical-align: top;
-
 }
 .google img {
   position: absolute;
@@ -376,10 +439,10 @@ export default {
 .logo {
   width: 100%;
   height: 3.4375rem;
-  
+
   display: inline-block;
   position: absolute;
-  
+
   top: 50%;
   transform: translateY(-50%);
 
@@ -403,7 +466,7 @@ export default {
 
   margin: 0 auto;
   margin-top: 6.6875rem;
- 
+
   line-height: 2.9375rem;
 
   font-family: "Inter";
@@ -427,7 +490,7 @@ export default {
   box-sizing: border-box;
   border: 0;
   outline: none;
-  
+
   background: rgba(117, 74, 188, 0.25);
 
   font-family: "Inter";
@@ -437,7 +500,7 @@ export default {
   text-align: center;
   align-items: center;
   letter-spacing: 0.08em;
-  color: #ffffff; 
+  color: #ffffff;
 }
 .RightinputNameDesc {
   font-family: "Inter";
@@ -454,12 +517,12 @@ export default {
 .codeScan {
   width: 23.625rem;
   height: 4.875rem;
-  
+
   margin: 0 auto;
   margin-top: 2.375rem;
   border-radius: 0.3125rem;
 
-  background: #faed00;  
+  background: #faed00;
 
   font-family: "Inter";
   font-style: normal;
@@ -483,7 +546,7 @@ export default {
   height: 6.8125rem;
 
   margin-right: 1.625rem;
-  
+
   display: inline-block;
 
   text-align: center;
@@ -492,12 +555,83 @@ export default {
 .select-color .color {
   width: 4.0625rem;
   height: 4.0625rem;
-  
+
   display: block;
-  
+
   cursor: pointer;
 }
 .hide {
   visibility: hidden;
+}
+
+/* .el-carousel__item div {
+    color: #475669;
+    font-size: 18px;
+    opacity: 0.75;
+    margin: 0;
+  }
+  
+  .el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+  }
+  
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
+  } */
+.GenerateArt1 .el-carousel__container {
+  width: 41.25rem;
+  height: 60.5rem;
+
+  margin-left: 3.6875rem;
+  margin-top: 2.9375rem;
+
+  background-color: #ffffff;
+
+  position: relative;
+}
+
+.GenerateArt1 .el-carousel__item img {
+  width: 38.125rem;
+  height: 53.9375rem;
+
+  margin-top: 0.5rem;
+  margin-left: 1.5625rem;
+}
+.GenerateArt1 .el-carousel__arrow {
+  top: 0;
+}
+.GenerateArt1 .el-carousel__arrow {
+  top: 45%;
+  transform: translateY(-50%);
+  background: none;
+}
+.GenerateArt1 .el-carousel__arrow--right {
+  left: 43.4375rem;
+}
+.GenerateArt1 .el-carousel__arrow--left {
+  display: none;
+}
+.GenerateArt1 .el-carousel__arrow i {
+  font-size: 8.5rem;
+}
+.GenerateArt1 .el-carousel__indicators {
+  top: 63.2rem;
+  left: 25rem;
+}
+.GenerateArt1 .el-carousel__indicator--horizontal .el-carousel__button {
+  width: 0.9375rem;
+  height: 0.9375rem;
+  background: #ffffff;
+  border-radius: 50%;
+  opacity: 1;
+}
+.GenerateArt1
+  .el-carousel__indicator--horizontal.is-active
+  .el-carousel__button {
+  width: 0.9375rem;
+  height: 0.9375rem;
+  background: #d9d9d9;
+  border-radius: 50%;
+  opacity: 1;
 }
 </style>

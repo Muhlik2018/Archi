@@ -65,12 +65,7 @@
     </div>
 
     <!-- <div class="teamActivity">
-      <span class="Arrow leftArrow"
-        ><img src="../assets/Vector_left.svg" alt=""
-      /></span>
-      <span class="Arrow rightArrow"
-        ><img src="../assets/Vector_right.svg" alt=""
-      /></span>
+      
       <h1>团队活动</h1>
       <div class="activity">
         <div>
@@ -95,10 +90,18 @@
 
     <el-carousel
       :interval="5000"
-      arrow="always"
+      arrow="never"
       class="teamActivity"
       :autoplay="false"
+      ref="cardShow"
+      indicator-position="none"
     >
+      <span class="Arrow leftArrow" @click="handleArrowClick('left')"
+        ><img src="../assets/Vector_left.svg"
+      /></span>
+      <span class="Arrow rightArrow" @click="handleArrowClick('right')"
+        ><img src="../assets/Vector_right.svg"
+      /></span>
       <template v-for="item in swiper" :key="item.id">
         <template v-if="item.id % 2 == 0">
           <!-- 一次跳两张，一次放入两张轮播图 -->
@@ -167,6 +170,15 @@ export default {
   components: {
     HeadNav,
     FooterNav,
+  },
+  methods: {
+    handleArrowClick(val) {
+      if (val === "right") {
+        this.$refs.cardShow.next();
+      } else {
+        this.$refs.cardShow.prev();
+      }
+    },
   },
   data() {
     return {
@@ -381,10 +393,7 @@ export default {
   font-weight: 600;
   font-size: 1.875rem;
   line-height: 1.5625rem;
-  /* or 83% */
-
   color: #ffffff;
-
   position: absolute;
   top: 4.75rem;
   left: 2.875rem;
@@ -397,10 +406,7 @@ export default {
   font-weight: 600;
   font-size: 1.5rem;
   line-height: 1.5625rem;
-  /* or 104% */
-
   color: #ffffff;
-
   position: absolute;
   top: 8.3125rem;
   left: 2.875rem;
@@ -548,9 +554,12 @@ export default {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   position: absolute;
-  top: 50%;
+  top: 40%;
+  transform: translateY(-50%);
 
   z-index: 10;
+
+  cursor: pointer;
 }
 
 .rightArrow {
@@ -684,7 +693,7 @@ transform: rotate(90deg);*/
   cursor: pointer;
 }
 
-.el-carousel__item h3 {
+.teamActivity .el-carousel__item h3 {
   color: #475669;
   font-size: 18px;
   opacity: 0.75;
@@ -692,11 +701,11 @@ transform: rotate(90deg);*/
   margin: 0;
 }
 
-.el-carousel__container {
+.teamActivity .el-carousel__container {
   height: 100%;
   position: relative;
 }
-.el-carousel__arrow {
+.teamActivity .el-carousel__arrow {
   width: 6.25rem;
   height: 6.25rem;
   border-radius: 50%;
@@ -709,15 +718,14 @@ transform: rotate(90deg);*/
 
   z-index: 10;
 }
-.el-carousel__arrow:nth-of-type(1) {
+.teamActivity .el-carousel__arrow:nth-of-type(1) {
   left: 3.4375rem;
 }
-.el-carousel__arrow:nth-of-type(2) {
+.teamActivity .el-carousel__arrow:nth-of-type(2) {
   left: 111.25rem;
 }
-.el-icon>svg {
-  width: 2.0313rem;
-  height: 1.7775rem;
+.teamActivity .el-carousel__arrow i {
+  font-size: 5rem;
 }
 </style>
 

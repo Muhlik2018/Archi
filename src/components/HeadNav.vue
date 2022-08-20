@@ -13,18 +13,8 @@
           <div @click="goPage('GenerateArt1')">创作</div>
         </div>
       </div>
-      <!-- <div class="frame"><img src="../assets/ArchiLogo.svg" alt="" /></div>
-      <div class="home"><img src="../assets/Home.svg" alt="" /></div>
-      <div class="nav">
-        <div>关于我们</div>
-        <div>创作</div>
-        <div>活动</div>
-        <div>团队</div>
-      </div> -->
     </div>
   </div>
-
-  <!-- <div class="box"></div> -->
 </template>
 
 <script>
@@ -56,6 +46,8 @@ export default {
 .Headnav > div {
   width: 100%;
   height: 4.5625rem;
+
+  box-shadow: 0 1rem 1rem -1rem #666;
 }
 .nav {
   float: right;
