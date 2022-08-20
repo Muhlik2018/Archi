@@ -77,24 +77,47 @@
       <div class="calendarContent">
         <div class="calendarLeft">
           <div class="calendarMonth">{{ month }}</div>
-          <Swiper direction="vertical" :slidesPerView="1">
+          <Swiper
+            :scrollbar="{
+              hide: false,
+            }"
+            :modules="modules"
+            direction="vertical"
+            :slidesPerView="1"
+          >
             <swiper-slide v-for="item in calendarLeftContent" :key="item.id">
-              <div class="calendarLeftContent">
+              <div ref="calendarLeftContentRef" class="calendarLeftContent">
                 <div class="calendarLeftContentTop">
                   <div class="calendarLeftContentTitle">{{ item.title }}</div>
                   <div class="calendarLeftContentTimeAbout">
-                    <div class="calendarLeftContentTime">{{ item.time }}</div>
-                    <div class="calendarLeftContentTimeLeft">
-                      30 minutes last
+                    <div class="calendarLeftContentTime">
+                      <span class="calendarLeftContentTimeLeft">
+                        {{ getTimeLeft(item.time) }}
+                      </span>
+                      <span class="calendarLeftContentTimeRight">
+                        |{{ getTimeRight(item.time) }}
+                      </span>
+                    </div>
+                    <div class="calendarLeftContentTimeLast">
+                      <!-- 30 minutes last -->
+                      {{ getTimeDifference(item.time) }}
                     </div>
                   </div>
                 </div>
-                <img
-                  class="calendarLeftContentActivityImg"
-                  :src="item.activityImg"
-                />
+                <div class="calendarLeftCenterImg">
+                  <img
+                    class="calendarLeftContentActivityImg"
+                    :src="item.activityImg"
+                    style="width: 100%"
+                  />
+                </div>
                 <div class="calendarLeftContentBottom">
-                  
+                  <img class="avatarImg" :src="item.avatarImg" />
+                  <div class="calendarLeftContentBottomIntroduction">
+                    <div class="identity">{{ item.identity }}</div>
+                    <div class="position">{{ item.position }}</div>
+                    <div class="introduction">{{ item.introduction }}</div>
+                  </div>
                 </div>
               </div>
             </swiper-slide>
@@ -108,10 +131,12 @@
 
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Pagination } from "swiper";
+import { Pagination, Scrollbar } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-import { reactive } from "@vue/reactivity";
+import "swiper/css/scrollbar";
+import { reactive, ref } from "@vue/reactivity";
+// import { onMounted, watch } from "@vue/runtime-core";
 
 export default {
   name: "ActivityPage",
@@ -166,7 +191,7 @@ export default {
       {
         id: 1,
         title: "广州城市艺术展讲座",
-        time: "2022/08/15  |  15：30",
+        time: "2022/09/15  |  15：30",
         activityImg: "Activity4-1.jpg",
         avatarImg: "Activity4-2.png",
         identity: "华南理工大学 教授",
@@ -208,15 +233,75 @@ export default {
           "案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么么",
       },
     ]);
-    let month = "八月August";
-
+    let month = ref("八月August");
+    // console.log(this.$refs.singleSwiperSlide);
+    // let calendarLeftContentRef = ref(null);
+    // let heightList = ref([]);
+    // let maxcalendarLeftContentHeight = ref("40rem");
+    // onMounted(() => {
+    //   // console.log("calendarLeftContentRef.value", calendarLeftContentRef.value);
+    //   calendarLeftContentRef.value.forEach((element) => {
+    //     // console.log("element.offsetHeight", element.offsetHeight);
+    //     heightList.value.push(element.offsetHeight);
+    //   });
+    //   // console.log("heightList", heightList);
+    //   const maxHeight = Math.max(...heightList.value);
+    //   maxcalendarLeftContentHeight = `${Math.ceil(maxHeight / 16) + 5}rem`;
+    //   // console.log("maxcalendarLeftContentHeight", maxcalendarLeftContentHeight);
+    // });
+    // watch(
+    //   calendarLeftContentRef.value,
+    //   () => {
+    //     console.log(
+    //       "calendarLeftContentRef.value",
+    //       calendarLeftContentRef.value
+    //     );
+    //   }
+    // );
     return {
       topSwiper,
       calendarLeftContent,
       month,
-      modules: [Pagination],
+      // calendarLeftContentRef,
+      // maxcalendarLeftContentHeight,
+      modules: [Pagination, Scrollbar],
     };
   },
+  methods: {
+    getTimeLeft(str) {
+      const timeLeft = str.split("|");
+      return timeLeft[0];
+    },
+    getTimeRight(str) {
+      const timeLeft = str.split("|");
+      return timeLeft[1];
+    },
+    getTimeDifference(str) {
+      const firstSlice = str.split("|");
+      const secondSlice = firstSlice[0].split("/");
+      const thirdSlice = firstSlice[1].split("：");
+      const targetDate = new Date(
+        secondSlice[0],
+        secondSlice[1] - 1,
+        secondSlice[2],
+        thirdSlice[0],
+        thirdSlice[1]
+      );
+      const today = new Date();
+      const dateDifference = targetDate - today;
+      const days = Math.floor(dateDifference / (24 * 3600 * 1000));
+      const level1 = dateDifference % (24 * 3600 * 1000); //计算去掉天数后剩余的毫秒数
+      const level2 = dateDifference % (3600 * 1000); //计算去掉小时数后剩余的毫秒数
+      const hours = Math.floor(level1 / (3600 * 1000));
+      const minutes = Math.floor(level2 / (60 * 1000));
+      if (days < 0 || hours < 0 || minutes < 0) {
+        return "已展开";
+      } else {
+        return days + "days" + hours + "hours" + minutes + "minutes last";
+      }
+    },
+  },
+  watch() {},
 };
 </script>
 
@@ -434,6 +519,7 @@ export default {
 .calendar {
   width: 100%;
   height: 100%;
+  /* margin-bottom: 20rem; */
 }
 .calendarTop {
   width: 100%;
@@ -475,29 +561,142 @@ export default {
 }
 .calendarContent {
   width: 100%;
-  height: 55rem;
+  height: 60rem;
   display: flex;
+  overflow-y: hidden;
 }
 .calendarLeft {
   width: 30%;
   height: 100%;
-  /* height: 100%; */
 }
-.calendarRight {
-  width: 70%;
-  height: 100%;
+
+.calendarMonth {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #531dab;
+  margin: 4rem 3rem;
 }
 .calendarLeft .swiper {
-  height: 100% !important;
+  height: 40rem !important;
+  margin: 0 0 0 2rem;
+}
+@media screen and (min-height: 1000px) {
+  .calendarLeft .swiper {
+    height: 50rem !important;
+    margin: 0 0 0 2rem;
+  }
 }
 .calendarLeft .swiper-slide {
   height: 100% !important;
 }
+.calendarLeft .swiper-scrollbar.swiper-scrollbar-vertical {
+  height: 30rem !important;
+  margin-top: 3rem;
+}
 .calendarLeftContent {
   width: 100%;
-  height: 100%;
 }
-.calendarLeftContentTimeAbout{
+.calendarLeftContentTitle {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  color: #000000;
+}
+.calendarLeftContentTimeAbout {
   display: flex;
+  margin: 2rem 0;
+  max-width: 95%;
+  justify-content: space-between;
+}
+.calendarLeftContentTime {
+  font-family: "Aleo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  letter-spacing: 0.065rem;
+  text-transform: uppercase;
+}
+.calendarLeftContentTimeLeft {
+  color: #597ef7;
+}
+.calendarLeftContentTimeLast {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1.375rem;
+  text-transform: lowercase;
+  color: #ff6e5b;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  border: #ff402c solid;
+  border-radius: 5px;
+  margin-left: 2rem;
+}
+.calendarLeftCenterImg {
+  width: 95%;
+  display: flex;
+  justify-content: center;
+}
+.calendarLeftContentBottom {
+  display: flex;
+  width: 95%;
+  margin: 1.5rem 0;
+}
+.calendarLeftContentBottom .avatarImg {
+  max-width: 25%;
+  object-fit: contain;
+}
+.calendarLeftContentBottomIntroduction {
+  width: 70%;
+  margin-left: 1rem;
+}
+.calendarLeftContentBottomIntroduction .identity {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.5625rem;
+  color: #8c8c8c;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+.calendarLeftContentBottomIntroduction .position {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.375rem;
+  color: #531dab;
+}
+.calendarLeftContentBottomIntroduction .introduction {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.5625rem;
+  color: #000000;
+}
+.calendarContent .swiper-scrollbar-drag{
+  background: #597EF7;
+}
+
+.calendarRight {
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    270deg,
+    rgba(139, 165, 250, 0.6) 70.85%,
+    rgba(146, 250, 255, 0.6) 107.97%
+  );
+  transform: matrix(-1, 0, 0, 1, 0, 0);
 }
 </style>
