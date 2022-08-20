@@ -143,17 +143,22 @@
     </el-carousel>
 
     <div class="bottomActivity">
-      <div><span></span></div>
-      <div><span></span></div>
-      <div><span></span></div>
-      <div><span></span></div>
-    </div>
-
-    <div class="blueline">
-      <div class="bluelineTarget">
-        <img src="../assets/Group478.svg" alt="" />
+      <div :style="{left: '-'+sliderLeft + '%',width:'1250rem'}">
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
       </div>
     </div>
+    <div>
+      <el-slider v-model="sliderLeft" class="slider" :show-tooltip=false></el-slider>
+    </div>
+
+    
 
     <div style="display: block">
       <div class="more">查看更多>></div>
@@ -182,6 +187,7 @@ export default {
   },
   data() {
     return {
+      sliderLeft: 0,
       swiper: [
         {
           title: "活动标题1",
@@ -595,28 +601,26 @@ export default {
   height: 51.8125rem;
   width: 120rem;
 
-  display: flex;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  position: relative;
+
+  /* display: flex; */
 }
-.bottomActivity > div {
-  flex: 1;
+.bottomActivity>div{
+  position: absolute;
+}
+.bottomActivityItem {
+  width: 30rem;
   height: 51.8125rem;
+  display: inline-block;
 }
-.bottomActivity > div:nth-of-type(1) {
+.bottomActivityItem {
   background: url("../assets/Rectangle5734.svg");
   background-size: cover;
 }
-.bottomActivity > div:nth-of-type(2) {
-  background: url("../assets/Rectangle5733.svg");
-  background-size: cover;
-}
-.bottomActivity > div:nth-of-type(3) {
-  background: url("../assets/Rectangle5735.svg");
-  background-size: cover;
-}
-.bottomActivity > div:nth-of-type(4) {
-  background: url("../assets/Rectangle5733.svg");
-  background-size: cover;
-}
+
 .bottomActivity span {
   background: linear-gradient(
     270deg,
@@ -626,15 +630,36 @@ export default {
 
   width: 12.5rem;
   height: 100%;
+
   display: block;
-  /* 
-transform: rotate(90deg);*/
+
   float: right;
 }
-.blueline {
+
+.bottomActivity .el-slider{
+  margin: 0 auto;
   width: 120rem;
   height: 1.6875rem;
+}
 
+.slider .el-slider__button {
+  background: url("../assets/Group478.svg") no-repeat;
+  background-size: cover;
+
+  width: 2.875rem;
+  height: 2.875rem;
+
+  border: 0;
+
+  position: absolute;
+  
+
+  transform: translateY(10%);
+}
+.slider .el-slider__bar{
+  opacity: 0;
+}
+.slider .el-slider__runway{
   background: linear-gradient(
     90deg,
     rgba(83, 29, 171, 0.8) 0%,
@@ -642,28 +667,7 @@ transform: rotate(90deg);*/
     rgba(0, 159, 232, 0.8) 64.91%,
     rgba(131, 249, 255, 0.8) 96.1%
   );
-  display: block;
-
-  margin: 0 auto;
-
-  position: relative;
-}
-.bluelineTarget {
-  position: absolute;
-  left: 1.375rem;
-  top: 50%;
-  transform: translateY(-50%);
-
-  width: 2.875rem;
-  height: 2.875rem;
-}
-.bluelineTarget img {
-  width: 2.875rem;
-  height: 2.875rem;
-
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  height: 100%;
 }
 .swiperItem {
   height: 43.75rem;

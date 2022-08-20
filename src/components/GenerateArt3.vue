@@ -35,9 +35,10 @@
         </div> -->
         <div>
           <el-carousel
-            :interval="100000"
+            :interval="2000"
             arrow="always"
             style="width: 100%; height: 100%; background: rgba(0, 0, 0, 0)"
+            autoplay:false
           >
             <el-carousel-item v-for="item in swiper" :key="item">
               <img :src="item.img"/>
