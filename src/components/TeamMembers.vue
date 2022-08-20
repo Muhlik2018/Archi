@@ -154,7 +154,7 @@
         <div class="bottomActivityItem"><span></span></div>
       </div>
     </div>
-    <div>
+    <div class="sliderParent">
       <el-slider v-model="sliderLeft" class="slider" :show-tooltip=false></el-slider>
     </div>
 
@@ -636,7 +636,7 @@ export default {
   float: right;
 }
 
-.bottomActivity .el-slider{
+.sliderParent .el-slider{
   margin: 0 auto;
   width: 120rem;
   height: 1.6875rem;
@@ -654,7 +654,8 @@ export default {
   position: absolute;
   
 
-  transform: translateY(10%);
+  top: 50%;
+  transform: translateY(-50%);
 }
 .slider .el-slider__bar{
   opacity: 0;
