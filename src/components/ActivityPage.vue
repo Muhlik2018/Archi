@@ -108,7 +108,6 @@
                   <img
                     class="calendarLeftContentActivityImg"
                     :src="item.activityImg"
-                    style="width: 100%"
                   />
                 </div>
                 <div class="calendarLeftContentBottom">
@@ -126,6 +125,10 @@
         <div class="calendarRight"></div>
       </div>
     </div>
+    <div
+      class="ourWork"
+      style="width: 100%; height: 30rem; background-color: gray"
+    ></div>
   </div>
 </template>
 
@@ -568,6 +571,7 @@ export default {
 .calendarLeft {
   width: 30%;
   height: 100%;
+  margin-right: 1rem;
 }
 
 .calendarMonth {
@@ -579,15 +583,15 @@ export default {
   margin: 4rem 3rem;
 }
 .calendarLeft .swiper {
-  height: 40rem !important;
-  margin: 0 0 0 2rem;
+  height: 50rem !important;
+  margin: 0 1rem 0 2rem;
 }
-@media screen and (min-height: 1000px) {
+/* @media screen and (min-height: 1000px) {
   .calendarLeft .swiper {
     height: 50rem !important;
     margin: 0 0 0 2rem;
   }
-}
+} */
 .calendarLeft .swiper-slide {
   height: 100% !important;
 }
@@ -644,6 +648,11 @@ export default {
   display: flex;
   justify-content: center;
 }
+.calendarLeftContentActivityImg {
+  height: 20rem;
+  max-width: 100%;
+  object-fit: contain;
+}
 .calendarLeftContentBottom {
   display: flex;
   width: 95%;
@@ -685,8 +694,8 @@ export default {
   line-height: 1.5625rem;
   color: #000000;
 }
-.calendarContent .swiper-scrollbar-drag{
-  background: #597EF7;
+.calendarContent .swiper-scrollbar-drag {
+  background: #597ef7;
 }
 
 .calendarRight {
