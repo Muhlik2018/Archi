@@ -45,7 +45,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .Headnav {
   width: 100%;
   margin: 0 auto;

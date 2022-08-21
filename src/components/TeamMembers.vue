@@ -219,7 +219,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .ourTeam {
   background: url("../assets/Rectangle5731.svg");
   background-size: cover;

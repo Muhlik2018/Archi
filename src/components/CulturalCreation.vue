@@ -49,7 +49,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .culturalCreationBackground {
   background: url("../assets/Rectangle20.svg") no-repeat;
   width: 120rem;

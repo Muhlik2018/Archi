@@ -1,5 +1,6 @@
 <template>
   <div class="ActivityPage">
+    <HeadNav></HeadNav>
     <Swiper
       class="topSwiper"
       :pagination="{ clickable: true }"
@@ -122,13 +123,94 @@
             </swiper-slide>
           </Swiper>
         </div>
-        <div class="calendarRight"></div>
+        <div class="calendarRight">
+          <Swiper :slidesPerView="3">
+            <swiper-slide v-for="item in calendarRightContent" :key="item.id">
+              <div class="calendarRightContent">
+                <div class="calendarRightContentMonth">
+                  {{ item.month }}
+                </div>
+                <div class="calendarRightContentTop">
+                  <div class="calendarRightContentTitle">{{ item.title }}</div>
+                  <div class="calendarRightContentTime">
+                    <span class="calendarRightContentTimeLeft">
+                      {{ getTimeLeft(item.time) }}
+                    </span>
+                    <span class="calendarRightContentTimeRight">
+                      |{{ getTimeRight(item.time) }}
+                    </span>
+                  </div>
+                  <div class="calendarRightContentTimeLast">
+                    {{ item.tag }}
+                  </div>
+                </div>
+                <div class="calendarRightContentImg">
+                  <img
+                    class="calendarRightContentActivityImg"
+                    :src="item.activityImg"
+                  />
+                </div>
+                <div class="calendarRightContentBottom">
+                  <div class="calendarRightContentBottomIntroduction">
+                    {{ item.introduction }}
+                  </div>
+                </div>
+              </div>
+            </swiper-slide>
+          </Swiper>
+        </div>
       </div>
     </div>
-    <div
-      class="ourWork"
-      style="width: 100%; height: 30rem; background-color: gray"
-    ></div>
+    <div class="ourWork">
+      <div class="ourWorkTop">
+        <div class="ourWorkDotDiv">
+          <img class="ourWorkDot" src="Activity3-1.png" alt="" />
+        </div>
+        <div class="ourWorkTitle">
+          <div class="ourWorkTitleCicle"></div>
+          <div class="ourWorkSingleDot"></div>
+          <div class="ourWorkTitleText">work 我们的作品</div>
+        </div>
+        <div class="ourWorkContent">
+          <div class="ourWorkContentLeft">
+            <div class="ourWorkContentLeftImgDiv">
+              <img class="ourWorkContentLeftImg" src="Activity5-1.jpg" alt="" />
+              <div class="ourWorkContentLeftImgTextBackGround">
+                <div class="ourWorkContentLeftImgText">
+                  <div class="title">户外交流会</div>
+                  <div class="date">2022/9/16</div>
+                  <div class="introduction">
+                    案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么么文字暂时还不知道写什么案列文字暂时还不知...
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ourWorkContentLeftBottomDiv">
+              <button class="ourWorkContentLeftBottom">了解更多→</button>
+            </div>
+          </div>
+          <div class="ourWorkContentRight">
+            <div class="ourWorkContentRightImgDiv">
+              <img
+                class="ourWorkContentRightImg"
+                src="Activity5-2.jpg"
+                alt=""
+              />
+              <div class="ourWorkContentRightInBox">
+                <div class="type">参与活动照片成果展</div>
+                <div class="title">广州城市艺术展讲座</div>
+                <div class="date">2022/08/15</div>
+                <div class="introduction">
+                  案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么么
+                </div>
+                <img class="image" src="Activity5-3.jpg" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <FooterNav></FooterNav>
   </div>
 </template>
 
@@ -139,13 +221,16 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { reactive, ref } from "@vue/reactivity";
-// import { onMounted, watch } from "@vue/runtime-core";
+import HeadNav from "./HeadNav.vue";
+import FooterNav from "./FooterNav.vue";
 
 export default {
   name: "ActivityPage",
   components: {
     Swiper,
     SwiperSlide,
+    HeadNav,
+    FooterNav,
   },
   setup() {
     let topSwiper = reactive([
@@ -237,6 +322,38 @@ export default {
       },
     ]);
     let month = ref("八月August");
+    let calendarRightContent = reactive([
+      {
+        id: 1,
+        month: "九月  September",
+        title: "AI艺术线上座谈会",
+        time: "2022/09/15 | 10：00",
+        tag: "30 minutes last",
+        activityImg: "Activity4-3.jpg",
+        introduction:
+          "案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么么",
+      },
+      {
+        id: 2,
+        month: "九月  September",
+        title: "AI艺术线上座谈会",
+        time: "2022/09/15 | 10：00",
+        tag: "30 minutes last",
+        activityImg: "Activity4-4.jpg",
+        introduction:
+          "案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么么",
+      },
+      {
+        id: 3,
+        month: "十月 October",
+        title: "AI艺术线上座谈会",
+        time: "2022/09/15 ",
+        tag: "30 minutes read",
+        activityImg: "Activity4-5.jpg",
+        introduction:
+          "案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么案列文字暂时还不知道写什么么",
+      },
+    ]);
     // console.log(this.$refs.singleSwiperSlide);
     // let calendarLeftContentRef = ref(null);
     // let heightList = ref([]);
@@ -261,10 +378,12 @@ export default {
     //     );
     //   }
     // );
+
     return {
       topSwiper,
       calendarLeftContent,
       month,
+      calendarRightContent,
       // calendarLeftContentRef,
       // maxcalendarLeftContentHeight,
       modules: [Pagination, Scrollbar],
@@ -308,7 +427,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .ActivityPage {
   display: flex;
   justify-content: center;
@@ -385,7 +504,7 @@ export default {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 0.625rem;
+  font-size: 0.825rem;
   line-height: 1.5625rem;
   /* or 179% */
 
@@ -586,12 +705,6 @@ export default {
   height: 50rem !important;
   margin: 0 1rem 0 2rem;
 }
-/* @media screen and (min-height: 1000px) {
-  .calendarLeft .swiper {
-    height: 50rem !important;
-    margin: 0 0 0 2rem;
-  }
-} */
 .calendarLeft .swiper-slide {
   height: 100% !important;
 }
@@ -640,8 +753,9 @@ export default {
   order: 0;
   flex-grow: 0;
   border: #ff402c solid;
-  border-radius: 5px;
-  margin-left: 2rem;
+  border-radius: 0.4rem;
+  border-width: thin;
+  padding: 0.2rem;
 }
 .calendarLeftCenterImg {
   width: 95%;
@@ -698,14 +812,307 @@ export default {
   background: #597ef7;
 }
 
-.calendarRight {
-  width: 70%;
+.calendarRight::before {
+  content: "";
+  width: 100%;
   height: 100%;
+  position: absolute;
   background: linear-gradient(
     270deg,
     rgba(139, 165, 250, 0.6) 70.85%,
     rgba(146, 250, 255, 0.6) 107.97%
   );
   transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+.calendarRight {
+  position: relative;
+  width: 70%;
+  height: 100%;
+}
+.calendarRight .swiper-slide {
+  /* width: 35% !important; */
+  display: flex;
+  justify-content: center;
+}
+.calendarRightContent {
+  width: 85%;
+}
+.calendarRightContentMonth {
+  margin: 4rem 3rem;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+.calendarRightContentTitle {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  color: #000000;
+}
+.calendarRightContentTime {
+  font-family: "Aleo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  letter-spacing: 0.065rem;
+  text-transform: uppercase;
+  margin: 1rem 0;
+}
+.calendarRightContentTimeLeft {
+  color: #597ef7;
+}
+.calendarRightContentTimeLast {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1.375rem;
+  text-transform: lowercase;
+  color: #ff6e5b;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  border: #ff402c solid;
+  border-radius: 0.4rem;
+  border-width: thin;
+  display: inline-flex;
+  padding: 0.2rem;
+  margin-bottom: 2rem;
+}
+.calendarRightContentImg {
+  max-width: 100%;
+  max-height: 50%;
+  object-fit: contain;
+}
+.calendarRightContentActivityImg {
+  width: 100%;
+  max-height: 100%;
+}
+.calendarRightContentBottom {
+  margin-top: 2rem;
+}
+.calendarRightContentBottomIntroduction {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.5625rem;
+  color: #000000;
+}
+
+.ourWork {
+  width: 100%;
+  height: 120rem;
+  background-image: url("~@/assets/ActivityBottomBackground.svg");
+  background-size: cover;
+  margin-top: -10rem;
+}
+.ourWorkTop {
+  margin-top: 11rem;
+  width: 100%;
+  height: 15rem;
+  position: relative;
+}
+.ourWorkDotDiv {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+.ourWorkDot {
+  margin: 1rem 3rem;
+}
+.ourWorkTitle {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.ourWorkTitleText {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3.5rem;
+  line-height: 3.5rem;
+  color: #531dab;
+}
+.ourWorkTitleCicle {
+  background: #faed00;
+  height: 15rem;
+  width: 15rem;
+  border-radius: 100%;
+  margin-left: 22rem;
+  z-index: -1;
+  position: absolute;
+}
+.ourWorkSingleDot {
+  background: #faed00;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 100%;
+  margin-left: 45rem;
+  margin-top: 12rem;
+  z-index: -1;
+  position: absolute;
+}
+.ourWorkContent {
+  width: 100%;
+  height: 89rem;
+  margin-top: 5rem;
+  display: flex;
+}
+.ourWorkContentLeft {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ourWorkContentLeftImgDiv {
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: flex-end;
+}
+.ourWorkContentLeftImg {
+  width: 100%;
+}
+.ourWorkContentLeftImgTextBackGround {
+  position: absolute;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 18.68%,
+    rgba(0, 0, 0, 0.7) 101.91%
+  );
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.ourWorkContentLeftImgText {
+  width: 85%;
+  margin: 3rem 0;
+}
+.ourWorkContentLeftImgText .title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.25rem;
+  color: #ffffff;
+}
+.ourWorkContentLeftImgText .date {
+  font-family: "Aleo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 3rem;
+  letter-spacing: 0.065em;
+  text-transform: uppercase;
+  color: #83f9ff;
+}
+.ourWorkContentLeftImgText .introduction {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.5625rem;
+  color: #ffffff;
+}
+.ourWorkContentLeftBottomDiv {
+  width: 100%;
+}
+.ourWorkContentLeftBottom {
+  width: 30%;
+  margin: 6% 3%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.75rem;
+  line-height: 4rem;
+  text-transform: uppercase;
+  color: #000000;
+  background: #faed00;
+  box-shadow: 0rem 0.25rem 1.25rem rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  border: none;
+}
+.ourWorkContentRight {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ourWorkContentRightImgDiv {
+  width: 85%;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  align-items: flex-end;
+  margin-top: 10%;
+}
+.ourWorkContentRightImg {
+  width: 100%;
+}
+.ourWorkContentRightInBox {
+  position: absolute;
+  z-index: 1;
+  max-width: 50%;
+  max-height: 50%;
+  background: rgba(244, 244, 244, 0.95);
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10% 2% 5% 1%;
+  margin: 8% 6%;
+}
+.ourWorkContentRightInBox .type {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.5625rem;
+  color: #000000;
+}
+.ourWorkContentRightInBox .title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.25rem;
+  color: #000000;
+}
+.ourWorkContentRightInBox .date {
+  font-family: "Aleo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 4.5rem;
+  letter-spacing: 0.065em;
+  text-transform: uppercase;
+  color: #597ef7;
+}
+.ourWorkContentRightInBox .introduction {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.5625rem;
+  color: #000000;
+  max-width: 60%;
+}
+.ourWorkContentRightInBox .image {
+  max-width: 90%;
 }
 </style>

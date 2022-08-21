@@ -72,7 +72,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .footerNav {
   width: 100%;
   height: 15.9375rem;
