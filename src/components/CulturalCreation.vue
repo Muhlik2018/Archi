@@ -49,21 +49,17 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .culturalCreationBackground {
   background: url("../assets/Rectangle20.svg") no-repeat;
-  background-size: cover;
-
   width: 120rem;
   height: 65rem;
-
   margin: 0 auto;
-  
+  background-size: cover;
 }
 .content {
   margin: 0 auto;
   margin-top: 13.6875rem;
-
   height: 111.25rem;
   width: 120rem;
 }
@@ -73,16 +69,13 @@ export default {
 .content > div > div {
   width: 33%;
   height: 100%;
-
   display: inline-block;
   position: relative;
 }
 .content img {
   width: 25.375rem;
   height: 33.9375rem;
-
   position: absolute;
-
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
@@ -91,20 +84,16 @@ export default {
 .paint {
   width: 100%;
   height: 19.9375rem;
-  
-  margin-top: 5.5rem;
-
   background: linear-gradient(
     90deg,
     rgba(139, 165, 250, 0.5) 0%,
     rgba(146, 250, 255, 0.5) 107.97%
   );
-  
+  margin-top: 5.5rem;
 }
 .paint > div {
   margin-left: 26rem;
   margin-top: 2.3125rem;
-
   height: 13rem;
   width: 34.25rem;
 
@@ -116,8 +105,12 @@ export default {
   font-weight: 400;
   font-size: 3.5rem;
   line-height: 4.25rem;
+  /* identical to box height */
+
   text-transform: uppercase;
+
   color: #000000;
+
   text-align: center;
 
   margin-bottom: 1.4375rem;
@@ -134,7 +127,6 @@ export default {
 }
 .Rectangle19 {
   position: absolute;
-  
   left: 75.0625rem;
 }
 .Rectangle19 > img {
@@ -145,9 +137,7 @@ export default {
 .BackgroundDescription {
   width: 100%;
   height: 22.5rem;
-
   padding-top: 42.5rem;
-
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 0%,
@@ -158,36 +148,37 @@ export default {
 .BackgroundDescription > h1 {
   width: 24rem;
   height: 7.25rem;
-
   margin: 0;
   margin-top: 4.75rem;
   margin-left: 3.0625rem;
-
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 6rem;
   line-height: 7.25rem;
   text-transform: uppercase;
+
   color: #ffffff;
 }
 .BackgroundDescription > p {
   width: 24rem;
   height: 3.625rem;
-
   margin: 0;
+  display: block;
   margin-top: 0.625rem;
   margin-left: 3.0625rem;
 
-  display: block;
-  
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 3rem;
   line-height: 3.625rem;
+  /* identical to box height */
+
   text-transform: uppercase;
+
   color: #ffffff;
 }
 </style>
 
+<!-- 20220811 晚-->

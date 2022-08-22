@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="tgf-right">
-          <button class="tgf-right-button"  @click="goPage('GenerateArt1')">去创作</button>
+          <button class="tgf-right-button" @click="goGenerate()">去创作</button>
         </div>
       </div>
       <el-image src="Home1.svg" fit="contain" style="width: 100%"></el-image>
@@ -161,9 +161,9 @@ export default {
     goDetail(id) {
       this.router.push({ name: "detail", params: { id } });
     },
-    goPage(pageName) {
-      this.router.push({name: pageName});
-    },
+    goGenerate(){
+      this.router.push({ name: "GenerateArt1"});
+    }
   },
 };
 </script>
@@ -226,7 +226,6 @@ export default {
   color: #000000;
   border: none;
   margin: 10rem;
-  cursor: pointer;
 }
 
 .carousel {

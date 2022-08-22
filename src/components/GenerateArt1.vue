@@ -34,7 +34,7 @@
           <p>条纹</p>
         </div>
       </div>
-      <div class="nextStep" v-show="isSelected" @click="goPage('GenerateArt3')"><!-- 这里改成GenerateArt2 -->
+      <div class="nextStep" v-show="isSelected" @click="goPage('GenerateArt2')"><!-- 这里改成GenerateArt2 -->
         下一步
       </div>
     </div>
@@ -101,7 +101,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .GenerateArt1 {
   width: 120rem;
   margin: 0 auto;

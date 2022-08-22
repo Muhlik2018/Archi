@@ -5,7 +5,9 @@ const Detail = () => import('@/components/DetailPage.vue');
 const TeamMembers = () => import('@/components/TeamMembers.vue');
 const CulturalCreation = () => import('@/components/CulturalCreation.vue');
 const GenerateArt1 = () => import('@/components/GenerateArt1.vue');
+const GenerateArt2 = () => import('@/components/GenerateArt2.vue');
 const GenerateArt3 = () => import('@/components/GenerateArt3.vue');
+const ActivityPage = () => import('@/components/ActivityPage.vue')
 
 
 const routes = [
@@ -30,14 +32,24 @@ const routes = [
         component: CulturalCreation,
     },
     {
+        path: '/GenerateArt1',
+        name: 'GenerateArt1',
+        component: GenerateArt1,
+    },
+    {
+        path: '/GenerateArt2',
+        name: 'GenerateArt2',
+        component: GenerateArt2,
+    },
+    {
         path: '/GenerateArt3',
         name: 'GenerateArt3',
         component: GenerateArt3,
     },
     {
-        path: '/GenerateArt1',
-        name: 'GenerateArt1',
-        component: GenerateArt1,
+        path: '/ActivityPage',
+        name: 'ActivityPage',
+        component: ActivityPage,
     },
 ]
 const router = createRouter({
