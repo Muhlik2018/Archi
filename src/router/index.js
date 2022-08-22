@@ -7,7 +7,8 @@ const CulturalCreation = () => import('@/components/CulturalCreation.vue');
 const GenerateArt1 = () => import('@/components/GenerateArt1.vue');
 const GenerateArt2 = () => import('@/components/GenerateArt2.vue');
 const GenerateArt3 = () => import('@/components/GenerateArt3.vue');
-const ActivityPage = () => import('@/components/ActivityPage.vue')
+const ActivityPage = () => import('@/components/ActivityPage.vue');
+const ArchiCulture=()=>import("@/components/ArchiCulture.vue");
 
 
 const routes = [
@@ -20,6 +21,11 @@ const routes = [
         path: '/detail/:id',
         name: 'detail',
         component: Detail,
+    },
+    {
+        path: '/ArchiCulture',
+        name: 'ArchiCulture',
+        component:ArchiCulture,
     },
     {
         path: '/TeamMembers',
