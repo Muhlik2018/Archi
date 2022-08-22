@@ -67,7 +67,7 @@
           </el-carousel>
         </div>
 
-        <div>
+        <!-- <div>
           <div class="RightDate">2022.08.04</div>
           <div style="margin: 0 auto; text-align: center">
             <input class="RightinputName" v-model="inputName" />
@@ -86,6 +86,16 @@
             src="../assets/image23.svg"
             style="margin: 0 auto; margin-top: 2.9375rem; display: block"
           />
+          <div class="codeScan">扫码下载你的作品</div>
+        </div> -->
+        <div>
+          <div class="RightDate">2022.08.04</div>
+          <div style="margin: 0 auto; text-align: center">
+            <input class="RightinputName" v-model="inputName" />
+          </div>
+          <p class="RightinputNameDesc">输入你的名字</p>
+          <div class="download" ><img src="../assets/Group483.svg"/></div>
+          <div class="download-qrcode"><img src="../assets/image23.svg" /></div>
           <div class="codeScan">扫码下载你的作品</div>
         </div>
       </div>
@@ -253,7 +263,7 @@ export default {
   height: 72.8125rem; */
 
   width: 93.75rem;
-  height: 66.25rem;
+  height: 66.8rem;
 
   margin: 0 auto;
   margin-top: 11.6875rem;
@@ -281,11 +291,11 @@ export default {
   margin-left: 3.6875rem;
   margin-top: 3.75rem; */
 
-  width: 41.25rem;
-  height: 60.5rem;
+   width: 41.25rem;
+  height: 59.6875rem;
 
-  margin-left: 2.625rem;
-  margin-top: 2.5rem;
+  margin-left: 3.6875rem;
+  margin-top: 2.9375rem;
 
   background-color: #ffffff;
 
@@ -297,8 +307,8 @@ export default {
 
   margin-top: 1.25rem;
   margin-left: 1.5625rem; */
-  width: 38.125rem;
-  height: 53.9375rem;
+  width: 38.125rem;  
+  height: 51.875rem;
 
   margin-top: 1.25rem;
   margin-left: 1.5625rem;
@@ -403,7 +413,7 @@ export default {
 }
 .google {
   width: 14.8125rem;
-  height: 100%;
+  height: 1.1875rem;
 
   margin-right: 0.75rem;
 
@@ -467,7 +477,7 @@ export default {
   height: 2.9375rem;
 
   margin: 0 auto;
-  margin-top: 6.6875rem;
+  margin-top: 8.0625rem;
 
   line-height: 2.9375rem;
 
@@ -515,6 +525,29 @@ export default {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #8c8c8c;
+}
+.download {
+  margin: 0 auto;
+  margin-top: 2.5rem;
+  display: block;
+  cursor: pointer;
+  width: 7.125rem;
+  height: 6.625rem;
+}
+.download img{
+  width: 100%;
+  height: 100%;
+}
+.download-qrcode {
+  margin: 0 auto;
+  margin-top: 2.5625rem;
+  display: block;
+  width: 17.5rem;
+  height: 17.5rem;
+}
+.download-qrcode img{
+  width: 100%;
+  height: 100%;
 }
 .codeScan {
   width: 23.625rem;
