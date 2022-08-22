@@ -55,7 +55,7 @@
       </div>
       <div class="todo-button-outer">
         <div class="todo-button-inner">
-          <button class="todo-button">去创作</button>
+          <button class="todo-button" @click="goPage('GenerateArt3')">去创作</button>
         </div>
       </div>
     </div>
@@ -69,6 +69,7 @@ import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import { reactive, ref } from "@vue/reactivity";
+import { useRouter } from "vue-router";
 
 import HeadNav from "./HeadNav.vue";
 import FooterNav from "./FooterNav.vue";
@@ -81,6 +82,7 @@ export default {
     FooterNav,
   },
   setup() {
+    const router = useRouter();
     let canChooseItem = reactive([
       {
         id: 1,
@@ -132,8 +134,14 @@ export default {
       haveChoosenItem,
       generateImg,
       generateSize,
+      router,
       modules: [Navigation],
     };
+  },
+  methods: {
+    goPage(pageName) {
+      this.router.push({ name: pageName });
+    },
   },
 };
 </script>

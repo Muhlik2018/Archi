@@ -162,7 +162,7 @@ export default {
       this.router.push({ name: "detail", params: { id } });
     },
     goGenerate(){
-      this.router.push({ name: "GenerateArt2"});
+      this.router.push({ name: "GenerateArt1"});
     }
   },
 };
