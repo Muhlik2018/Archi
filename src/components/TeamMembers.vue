@@ -142,7 +142,7 @@
       </template>
     </el-carousel>
 
-    <div class="bottomActivity">
+    <!-- <div class="bottomActivity">
       <div><span></span></div>
       <div><span></span></div>
       <div><span></span></div>
@@ -153,9 +153,24 @@
       <div class="bluelineTarget">
         <img src="../assets/Group478.svg" alt="" />
       </div>
-    </div>
+    </div> -->
 
-    <div style="display: block">
+<div class="bottomActivity">
+      <div :style="{left: '-'+sliderLeft + '%',width:'1250rem'}">
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+      </div>
+    </div>
+    <div class="sliderParent">
+      <el-slider v-model="sliderLeft" class="slider" :show-tooltip=false></el-slider>
+    </div>
+    <div style="display: block;width:100%">
       <div class="more">查看更多>></div>
     </div>
 
@@ -182,6 +197,7 @@ export default {
   },
   data() {
     return {
+      sliderLeft: 0,
       swiper: [
         {
           title: "活动标题1",
@@ -492,7 +508,7 @@ export default {
 }
 
 .activityTransparent {
-  width: 100%;
+  width: 50%;
   height: 20rem;
 
   position: absolute;
@@ -595,28 +611,28 @@ export default {
   height: 51.8125rem;
   width: 120rem;
 
-  display: flex;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  position: relative;
+
+  overflow: hidden;
+
+  /* display: flex; */
 }
-.bottomActivity > div {
-  flex: 1;
+.bottomActivity>div{
+  position: absolute;
+}
+.bottomActivityItem {
+  width: 30rem;
   height: 51.8125rem;
+  display: inline-block;
 }
-.bottomActivity > div:nth-of-type(1) {
+.bottomActivityItem {
   background: url("../assets/Rectangle5734.svg");
   background-size: cover;
 }
-.bottomActivity > div:nth-of-type(2) {
-  background: url("../assets/Rectangle5733.svg");
-  background-size: cover;
-}
-.bottomActivity > div:nth-of-type(3) {
-  background: url("../assets/Rectangle5735.svg");
-  background-size: cover;
-}
-.bottomActivity > div:nth-of-type(4) {
-  background: url("../assets/Rectangle5733.svg");
-  background-size: cover;
-}
+
 .bottomActivity span {
   background: linear-gradient(
     270deg,
@@ -626,45 +642,13 @@ export default {
 
   width: 12.5rem;
   height: 100%;
+
   display: block;
-  /* 
-transform: rotate(90deg);*/
+
   float: right;
 }
-.blueline {
-  width: 120rem;
-  height: 1.6875rem;
 
-  background: linear-gradient(
-    90deg,
-    rgba(83, 29, 171, 0.8) 0%,
-    rgba(89, 126, 247, 0.8) 33.21%,
-    rgba(0, 159, 232, 0.8) 64.91%,
-    rgba(131, 249, 255, 0.8) 96.1%
-  );
-  display: block;
 
-  margin: 0 auto;
-
-  position: relative;
-}
-.bluelineTarget {
-  position: absolute;
-  left: 1.375rem;
-  top: 50%;
-  transform: translateY(-50%);
-
-  width: 2.875rem;
-  height: 2.875rem;
-}
-.bluelineTarget img {
-  width: 2.875rem;
-  height: 2.875rem;
-
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
 .swiperItem {
   height: 43.75rem;
   width: 50%;
@@ -693,6 +677,8 @@ transform: rotate(90deg);*/
   cursor: pointer;
 }
 
+</style>
+<style>
 .teamActivity .el-carousel__item h3 {
   color: #475669;
   font-size: 18px;
@@ -727,10 +713,39 @@ transform: rotate(90deg);*/
 .teamActivity .el-carousel__arrow i {
   font-size: 5rem;
 }
+.sliderParent .el-slider{
+  margin: 0 auto;
+  width: 120rem;
+  height: 1.6875rem;
+}
+
+.slider .el-slider__button {
+  background: url("../assets/Group478.svg") no-repeat;
+  background-size: cover;
+
+  width: 2.875rem;
+  height: 2.875rem;
+
+  border: 0;
+
+  position: absolute;
+  
+
+  top: 50%;
+  transform: translateY(-50%);
+}
+.slider .el-slider__bar{
+  opacity: 0;
+}
+.slider .el-slider__runway{
+  background: linear-gradient(
+    90deg,
+    rgba(83, 29, 171, 0.8) 0%,
+    rgba(89, 126, 247, 0.8) 33.21%,
+    rgba(0, 159, 232, 0.8) 64.91%,
+    rgba(131, 249, 255, 0.8) 96.1%
+  );
+  height: 100%;
+  width: 120rem;
+}
 </style>
-
-
-
-
-
-<!-- 20220811 晚4-->
