@@ -65,12 +65,7 @@
     </div>
 
     <!-- <div class="teamActivity">
-      <span class="Arrow leftArrow"
-        ><img src="../assets/Vector_left.svg" alt=""
-      /></span>
-      <span class="Arrow rightArrow"
-        ><img src="../assets/Vector_right.svg" alt=""
-      /></span>
+      
       <h1>团队活动</h1>
       <div class="activity">
         <div>
@@ -95,10 +90,18 @@
 
     <el-carousel
       :interval="5000"
-      arrow="always"
+      arrow="never"
       class="teamActivity"
       :autoplay="false"
+      ref="cardShow"
+      indicator-position="none"
     >
+      <span class="Arrow leftArrow" @click="handleArrowClick('left')"
+        ><img src="../assets/Vector_left.svg"
+      /></span>
+      <span class="Arrow rightArrow" @click="handleArrowClick('right')"
+        ><img src="../assets/Vector_right.svg"
+      /></span>
       <template v-for="item in swiper" :key="item.id">
         <template v-if="item.id % 2 == 0">
           <!-- 一次跳两张，一次放入两张轮播图 -->
@@ -139,7 +142,7 @@
       </template>
     </el-carousel>
 
-    <div class="bottomActivity">
+    <!-- <div class="bottomActivity">
       <div><span></span></div>
       <div><span></span></div>
       <div><span></span></div>
@@ -150,9 +153,24 @@
       <div class="bluelineTarget">
         <img src="../assets/Group478.svg" alt="" />
       </div>
-    </div>
+    </div> -->
 
-    <div style="display: block">
+<div class="bottomActivity">
+      <div :style="{left: '-'+sliderLeft + '%',width:'1250rem'}">
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+        <div class="bottomActivityItem"><span></span></div>
+      </div>
+    </div>
+    <div class="sliderParent">
+      <el-slider v-model="sliderLeft" class="slider" :show-tooltip=false></el-slider>
+    </div>
+    <div style="display: block;width:100%">
       <div class="more">查看更多>></div>
     </div>
 
@@ -168,8 +186,18 @@ export default {
     HeadNav,
     FooterNav,
   },
+  methods: {
+    handleArrowClick(val) {
+      if (val === "right") {
+        this.$refs.cardShow.next();
+      } else {
+        this.$refs.cardShow.prev();
+      }
+    },
+  },
   data() {
     return {
+      sliderLeft: 0,
       swiper: [
         {
           title: "活动标题1",
@@ -219,7 +247,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .ourTeam {
   background: url("../assets/Rectangle5731.svg");
   background-size: cover;
@@ -381,10 +409,7 @@ export default {
   font-weight: 600;
   font-size: 1.875rem;
   line-height: 1.5625rem;
-  /* or 83% */
-
   color: #ffffff;
-
   position: absolute;
   top: 4.75rem;
   left: 2.875rem;
@@ -397,10 +422,7 @@ export default {
   font-weight: 600;
   font-size: 1.5rem;
   line-height: 1.5625rem;
-  /* or 104% */
-
   color: #ffffff;
-
   position: absolute;
   top: 8.3125rem;
   left: 2.875rem;
@@ -486,7 +508,7 @@ export default {
 }
 
 .activityTransparent {
-  width: 100%;
+  width: 50%;
   height: 20rem;
 
   position: absolute;
@@ -548,9 +570,12 @@ export default {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   position: absolute;
-  top: 50%;
+  top: 40%;
+  transform: translateY(-50%);
 
   z-index: 10;
+
+  cursor: pointer;
 }
 
 .rightArrow {
@@ -586,28 +611,28 @@ export default {
   height: 51.8125rem;
   width: 120rem;
 
-  display: flex;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  position: relative;
+
+  overflow: hidden;
+
+  /* display: flex; */
 }
-.bottomActivity > div {
-  flex: 1;
+.bottomActivity>div{
+  position: absolute;
+}
+.bottomActivityItem {
+  width: 30rem;
   height: 51.8125rem;
+  display: inline-block;
 }
-.bottomActivity > div:nth-of-type(1) {
+.bottomActivityItem {
   background: url("../assets/Rectangle5734.svg");
   background-size: cover;
 }
-.bottomActivity > div:nth-of-type(2) {
-  background: url("../assets/Rectangle5733.svg");
-  background-size: cover;
-}
-.bottomActivity > div:nth-of-type(3) {
-  background: url("../assets/Rectangle5735.svg");
-  background-size: cover;
-}
-.bottomActivity > div:nth-of-type(4) {
-  background: url("../assets/Rectangle5733.svg");
-  background-size: cover;
-}
+
 .bottomActivity span {
   background: linear-gradient(
     270deg,
@@ -617,45 +642,13 @@ export default {
 
   width: 12.5rem;
   height: 100%;
+
   display: block;
-  /* 
-transform: rotate(90deg);*/
+
   float: right;
 }
-.blueline {
-  width: 120rem;
-  height: 1.6875rem;
 
-  background: linear-gradient(
-    90deg,
-    rgba(83, 29, 171, 0.8) 0%,
-    rgba(89, 126, 247, 0.8) 33.21%,
-    rgba(0, 159, 232, 0.8) 64.91%,
-    rgba(131, 249, 255, 0.8) 96.1%
-  );
-  display: block;
 
-  margin: 0 auto;
-
-  position: relative;
-}
-.bluelineTarget {
-  position: absolute;
-  left: 1.375rem;
-  top: 50%;
-  transform: translateY(-50%);
-
-  width: 2.875rem;
-  height: 2.875rem;
-}
-.bluelineTarget img {
-  width: 2.875rem;
-  height: 2.875rem;
-
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
 .swiperItem {
   height: 43.75rem;
   width: 50%;
@@ -680,9 +673,13 @@ transform: rotate(90deg);*/
   text-align: center;
 
   color: #3a3a3a;
+
+  cursor: pointer;
 }
 
-.el-carousel__item h3 {
+</style>
+<style>
+.teamActivity .el-carousel__item h3 {
   color: #475669;
   font-size: 18px;
   opacity: 0.75;
@@ -690,11 +687,11 @@ transform: rotate(90deg);*/
   margin: 0;
 }
 
-.el-carousel__container {
+.teamActivity .el-carousel__container {
   height: 100%;
   position: relative;
 }
-.el-carousel__arrow {
+.teamActivity .el-carousel__arrow {
   width: 6.25rem;
   height: 6.25rem;
   border-radius: 50%;
@@ -707,20 +704,48 @@ transform: rotate(90deg);*/
 
   z-index: 10;
 }
-.el-carousel__arrow:nth-of-type(1) {
+.teamActivity .el-carousel__arrow:nth-of-type(1) {
   left: 3.4375rem;
 }
-.el-carousel__arrow:nth-of-type(2) {
+.teamActivity .el-carousel__arrow:nth-of-type(2) {
   left: 111.25rem;
 }
-.el-icon>svg {
-  width: 2.0313rem;
-  height: 1.7775rem;
+.teamActivity .el-carousel__arrow i {
+  font-size: 5rem;
+}
+.sliderParent .el-slider{
+  margin: 0 auto;
+  width: 120rem;
+  height: 1.6875rem;
+}
+
+.slider .el-slider__button {
+  background: url("../assets/Group478.svg") no-repeat;
+  background-size: cover;
+
+  width: 2.875rem;
+  height: 2.875rem;
+
+  border: 0;
+
+  position: absolute;
+  
+
+  top: 50%;
+  transform: translateY(-50%);
+}
+.slider .el-slider__bar{
+  opacity: 0;
+}
+.slider .el-slider__runway{
+  background: linear-gradient(
+    90deg,
+    rgba(83, 29, 171, 0.8) 0%,
+    rgba(89, 126, 247, 0.8) 33.21%,
+    rgba(0, 159, 232, 0.8) 64.91%,
+    rgba(131, 249, 255, 0.8) 96.1%
+  );
+  height: 100%;
+  width: 120rem;
 }
 </style>
-
-
-
-
-
-<!-- 20220811 晚4-->

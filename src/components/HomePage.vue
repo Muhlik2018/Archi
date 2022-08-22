@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="tgf-right">
-          <button class="tgf-right-button">去创作</button>
+          <button class="tgf-right-button" @click="goGenerate()">去创作</button>
         </div>
       </div>
       <el-image src="Home1.svg" fit="contain" style="width: 100%"></el-image>
@@ -81,6 +81,7 @@
           class="category-item"
           v-for="item in categoryContext"
           :key="item.id"
+          @click="goOtherPage(item.id)"
         >
           <div class="category-item-text">
             <div class="category-item-title">{{ item.title }}</div>
@@ -161,6 +162,14 @@ export default {
     goDetail(id) {
       this.router.push({ name: "detail", params: { id } });
     },
+    goGenerate(){
+      this.router.push({ name: "GenerateArt1"});
+    },
+    goOtherPage(id){
+      if(id==1){
+        this.router.push({name:"ArchiCulture"});
+      }
+    }
   },
 };
 </script>
