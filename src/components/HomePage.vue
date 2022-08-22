@@ -81,6 +81,7 @@
           class="category-item"
           v-for="item in categoryContext"
           :key="item.id"
+          @click="goOtherPage(item.id)"
         >
           <div class="category-item-text">
             <div class="category-item-title">{{ item.title }}</div>
@@ -163,6 +164,11 @@ export default {
     },
     goGenerate(){
       this.router.push({ name: "GenerateArt1"});
+    },
+    goOtherPage(id){
+      if(id==1){
+        this.router.push({name:"ArchiCulture"});
+      }
     }
   },
 };
