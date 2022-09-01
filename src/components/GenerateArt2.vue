@@ -15,14 +15,39 @@
         <div class="canChooseTitle">选择元素</div>
         <Swiper navigation :modules="modules" :slidesPerView="3.5">
           <swiper-slide v-for="item in canChooseItem" :key="item.id">
-            <el-image :src="item.src" fit="cover"></el-image>
+            <el-image
+              :src="item.src"
+              fit="cover"
+              @click="SwitchElement(item.id)"
+              :class="{ haveSelected: item.selected }"
+            ></el-image>
           </swiper-slide>
         </Swiper>
       </div>
       <div class="haveChosenAndGenerated">
         <div class="haveChoosen">
           <div class="haveChoosenTitle">已选元素：</div>
-          <div class="haveChoosenContent">
+          <Swiper
+            v-show="haveChoosenItem"
+            navigation
+            direction="vertical"
+            :modules="modules"
+            :slidesPerView="3.5"
+          >
+            <swiper-slide
+              v-for="item in haveChoosenItem"
+              :key="item.id"
+              :name="item.id"
+              :alt="item.id"
+            >
+              <el-image
+                class="haveChoosenContentImg"
+                :src="item.src"
+                fit="cover"
+              ></el-image>
+            </swiper-slide>
+          </Swiper>
+          <!-- <div class="haveChoosenContent">
             <img
               class="haveChoosenContentImg"
               v-show="haveChoosenItem"
@@ -32,7 +57,7 @@
               :name="item.id"
               :alt="item.id"
             />
-          </div>
+          </div> -->
         </div>
         <div class="generateImgBox">
           <img class="generateImg" :src="generateImg" alt="error" />
@@ -55,7 +80,9 @@
       </div>
       <div class="todo-button-outer">
         <div class="todo-button-inner">
-          <button class="todo-button" @click="goPage('GenerateArt3')">去创作</button>
+          <button class="todo-button" @click="goPage('GenerateArt3')">
+            去创作
+          </button>
         </div>
       </div>
     </div>
@@ -114,18 +141,31 @@ export default {
       },
     ]);
     let haveChoosenItem = reactive([
-      {
-        id: 1,
-        src: "Detail3-1.svg",
-      },
-      {
-        id: 2,
-        src: "Detail3-2.svg",
-      },
-      {
-        id: 3,
-        src: "Detail3-3.svg",
-      },
+      // {
+      //   id: 1,
+      //   src: "Detail3-1.svg",
+      //   selected: false,
+      // },
+      // {
+      //   id: 2,
+      //   src: "Detail3-2.svg",
+      //   selected:false,
+      // },
+      // {
+      //   id: 3,
+      //   src: "Detail3-3.svg",
+      //   selected:false,
+      // },
+      // {
+      //   id: 4,
+      //   src: "Detail3-3.svg",
+      //   selected:false,
+      // },
+      // {
+      //   id: 5,
+      //   src: "Detail3-3.svg",
+      //   selected:false,
+      // },
     ]);
     let generateImg = ref("Detail3-1.svg");
     let generateSize = ref(50);
@@ -141,6 +181,21 @@ export default {
   methods: {
     goPage(pageName) {
       this.router.push({ name: pageName });
+    },
+    SwitchElement(id) {
+      const target = this.canChooseItem.findIndex((item) => (item.id == id));
+      if (this.canChooseItem[target].selected) {
+        const removeTarget=this.haveChoosenItem.findIndex((item)=>(item.id == id))
+        this.haveChoosenItem.splice(removeTarget,1);
+        this.canChooseItem[target].selected = false;
+      } 
+      else {
+        this.haveChoosenItem.push({
+          id: id,
+          src: this.canChooseItem[target].src,
+        });
+        this.canChooseItem[target].selected = true;
+      }
     },
   },
 };
@@ -252,6 +307,9 @@ export default {
   align-items: center;
   margin: 1rem;
 }
+.canChoose .haveSelected {
+  border: 1rem double skyblue;
+}
 
 .haveChosenAndGenerated {
   width: 100%;
@@ -277,6 +335,15 @@ export default {
   text-transform: uppercase;
   color: #531dab;
   margin: 2rem 0;
+}
+.haveChoosen .swiper {
+  height: 40rem;
+}
+.haveChoosen .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
 }
 .haveChoosenContent {
   width: 80%;
