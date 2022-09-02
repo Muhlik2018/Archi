@@ -13,8 +13,8 @@
       </div>
       <div class="Generate">
         <div
-          @click="handleClickScenerio('skyline')"
-          :class="{ currentGenerate: skyline }"
+          @click="handleClickScenerio('sketch')"
+          :class="{ currentGenerate: sketch }"
         >
           <img src="../assets/image18.svg" />
           <p>天际线</p>
@@ -27,14 +27,14 @@
           <p>网格</p>
         </div>
         <div
-          @click="handleClickScenerio('stripe')"
-          :class="{ currentGenerate: stripe }"
+          @click="handleClickScenerio('raster')"
+          :class="{ currentGenerate: raster }"
         >
           <img src="../assets/image17.svg" />
           <p>条纹</p>
         </div>
       </div>
-      <div class="nextStep" v-show="isSelected" @click="goPage('GenerateArt2')"><!-- 这里改成GenerateArt2 -->
+      <div class="nextStep" v-show="isSelected" @click="goPage('GenerateArt2')">
         下一步
       </div>
     </div>
@@ -61,41 +61,48 @@ export default {
   data() {
     return {
       grid: false,
-      stripe: false,
-      skyline: false,
+      raster: false,
+      sketch: false,
       fractal: false,
     };
   },
   computed: {
     isSelected: function () {
-      return this.grid || this.stripe || this.skyline || this.fractal;
+      return this.grid || this.raster || this.sketch || this.fractal;
     },
   },
   methods: {
+    goPage(pageName) {
+      this.router.push({ name: pageName, params: {Scenerio:this.SelectedParams()} });
+    },
     handleClickScenerio: function (name) {
       if (
         (name === "grid" && this.grid) ||
-        (name === "stripe" && this.stripe) ||
-        (name === "skyline" && this.skyline) ||
+        (name === "stripe" && this.raster) ||
+        (name === "sketch" && this.sketch) ||
         (name === "fractal" && this.fractal)
       ) {
         this.grid = false;
-        this.stripe = false;
-        this.skyline = false;
+        this.raster = false;
+        this.sketch = false;
         this.fractal = false;
         return;
       }
       this.grid = false;
-      this.stripe = false;
-      this.skyline = false;
+      this.raster = false;
+      this.sketch = false;
       this.fractal = false;
       if (name === "grid") this.grid = true;
-      else if (name === "stripe") this.stripe = true;
-      else if (name === "skyline") this.skyline = true;
+      else if (name === "raster") this.raster = true;
+      else if (name === "sketch") this.sketch = true;
       else if (name === "fractal") this.fractal = true;
     },
-    goPage(pageName) {
-      this.router.push({ name: pageName });
+
+    SelectedParams: function () {
+      if (this.grid) return 'grid';
+      if (this.stripe) return 'stripe';
+      if (this.sketch) return 'sketch';
+      if (this.fractal) return 'fractal';
     },
   },
 };
@@ -127,9 +134,9 @@ export default {
   margin-top: 3.625rem;
   margin-left: 6.3125rem;
   border-radius: 1.25rem;
-  
-  background: #AB97FF;
-  
+
+  background: #ab97ff;
+
   position: relative;
 }
 .GenerateArt > div {
@@ -138,7 +145,7 @@ export default {
   left: 50%;
   top: 50%;
   transform: translateY(-50%) translateX(-50%);
-  
+
   position: absolute;
 
   font-family: "Arimo";
@@ -153,11 +160,11 @@ export default {
 .GenerateArtShadow {
   width: 100%;
   height: 100%;
-  
+
   border-radius: 1.25rem;
 
   position: absolute;
-  
+
   background: rgba(0, 0, 0, 0.7);
 }
 .stepOne {
@@ -192,7 +199,7 @@ export default {
 
   margin: 0 auto;
   margin-top: 3.875rem;
-  
+
   display: flex;
   flex-wrap: wrap;
   /* position: relative; */
@@ -201,14 +208,14 @@ export default {
 .Generate div {
   height: 40.625rem;
   width: 31.25rem;
-  
+
   margin-right: 6.25rem;
   margin-bottom: 6.25rem;
   border-radius: 1.25rem;
   box-sizing: border-box;
-  
+
   background: rgba(83, 29, 171, 0.2);
-  
+
   position: relative;
 
   cursor: pointer;
@@ -223,14 +230,14 @@ export default {
 }
 .Generate p {
   height: auto;
-  
+
   left: 50%;
   top: 35.5rem;
   transform: translateX(-50%);
   margin: 0;
-  
+
   position: absolute;
-  
+
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -244,15 +251,13 @@ export default {
   background: rgba(83, 29, 171, 0.4);
 }
 .Generate img {
-  
   width: 65%;
-  
+
   left: 50%;
   top: 10%;
   transform: translateX(-50%);
-  
+
   position: absolute;
-  
 }
 .nextStep {
   width: 20.1875rem;
@@ -264,7 +269,6 @@ export default {
 
   background: #faed00;
   box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
-  
 
   font-family: "Inter";
   font-style: normal;

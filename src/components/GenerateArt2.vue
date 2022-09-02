@@ -108,6 +108,10 @@ export default {
     HeadNav,
     FooterNav,
   },
+  // 传递的参数，选择天际线、网格、光栅等等。。。
+  // mounted(){
+  //   console.log(this.$route.params.Scenerio);
+  // },
   setup() {
     const router = useRouter();
     let canChooseItem = reactive([
