@@ -11,7 +11,7 @@
         &lt;返回上一步
       </p>
       <div class="stepOne3">STEP THREE</div>
-      <div class="choose-your-scenario">Dowloead YOUR Work</div>
+      <div class="choose-your-scenario">DOWNLOAD YOUR MASTERPIECE</div>
       <div class="GenerateArtDownload">
         <!-- <div>
           <div class="GenerateArtImg">

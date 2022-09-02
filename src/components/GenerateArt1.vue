@@ -9,7 +9,7 @@
           <div>generative art<br />生成艺术</div>
         </div>
         <div class="stepOne">STEP ONE</div>
-        <div class="choose-your-scenario">CHOOSE YOUR SCENARIO</div>
+        <div class="choose-your-scenario">CHOOSE YOUR SCENE</div>
       </div>
       <div class="Generate">
         <div
