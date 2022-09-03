@@ -194,8 +194,7 @@ export default {
     FooterNav,
   },
   methods: {
-    
-    goPage(pageName) {console.log(pageName);
+    goPage(pageName) {
       this.router.push({name: pageName});
     },
     handleArrowClick(val) {
