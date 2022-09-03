@@ -37,6 +37,7 @@
       <div class="nextStep" v-show="isSelected" @click="goPage('GenerateArt2')">
         下一步
       </div>
+      <div class="wave"></div>
     </div>
     <FooterNav></FooterNav>
   </div>
@@ -284,4 +285,13 @@ export default {
 
   cursor: pointer;
 }
+.wave{
+  width: 100%;
+  margin-top: 5.6875rem;
+  height: 25rem;
+  background: url('../assets/wave.svg');
+}
+/* .wave>img{
+  width: 100%;
+} */
 </style>

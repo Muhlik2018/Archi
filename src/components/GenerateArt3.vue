@@ -50,7 +50,7 @@
                   class="inputName"
                   placeholder="输入你的名字"
                 />
-                <div class="date">{{date}}</div>
+                <div class="date">{{ date }}</div>
               </div>
               <div style="flex: 1">
                 <div class="google">
@@ -87,7 +87,7 @@
           <div class="codeScan">扫码下载你的作品</div>
         </div> -->
         <div>
-          <div class="RightDate">{{date}}</div>
+          <div class="RightDate">{{ date }}</div>
           <div style="margin: 0 auto; text-align: center">
             <input class="RightinputName" v-model="inputName" />
           </div>
@@ -97,6 +97,7 @@
           <div class="codeScan">扫码下载你的作品</div>
         </div>
       </div>
+      <div class="wave"></div>
     </div>
 
     <FooterNav></FooterNav>
@@ -116,9 +117,8 @@ export default {
     };
   },
   created() {
-    var tmpDate = new Date();
-    this.date=this.transDate(tmpDate)
-    console.log(this.date);
+    let tmpDate = new Date();
+    this.date = this.transDate(tmpDate);
   },
   components: {
     HeadNav,
@@ -135,10 +135,12 @@ export default {
       this.color[index].isSelected = true;
     },
     transDate(date) {
-
       const year = date.getFullYear();
-      const month = (date.getMonth() + 1)>10?(date.getMonth() + 1):('0'+(date.getMonth() + 1));
-      const day = date.getDate()>10? date.getDate():('0'+ date.getDate());
+      const month =
+        date.getMonth() + 1 > 10
+          ? date.getMonth() + 1
+          : "0" + (date.getMonth() + 1);
+      const day = date.getDate() > 10 ? date.getDate() : "0" + date.getDate();
       return `${year}.${month}.${day}`;
     },
   },
@@ -624,6 +626,12 @@ export default {
   .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
   } */
+.wave {
+  width: 100%;
+  margin-top: 5.6875rem;
+  height: 25rem;
+  background: url("../assets/wave.svg");
+}
 </style>
 <style>
 .GenerateArt1 .el-carousel__container {
