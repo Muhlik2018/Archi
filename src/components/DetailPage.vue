@@ -4,7 +4,7 @@
     <div class="back-button">&lt; 返回</div>
     <div class="photo-detail">
       <div class="photo-preview">
-        <el-image :src="picutreId" fit="contain"></el-image>
+        <object type="image/svg+xml" data="raster.svg"  alt="" style="min-height: 78rem;"></object>
         <div class="photo-preview-text">
           Text description pop-up window of the element selected in the svg.
           Text description pop-up window of the element selected in the svg.
@@ -77,6 +77,10 @@ import "swiper/css";
 import { reactive } from "@vue/reactivity";
 import { useRouter, useRoute } from "vue-router";
 
+// eslint-disable-next-line no-unused-vars
+function printInfo(e){
+  console.log(e);
+}
 export default {
   name: "DetailPage",
   components: { 
@@ -89,7 +93,6 @@ export default {
     const route = useRoute();
     let detailId = router.currentRoute.value.params.id;
     let picutreId = "Home3-" + detailId + ".svg";
-    console.log("id", detailId);
     let morePhotoContext = reactive([
       {
         id: 1,
@@ -112,12 +115,20 @@ export default {
         author: "作家",
       },
     ]);
+    let printInfo=(e)=>{
+      console.log('e',e)
+    }
+    // let showInfo=()=>{
+    //   console.log('e','e');
+    // }
+    
     return {
       morePhotoContext,
       detailId,
       picutreId,
       router,
       route,
+      printInfo,
     };
   },
 };
@@ -157,7 +168,7 @@ export default {
   width: 70%;
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: column;
   margin-bottom: 3rem;
 }
