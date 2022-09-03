@@ -3,13 +3,13 @@
     <HeadNav></HeadNav>
     <div class="top">
       <!-- <el-image src="GenerateArtTopLogo.jpg" fit="cover"></el-image> -->
-      <div class="top-text">generative art <br />生成艺术</div>
+      <div class="top-text">Archi&Casca<br />建筑印象&层叠生成艺术</div>
     </div>
     <div class="back-btn" @click="goPage('GenerateArt1')">&lt; 返回上一步</div>
     <div class="step2">
       <div class="step2-title">
-        <div class="step2-title-top">STEP TWO</div>
-        <div class="step2-title-bottom">CHOOSE YOUR ELEMENTS</div>
+        <div class="step2-title-top">选择Archi与设置参数</div>
+        <div class="step2-title-bottom">第二步</div>
       </div>
       <div class="canChoose">
         <div class="canChooseTitle">选择元素</div>

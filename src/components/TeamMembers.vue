@@ -58,7 +58,7 @@
           >
 
           <span style="position: relative">
-            <div class="viewDetail">查看团队详情>></div>
+            <div class="viewDetail" @click="goPage('TeamDetail')">查看团队详情>></div>
           </span>
         </div>
       </div>
@@ -181,12 +181,22 @@
 <script>
 import HeadNav from "./HeadNav.vue";
 import FooterNav from "./FooterNav.vue";
+import { useRouter } from "vue-router";
 export default {
+  setup() {
+    const router = useRouter();
+    return {
+      router,
+    };
+  },
   components: {
     HeadNav,
     FooterNav,
   },
   methods: {
+    goPage(pageName) {
+      this.router.push({name: pageName});
+    },
     handleArrowClick(val) {
       if (val === "right") {
         this.$refs.cardShow.next();
@@ -251,7 +261,7 @@ export default {
 .ourTeam {
   background: url("../assets/Rectangle5731.svg");
   background-size: cover;
-  width: 120rem;
+  width: 100%;
   height: 45.4375rem;
   margin: 0 auto;
   position: relative;
@@ -261,7 +271,8 @@ export default {
   height: 10.25rem;
   position: absolute;
   top: 14.6875rem;
-  left: 56.4375rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .ourTeamTitle {
   position: absolute;
@@ -285,7 +296,7 @@ export default {
 }
 .ourTeamBottom {
   position: absolute;
-  width: 120rem;
+  width: 100%;
   height: 18.75rem;
 
   top: 26.6875rem;
@@ -314,7 +325,7 @@ export default {
 }
 .aboutUs {
   height: 32.75rem;
-  width: 120rem;
+  width: 100%;
   margin: 0 auto;
 
   position: relative;
@@ -352,7 +363,7 @@ export default {
   color: #5c5c5c;
 }
 .subject {
-  width: 120rem;
+  width: 100%;
   height: 48.9375rem;
   position: relative;
   margin: 0 auto;
@@ -387,13 +398,15 @@ export default {
   flex: 1;
   height: 15rem;
 
-  width: 40rem;
+  width: 33%;
   height: 15rem;
   background-size: cover;
 }
 .subjectTransparent {
-  width: 40rem;
+  width: 33%;
   height: 15rem;
+
+  float: right;
 
   background: linear-gradient(
     270deg,
@@ -457,7 +470,7 @@ export default {
 
   position: absolute;
   top: 7.4375rem;
-  left: 24.0625rem;
+  left: 35%;
 
   width: 11.5rem;
   height: 3.75rem;
@@ -466,7 +479,7 @@ export default {
 }
 
 .teamActivity {
-  width: 120rem;
+  width: 100%;
   height: 56.25rem;
 
   margin: 0 auto;
@@ -500,7 +513,7 @@ export default {
 }
 .activity > div {
   display: inline-block;
-  width: 60rem;
+  width: 50%;
   height: 43.75rem;
   position: relative;
 
@@ -540,7 +553,7 @@ export default {
   /* vertical-align: top; */
 }
 .activityTransparent > div {
-  width: 30.625rem;
+  width: 40%;
   height: 7.625rem;
 
   position: absolute;
@@ -579,10 +592,10 @@ export default {
 }
 
 .rightArrow {
-  left: 111.25rem;
+  left: 92.7%;
 }
 .leftArrow {
-  left: 3.4375rem;
+  left: 3%;
 }
 
 .rightArrow img {
@@ -609,7 +622,7 @@ export default {
   margin-top: 13.1875rem;
 
   height: 51.8125rem;
-  width: 120rem;
+  width: 100%;
 
   overflow-x: hidden;
   overflow-y: hidden;
@@ -624,7 +637,7 @@ export default {
   position: absolute;
 }
 .bottomActivityItem {
-  width: 30rem;
+  width: 3.18%;
   height: 51.8125rem;
   display: inline-block;
 }
@@ -681,9 +694,9 @@ export default {
 <style>
 .teamActivity .el-carousel__item h3 {
   color: #475669;
-  font-size: 18px;
+  font-size: 1.125rem;
   opacity: 0.75;
-  line-height: 300px;
+  line-height: 18.75rem;
   margin: 0;
 }
 
@@ -715,7 +728,7 @@ export default {
 }
 .sliderParent .el-slider{
   margin: 0 auto;
-  width: 120rem;
+  width: 100%;
   height: 1.6875rem;
 }
 
@@ -746,6 +759,6 @@ export default {
     rgba(131, 249, 255, 0.8) 96.1%
   );
   height: 100%;
-  width: 120rem;
+  width: 100%;
 }
 </style>

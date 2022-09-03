@@ -9,6 +9,7 @@ const GenerateArt2 = () => import('@/components/GenerateArt2.vue');
 const GenerateArt3 = () => import('@/components/GenerateArt3.vue');
 const ActivityPage = () => import('@/components/ActivityPage.vue');
 const ArchiCulture=()=>import("@/components/ArchiCulture.vue");
+const TeamDetail=()=>import("@/components/TeamDetail.vue")
 
 
 const routes = [
@@ -57,6 +58,11 @@ const routes = [
         name: 'ActivityPage',
         component: ActivityPage,
     },
+    {
+        path: '/TeamDetail',
+        name: 'TeamDetail',
+        component: TeamDetail,
+    }
 ]
 const router = createRouter({
     history: createWebHashHistory(),
