@@ -58,7 +58,7 @@
           >
 
           <span style="position: relative">
-            <div class="viewDetail">查看团队详情>></div>
+            <div class="viewDetail" @click="goPage('TeamDetail')">查看团队详情>></div>
           </span>
         </div>
       </div>
@@ -181,12 +181,23 @@
 <script>
 import HeadNav from "./HeadNav.vue";
 import FooterNav from "./FooterNav.vue";
+import { useRouter } from "vue-router";
 export default {
+  setup() {
+    const router = useRouter();
+    return {
+      router,
+    };
+  },
   components: {
     HeadNav,
     FooterNav,
   },
   methods: {
+    
+    goPage(pageName) {console.log(pageName);
+      this.router.push({name: pageName});
+    },
     handleArrowClick(val) {
       if (val === "right") {
         this.$refs.cardShow.next();
