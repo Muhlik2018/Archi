@@ -17,8 +17,15 @@
           ref="svg"
           @click="printInfo($event)"
         ></div>
-        <div class="photo-preview-text" id="DetailPage-photo-preview-text">
-          {{ photoInfo }}
+        <div
+          ref="photoPreviewInfo"
+          v-show="hadClicked"
+          class="photo-preview-info"
+          :style="{ left: photoInfoOffset + 'px' }"
+        >
+          <p @click="hideInfo()">x</p>
+          <img src="Detail-1.svg" class="photo-preview-reality" />
+          <p>{{ photoInfo }}</p>
           <!-- Text description pop-up window of the element selected in the svg.
           Text description pop-up window of the element selected in the svg.
           Text description pop-up window of the element selected in the svg. -->
@@ -89,7 +96,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import { reactive, ref } from "@vue/reactivity";
 import { useRouter, useRoute } from "vue-router";
-import { onMounted } from "@vue/runtime-core";
+import { onMounted, getCurrentInstance } from "@vue/runtime-core";
 import SVG from "@/assets/fractal_ac_0.svg";
 
 export default {
@@ -105,6 +112,7 @@ export default {
     const route = useRoute();
     let detailId = router.currentRoute.value.params.id;
     let picutreId = "Home3-" + detailId + ".svg";
+    let photoInfoOffset = ref(0);
     let morePhotoContext = reactive([
       {
         id: 1,
@@ -132,8 +140,12 @@ export default {
     );
     let svgDOM = reactive({});
     let renderSVG = reactive({});
-    // let windowTemp=ref("1");
+    let hadClicked = ref(false);
+    let currentInstance = ""; //photoPreviewInfo的ref属性
+
     onMounted(() => {
+      currentInstance = getCurrentInstance(); //获取对应dom节点
+
       const xhr = new XMLHttpRequest();
       xhr.open("GET", SVG, true);
       xhr.send();
@@ -147,16 +159,26 @@ export default {
         renderSVG.value = sXML;
       });
     });
+
     let printInfo = (e) => {
       let temp = e.path.find((element) => {
-        console.log("element", element.nodeName);
+        // console.log("element", element.nodeName);
         return element.nodeName == "svg" && element.id != "";
       });
-      console.log("temp", temp);
+      // console.log("temp", temp);
       if (temp) {
-        photoInfo.value = temp.id+" 随机数测试："+Math.random();
+        photoInfo.value = temp.id + " 随机数测试：" + Math.random();
+        photoInfoOffset.value =
+          Number(temp.getAttribute("x")) + Number(temp.getAttribute("width"));
+        // console.log("photoInfoOffset", photoInfoOffset.value);
+        hadClicked.value = true;
+        currentInstance.ctx.$refs.photoPreviewInfo.focus();
       }
     };
+    let hideInfo=()=>{
+      console.log("blur");
+      hadClicked.value=false;
+    }
     return {
       morePhotoContext,
       detailId,
@@ -166,7 +188,11 @@ export default {
       svgDOM,
       renderSVG,
       photoInfo,
+      photoInfoOffset,
+      hadClicked,
+      currentInstance,
       printInfo,
+      hideInfo,
     };
   },
 };
@@ -213,7 +239,7 @@ export default {
 .photo-preview .el-image {
   width: 100%;
 }
-.photo-preview-text {
+.photo-preview-info {
   position: absolute;
   z-index: 10000;
   width: 30rem;
@@ -226,10 +252,17 @@ export default {
   padding: 1rem;
   background: rgba(240, 240, 240, 0.7);
   margin-bottom: 6rem;
-
   background: #ffffff;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-preview-reality {
+  max-width: 80%;
+  max-height: 15rem;
 }
 .photo-detail-text {
   width: 100%;
