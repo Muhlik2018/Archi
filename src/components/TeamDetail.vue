@@ -123,13 +123,13 @@ export default {
 
 <style scoped>
 .TeamDetail {
-  width: 120rem;
+  width: 100%;
   margin: 0 auto;
 }
 .ourTeam {
   background: url("../assets/Rectangle5731.svg");
   background-size: cover;
-  width: 120rem;
+  width: 100%;
   height: 45.4375rem;
   margin: 0 auto;
   position: relative;
@@ -139,7 +139,7 @@ export default {
   height: 10.25rem;
   position: absolute;
   top: 14.6875rem;
-  left: 56.4375rem;
+  left: 47%;
 }
 .ourTeamTitle {
   position: absolute;
@@ -163,7 +163,7 @@ export default {
 }
 .ourTeamBottom {
   position: absolute;
-  width: 120rem;
+  width: 100%;
   height: 18.75rem;
 
   top: 26.6875rem;
@@ -320,28 +320,29 @@ export default {
   text-align: center;
 }
 .member {
-  width: 106.25rem;
   margin: 0 auto;
-
-  display: flex;
   flex-wrap: wrap;
+  margin-left: 5.7%;
+  margin-right: 5.7%;
 }
 .member-detailItem {
-  height: 34rem;
-  width: 21rem;
-
+  width: 19%;
+  display: inline-block;
   margin-top: 4.6875rem;
-  margin-right: 6.25rem;
+  margin-right:  5.2%;
+}
+.member-detailItem:nth-of-type(4n+1) {
+  margin-left: 5.2%;
 }
 .member-detailItem:nth-of-type(4n) {
   margin-right: 0;
 }
 .member-detailItem-img {
-  width: 21rem;
+  width: 100%;
 }
 .member-detailItem-name {
   margin-top: 1.5rem;
-  width: 21.75rem;
+  width: 100%;
   height: 1.5rem;
 
   font-family: "Inter";
