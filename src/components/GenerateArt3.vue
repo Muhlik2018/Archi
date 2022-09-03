@@ -3,15 +3,15 @@
     <HeadNav></HeadNav>
     <div class="GenerateArt1">
       <div class="GenerateArt3">
-        <div>generative art<br />生成艺术</div>
+        <div>Archi&Casca<br />建筑印象&层叠生成艺术</div>
       </div>
 
       <!-- 这里改成GenerateArt2 -->
       <p class="GenerateArtBack3" @click="goPage('GenerateArt1')">
         &lt;返回上一步
       </p>
-      <div class="stepOne3">STEP THREE</div>
-      <div class="choose-your-scenario">Dowloead YOUR Work</div>
+      <div class="stepOne3">下载您的画作</div>
+      <div class="choose-your-scenario">第三步</div>
       <div class="GenerateArtDownload">
         <!-- <div>
           <div class="GenerateArtImg">

@@ -6,10 +6,10 @@
         <p class="GenerateArtBack" @click="goPage('Home')">&lt;返回</p>
         <div class="GenerateArt">
           <!-- <span class="GenerateArtShadow"></span> -->
-          <div>generative art<br />生成艺术</div>
+          <div>Archi&Casca<br />建筑印象&层叠生成艺术</div>
         </div>
-        <div class="stepOne">STEP ONE</div>
-        <div class="choose-your-scenario">CHOOSE YOUR SCENARIO</div>
+        <div class="stepOne">选择场景风格</div>
+        <div class="choose-your-scenario">第一步</div>
       </div>
       <div class="Generate">
         <div
@@ -209,7 +209,7 @@ export default {
   margin-left: 5.7%;
 }
 .Generate div {
-  height: 40rem;
+  height: 40.625rem;
   width: 25%;
 
   margin-right: 5.7%;

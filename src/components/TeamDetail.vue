@@ -24,6 +24,8 @@
       </div>
       <div class="subject-subjectname">
         <div class="">
+          <div class="subject-subjectname-title">建筑/艺术设计</div>
+          <div class="subject-subjectname-num">14人</div>
           <div class="subject-subjectname-notselected"></div>
           <img
             src="../assets/Ellipse8.svg"
@@ -33,6 +35,8 @@
       </div>
       <div class="subject-subjectname">
         <div class="">
+          <div class="subject-subjectname-title">数学</div>
+          <div class="subject-subjectname-num">12人</div>
           <div class="subject-subjectname-notselected"></div>
           <img
             src="../assets/Ellipse9.svg"
@@ -42,6 +46,8 @@
       </div>
       <div class="subject-subjectname">
         <div class="">
+          <div class="subject-subjectname-title">信息与交互设计</div>
+          <div class="subject-subjectname-num">9人</div>
           <div class="subject-subjectname-notselected"></div>
           <img
             src="../assets/Ellipse10.svg"
@@ -51,6 +57,8 @@
       </div>
       <div class="subject-subjectname">
         <div class="">
+          <div class="subject-subjectname-title">金融/工商管理</div>
+          <div class="subject-subjectname-num">6人</div>
           <div class="subject-subjectname-notselected"></div>
           <img
             src="../assets/Ellipse11.svg"

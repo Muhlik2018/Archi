@@ -271,7 +271,8 @@ export default {
   height: 10.25rem;
   position: absolute;
   top: 14.6875rem;
-  left: 56.4375rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .ourTeamTitle {
   position: absolute;
