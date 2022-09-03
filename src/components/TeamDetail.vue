@@ -11,55 +11,55 @@
 
     <div class="subjectTitle">学科构成</div>
     <div class="subject">
-      <div class="subject-subjectname">
-        <div class="subject-subjectname-selected">
+      <div class="subject-subjectname" @click="selectSubject('computer')">
+        <div :class="{ selected: subject == 'computer' }">
           <div class="subject-subjectname-title">计算机与软件</div>
           <div class="subject-subjectname-num">12人</div>
-          <div class=""></div>
+          <div :class="{ notselected: subject != 'computer' }"></div>
           <img
             src="../assets/Ellipse7.svg"
             class="subject-subjectname-subjectimg"
           />
         </div>
       </div>
-      <div class="subject-subjectname">
-        <div class="">
+      <div class="subject-subjectname" @click="selectSubject('design')">
+        <div :class="{ selected: subject == 'design' }">
           <div class="subject-subjectname-title">建筑/艺术设计</div>
           <div class="subject-subjectname-num">14人</div>
-          <div class="subject-subjectname-notselected"></div>
+          <div :class="{ notselected: subject != 'design' }"></div>
           <img
             src="../assets/Ellipse8.svg"
             class="subject-subjectname-subjectimg"
           />
         </div>
       </div>
-      <div class="subject-subjectname">
-        <div class="">
+      <div class="subject-subjectname" @click="selectSubject('math')">
+        <div :class="{ selected: subject == 'math' }">
           <div class="subject-subjectname-title">数学</div>
           <div class="subject-subjectname-num">12人</div>
-          <div class="subject-subjectname-notselected"></div>
+          <div :class="{ notselected: subject != 'math' }"></div>
           <img
             src="../assets/Ellipse9.svg"
             class="subject-subjectname-subjectimg"
           />
         </div>
       </div>
-      <div class="subject-subjectname">
-        <div class="">
+      <div class="subject-subjectname" @click="selectSubject('information')">
+        <div :class="{ selected: subject == 'information' }">
           <div class="subject-subjectname-title">信息与交互设计</div>
           <div class="subject-subjectname-num">9人</div>
-          <div class="subject-subjectname-notselected"></div>
+          <div :class="{ notselected: subject != 'information' }"></div>
           <img
             src="../assets/Ellipse10.svg"
             class="subject-subjectname-subjectimg"
           />
         </div>
       </div>
-      <div class="subject-subjectname">
-        <div class="">
+      <div class="subject-subjectname" @click="selectSubject('finance')">
+        <div :class="{ selected: subject == 'finance' }">
           <div class="subject-subjectname-title">金融/工商管理</div>
           <div class="subject-subjectname-num">6人</div>
-          <div class="subject-subjectname-notselected"></div>
+          <div :class="{ notselected: subject != 'finance' }"></div>
           <img
             src="../assets/Ellipse11.svg"
             class="subject-subjectname-subjectimg"
@@ -68,7 +68,7 @@
       </div>
     </div>
 
-    <div class="title">计算机科学与软件</div>
+    <div class="title">{{SubjectCnName}}</div>
     <div class="titleDesc">项目系统开发与运营、宣传与活动</div>
 
     <div class="member">
@@ -114,18 +114,38 @@
 </template>
 
 <script>
-  
 import { useRouter } from "vue-router";
 import HeadNav from "./HeadNav.vue";
 import FooterNav from "./FooterNav.vue";
 export default {
-    setup() {
-        const router = useRouter();
-        return {
-            router,
-        };
-    },
-    components: { HeadNav, FooterNav }
+  setup() {
+    const router = useRouter();
+    return {
+      router,
+    };
+  },
+  components: { HeadNav, FooterNav },
+  data() {
+    return {
+      subject:'computer'
+    };
+  },
+  methods:{
+    selectSubject(subjectName)
+    {
+      this.subject=subjectName;
+    }
+  },
+  computed:{
+    SubjectCnName(){
+      if(this.subject=='computer')return '计算机与软件'
+      else if(this.subject=='design')return '建筑/艺术设计'
+      else if(this.subject=='math')return '数学'
+      else if(this.subject=='information')return '信息与交互设计'
+      else if(this.subject=='finance')return '金融/工商管理'
+      else return ''
+    }
+  }
 };
 </script>
 
@@ -233,7 +253,7 @@ export default {
   border-radius: 50%;
   position: absolute;
 }
-.subject-subjectname-selected {
+.selected {
   border: solid 0.9375rem transparent;
 
   left: -0.9375rem;
@@ -250,7 +270,7 @@ export default {
   position: absolute;
   vertical-align: center;
 }
-.subject-subjectname-notselected {
+.notselected {
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 0%,
@@ -337,9 +357,9 @@ export default {
   width: 19%;
   display: inline-block;
   margin-top: 4.6875rem;
-  margin-right:  5.2%;
+  margin-right: 5.2%;
 }
-.member-detailItem:nth-of-type(4n+1) {
+.member-detailItem:nth-of-type(4n + 1) {
   margin-left: 5.2%;
 }
 .member-detailItem:nth-of-type(4n) {

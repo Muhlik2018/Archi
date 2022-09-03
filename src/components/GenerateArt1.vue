@@ -14,27 +14,27 @@
       <div class="Generate">
         <div
           @click="handleClickScenerio('sketch')"
-          :class="{ currentGenerate: sketch }"
+          :class="{ currentGenerate: scenerio=='sketch' }"
         >
           <img src="../assets/image18.svg" />
           <p>天际线</p>
         </div>
         <div
           @click="handleClickScenerio('grid')"
-          :class="{ currentGenerate: grid }"
+          :class="{ currentGenerate: scenerio=='grid' }"
         >
           <img src="../assets/3c3ee662d122cf2e2a7279fc9c3c1a612.svg" />
           <p>网格</p>
         </div>
         <div
           @click="handleClickScenerio('raster')"
-          :class="{ currentGenerate: raster }"
+          :class="{ currentGenerate: scenerio=='raster' }"
         >
           <img src="../assets/image17.svg" />
           <p>条纹</p>
         </div>
       </div>
-      <div class="nextStep" v-show="isSelected" @click="goPage('GenerateArt2')">
+      <div class="nextStep" v-show="scenerio" @click="goPage('GenerateArt2')">
         下一步
       </div>
       <div class="wave"></div>
@@ -61,50 +61,22 @@ export default {
   },
   data() {
     return {
-      grid: false,
-      raster: false,
-      sketch: false,
-      fractal: false,
+      scenerio:''
     };
   },
   computed: {
-    isSelected: function () {
-      return this.grid || this.raster || this.sketch || this.fractal;
-    },
   },
   methods: {
     goPage(pageName) {
-      this.router.push({ name: pageName, params: {Scenerio:this.SelectedParams()} });
+      this.router.push({ name: pageName, params: {Scenerio:this.scenerio} });
     },
     handleClickScenerio: function (name) {
-      if (
-        (name === "grid" && this.grid) ||
-        (name === "stripe" && this.raster) ||
-        (name === "sketch" && this.sketch) ||
-        (name === "fractal" && this.fractal)
-      ) {
-        this.grid = false;
-        this.raster = false;
-        this.sketch = false;
-        this.fractal = false;
-        return;
+      if(name==this.scenerio){
+        this.scenerio=''
       }
-      this.grid = false;
-      this.raster = false;
-      this.sketch = false;
-      this.fractal = false;
-      if (name === "grid") this.grid = true;
-      else if (name === "raster") this.raster = true;
-      else if (name === "sketch") this.sketch = true;
-      else if (name === "fractal") this.fractal = true;
+      else this.scenerio=name
     },
 
-    SelectedParams: function () {
-      if (this.grid) return 'grid';
-      if (this.stripe) return 'stripe';
-      if (this.sketch) return 'sketch';
-      if (this.fractal) return 'fractal';
-    },
   },
 };
 </script>
