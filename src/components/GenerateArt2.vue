@@ -2,14 +2,14 @@
   <div class="GenerateArt2">
     <HeadNav></HeadNav>
     <div class="top">
-      <el-image src="GenerateArtTopLogo.jpg" fit="cover"></el-image>
-      <div class="top-text">generative art <br />生成艺术</div>
+      <!-- <el-image src="GenerateArtTopLogo.jpg" fit="cover"></el-image> -->
+      <div class="top-text">Archi&Casca<br />建筑印象&层叠生成艺术</div>
     </div>
-    <div class="back-btn">&lt; 返回上一步</div>
+    <div class="back-btn" @click="goPage('GenerateArt1')">&lt; 返回上一步</div>
     <div class="step2">
       <div class="step2-title">
-        <div class="step2-title-top">STEP two</div>
-        <div class="step2-title-bottom">CHOOSE YOUR SCENARIO</div>
+        <div class="step2-title-top">选择Archi与设置参数</div>
+        <div class="step2-title-bottom">第二步</div>
       </div>
       <div class="canChoose">
         <div class="canChooseTitle">选择元素</div>
@@ -108,6 +108,10 @@ export default {
     HeadNav,
     FooterNav,
   },
+  // 传递的参数，选择天际线、网格、光栅等等。。。
+  // mounted(){
+  //   console.log(this.$route.params.Scenerio);
+  // },
   setup() {
     const router = useRouter();
     let canChooseItem = reactive([
@@ -169,12 +173,15 @@ export default {
     ]);
     let generateImg = ref("Detail3-1.svg");
     let generateSize = ref(50);
+    const scenerio=ref(router.currentRoute.value.params.Scenerio);
+    
     return {
       canChooseItem,
       haveChoosenItem,
       generateImg,
       generateSize,
       router,
+      scenerio,
       modules: [Navigation],
     };
   },
@@ -216,7 +223,9 @@ export default {
   justify-content: center;
   border-radius: 1.25rem;
   width: 90%;
+  height: 31.625rem;
   margin-top: 5rem;
+  background: #ab97ff;
 }
 .top-text {
   position: absolute;
@@ -226,7 +235,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.7);
+  /* background: rgba(0, 0, 0, 0.7); */
   border-radius: 1.25rem;
   font-family: "Arimo";
   font-style: normal;
@@ -259,8 +268,8 @@ export default {
   font-family: "Arimo";
   font-style: normal;
   font-weight: 700;
-  font-size: 3rem;
-  line-height: 3.375rem;
+  font-size: 3.5rem;
+  line-height: 3.75rem;
   text-align: center;
   text-transform: uppercase;
   color: #531dab;
@@ -269,11 +278,12 @@ export default {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   line-height: 2.75rem;
   text-align: center;
   text-transform: uppercase;
   color: #531dab;
+  margin-bottom: 3rem;
 }
 
 .canChoose {
@@ -418,7 +428,7 @@ export default {
   background-image: url("~@/assets/Detail-bottom-background.svg");
   background-size: cover;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   margin-bottom: 3rem;
 }

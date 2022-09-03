@@ -6,37 +6,38 @@
         <p class="GenerateArtBack" @click="goPage('Home')">&lt;返回</p>
         <div class="GenerateArt">
           <!-- <span class="GenerateArtShadow"></span> -->
-          <div>generative art<br />生成艺术</div>
+          <div>Archi&Casca<br />建筑印象&层叠生成艺术</div>
         </div>
-        <div class="stepOne">STEP ONE</div>
-        <div class="choose-your-scenario">CHOOSE YOUR SCENARIO</div>
+        <div class="stepOne">选择场景风格</div>
+        <div class="choose-your-scenario">第一步</div>
       </div>
       <div class="Generate">
         <div
-          @click="handleClickScenerio('skyline')"
-          :class="{ currentGenerate: skyline }"
+          @click="handleClickScenerio('sketch')"
+          :class="{ currentGenerate: scenerio=='sketch' }"
         >
           <img src="../assets/image18.svg" />
           <p>天际线</p>
         </div>
         <div
           @click="handleClickScenerio('grid')"
-          :class="{ currentGenerate: grid }"
+          :class="{ currentGenerate: scenerio=='grid' }"
         >
           <img src="../assets/3c3ee662d122cf2e2a7279fc9c3c1a612.svg" />
           <p>网格</p>
         </div>
         <div
-          @click="handleClickScenerio('stripe')"
-          :class="{ currentGenerate: stripe }"
+          @click="handleClickScenerio('raster')"
+          :class="{ currentGenerate: scenerio=='raster' }"
         >
           <img src="../assets/image17.svg" />
           <p>条纹</p>
         </div>
       </div>
-      <div class="nextStep" v-show="isSelected" @click="goPage('GenerateArt2')"><!-- 这里改成GenerateArt2 -->
+      <div class="nextStep" v-show="scenerio" @click="goPage('GenerateArt2')">
         下一步
       </div>
+      <div class="wave"></div>
     </div>
     <FooterNav></FooterNav>
   </div>
@@ -60,50 +61,29 @@ export default {
   },
   data() {
     return {
-      grid: false,
-      stripe: false,
-      skyline: false,
-      fractal: false,
+      scenerio:''
     };
   },
   computed: {
-    isSelected: function () {
-      return this.grid || this.stripe || this.skyline || this.fractal;
-    },
   },
   methods: {
-    handleClickScenerio: function (name) {
-      if (
-        (name === "grid" && this.grid) ||
-        (name === "stripe" && this.stripe) ||
-        (name === "skyline" && this.skyline) ||
-        (name === "fractal" && this.fractal)
-      ) {
-        this.grid = false;
-        this.stripe = false;
-        this.skyline = false;
-        this.fractal = false;
-        return;
-      }
-      this.grid = false;
-      this.stripe = false;
-      this.skyline = false;
-      this.fractal = false;
-      if (name === "grid") this.grid = true;
-      else if (name === "stripe") this.stripe = true;
-      else if (name === "skyline") this.skyline = true;
-      else if (name === "fractal") this.fractal = true;
-    },
     goPage(pageName) {
-      this.router.push({ name: pageName });
+      this.router.push({ name: pageName, params: {Scenerio:this.scenerio} });
     },
+    handleClickScenerio: function (name) {
+      if(name==this.scenerio){
+        this.scenerio=''
+      }
+      else this.scenerio=name
+    },
+
   },
 };
 </script>
 
 <style scoped>
 .GenerateArt1 {
-  width: 120rem;
+  width: 100%;
   margin: 0 auto;
 }
 .GenerateArtBack {
@@ -121,15 +101,15 @@ export default {
   cursor: pointer;
 }
 .GenerateArt {
-  width: 107.4375rem;
+  width: 89.5%;
   height: 31.625rem;
 
   margin-top: 3.625rem;
-  margin-left: 6.3125rem;
+  margin-left: 5.2%;
   border-radius: 1.25rem;
-  
-  background: #AB97FF;
-  
+
+  background: #ab97ff;
+
   position: relative;
 }
 .GenerateArt > div {
@@ -138,7 +118,7 @@ export default {
   left: 50%;
   top: 50%;
   transform: translateY(-50%) translateX(-50%);
-  
+
   position: absolute;
 
   font-family: "Arimo";
@@ -153,11 +133,11 @@ export default {
 .GenerateArtShadow {
   width: 100%;
   height: 100%;
-  
+
   border-radius: 1.25rem;
 
   position: absolute;
-  
+
   background: rgba(0, 0, 0, 0.7);
 }
 .stepOne {
@@ -188,27 +168,30 @@ export default {
 
 .Generate {
   height: 40.625rem;
-  width: 107.5rem;
+  width: 87.5%;
 
   margin: 0 auto;
   margin-top: 3.875rem;
-  
+
   display: flex;
   flex-wrap: wrap;
   /* position: relative; */
 }
 
+.Generate div:nth-of-type(1) {
+  margin-left: 5.7%;
+}
 .Generate div {
   height: 40.625rem;
-  width: 31.25rem;
-  
-  margin-right: 6.25rem;
+  width: 25%;
+
+  margin-right: 5.7%;
   margin-bottom: 6.25rem;
   border-radius: 1.25rem;
   box-sizing: border-box;
-  
+
   background: rgba(83, 29, 171, 0.2);
-  
+
   position: relative;
 
   cursor: pointer;
@@ -223,14 +206,14 @@ export default {
 }
 .Generate p {
   height: auto;
-  
+
   left: 50%;
   top: 35.5rem;
   transform: translateX(-50%);
   margin: 0;
-  
+
   position: absolute;
-  
+
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -244,18 +227,16 @@ export default {
   background: rgba(83, 29, 171, 0.4);
 }
 .Generate img {
-  
-  width: 65%;
-  
+  width: 60%;
+
   left: 50%;
   top: 10%;
   transform: translateX(-50%);
-  
+
   position: absolute;
-  
 }
 .nextStep {
-  width: 20.1875rem;
+  width: 16.6%;
   height: 6.25rem;
 
   margin: 0 auto;
@@ -264,7 +245,6 @@ export default {
 
   background: #faed00;
   box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
-  
 
   font-family: "Inter";
   font-style: normal;
@@ -277,4 +257,13 @@ export default {
 
   cursor: pointer;
 }
+.wave{
+  width: 100%;
+  margin-top: 5.6875rem;
+  height: 25rem;
+  background: url('../assets/wave.svg');
+}
+/* .wave>img{
+  width: 100%;
+} */
 </style>

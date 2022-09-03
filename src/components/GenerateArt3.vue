@@ -3,15 +3,15 @@
     <HeadNav></HeadNav>
     <div class="GenerateArt1">
       <div class="GenerateArt3">
-        <div>generative art<br />生成艺术</div>
+        <div>Archi&Casca<br />建筑印象&层叠生成艺术</div>
       </div>
 
       <!-- 这里改成GenerateArt2 -->
       <p class="GenerateArtBack3" @click="goPage('GenerateArt1')">
         &lt;返回上一步
       </p>
-      <div class="stepOne3">STEP THREE</div>
-      <div class="choose-your-scenario">Dowloead YOUR Work</div>
+      <div class="stepOne3">下载您的画作</div>
+      <div class="choose-your-scenario">第三步</div>
       <div class="GenerateArtDownload">
         <!-- <div>
           <div class="GenerateArtImg">
@@ -37,12 +37,10 @@
           <el-carousel
             :interval="100000"
             arrow="always"
-            style="width: 100%; 
-            height: 100%; 
-            background: rgba(0, 0, 0, 0)"
+            style="width: 100%; height: 100%; background: rgba(0, 0, 0, 0)"
           >
             <el-carousel-item v-for="item in swiper" :key="item">
-              <img :src="item.img"/>
+              <img :src="item.img" />
             </el-carousel-item>
             <div class="footer">
               <div style="flex: 1">
@@ -52,7 +50,7 @@
                   class="inputName"
                   placeholder="输入你的名字"
                 />
-                <div class="date">2022.08.04</div>
+                <div class="date">{{ date }}</div>
               </div>
               <div style="flex: 1">
                 <div class="google">
@@ -89,16 +87,17 @@
           <div class="codeScan">扫码下载你的作品</div>
         </div> -->
         <div>
-          <div class="RightDate">2022.08.04</div>
+          <div class="RightDate">{{ date }}</div>
           <div style="margin: 0 auto; text-align: center">
             <input class="RightinputName" v-model="inputName" />
           </div>
           <p class="RightinputNameDesc">输入你的名字</p>
-          <div class="download" ><img src="../assets/Group483.svg"/></div>
+          <div class="download"><img src="../assets/Group483.svg" /></div>
           <div class="download-qrcode"><img src="../assets/image23.svg" /></div>
           <div class="codeScan">扫码下载你的作品</div>
         </div>
       </div>
+      <div class="wave"></div>
     </div>
 
     <FooterNav></FooterNav>
@@ -117,6 +116,10 @@ export default {
       router,
     };
   },
+  created() {
+    let tmpDate = new Date();
+    this.date = this.transDate(tmpDate);
+  },
   components: {
     HeadNav,
     FooterNav,
@@ -131,10 +134,20 @@ export default {
       }
       this.color[index].isSelected = true;
     },
+    transDate(date) {
+      const year = date.getFullYear();
+      const month =
+        date.getMonth() + 1 > 10
+          ? date.getMonth() + 1
+          : "0" + (date.getMonth() + 1);
+      const day = date.getDate() > 10 ? date.getDate() : "0" + date.getDate();
+      return `${year}.${month}.${day}`;
+    },
   },
   data() {
     return {
       inputName: "小锅焖大米",
+      date: "",
       // color: [
       //   {
       //     isSelected: true,
@@ -175,7 +188,7 @@ export default {
 
 <style scoped>
 .GenerateArt1 {
-  width: 120rem;
+  width: 100%;
 
   margin: 0 auto;
 }
@@ -194,7 +207,7 @@ export default {
   cursor: pointer;
 }
 .GenerateArt3 {
-  width: 107.4375rem;
+  width: 89.5%;
   height: 31.625rem;
 
   margin-top: 3.625rem;
@@ -262,12 +275,12 @@ export default {
   /* width: 94.75rem;
   height: 72.8125rem; */
 
-  width: 93.75rem;
+  width: 78%;
   height: 66.8rem;
 
   margin: 0 auto;
   margin-top: 11.6875rem;
-  margin-left: 13.125rem;
+  margin-left: 11%;
   border-radius: 1.875rem;
 
   background: linear-gradient(
@@ -291,7 +304,7 @@ export default {
   margin-left: 3.6875rem;
   margin-top: 3.75rem; */
 
-   width: 41.25rem;
+  width: 34.3%;
   height: 59.6875rem;
 
   margin-left: 3.6875rem;
@@ -307,7 +320,7 @@ export default {
 
   margin-top: 1.25rem;
   margin-left: 1.5625rem; */
-  width: 38.125rem;  
+  width: 32%;
   height: 51.875rem;
 
   margin-top: 1.25rem;
@@ -534,7 +547,7 @@ export default {
   width: 7.125rem;
   height: 6.625rem;
 }
-.download img{
+.download img {
   width: 100%;
   height: 100%;
 }
@@ -545,7 +558,7 @@ export default {
   width: 17.5rem;
   height: 17.5rem;
 }
-.download-qrcode img{
+.download-qrcode img {
   width: 100%;
   height: 100%;
 }
@@ -613,7 +626,12 @@ export default {
   .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
   } */
-
+.wave {
+  width: 100%;
+  margin-top: 5.6875rem;
+  height: 25rem;
+  background: url("../assets/wave.svg");
+}
 </style>
 <style>
 .GenerateArt1 .el-carousel__container {
