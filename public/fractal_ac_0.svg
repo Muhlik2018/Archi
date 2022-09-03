@@ -1,332 +1,332 @@
 <?xml version="1.0" encoding="GBK"?>
 <svg width="747.8672682776465" height="1000" viewBox="0 0 747.8672682776465 1000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<svg id="fractal_archi_001" x="74.78672682776465" y="74.78672682776465" width="199.43127154070575" height="400.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="74.78672682776465" y="74.78672682776465" width="199.43127154070575" height="400.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="274.2179983684704" y="74.78672682776465" width="99.71563577035288" height="200.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="274.2179983684704" y="74.78672682776465" width="99.71563577035288" height="200.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="373.93363413882327" y="74.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="373.93363413882327" y="74.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="398.8625430814115" y="74.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="398.8625430814115" y="74.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="423.7914520239997" y="74.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="423.7914520239997" y="74.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="448.7203609665879" y="74.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="448.7203609665879" y="74.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="473.64926990917616" y="74.78672682776465" width="99.71563577035288" height="200.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="473.64926990917616" y="74.78672682776465" width="99.71563577035288" height="200.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="573.364905679529" y="74.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="573.364905679529" y="74.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="373.93363413882327" y="124.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="373.93363413882327" y="124.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="398.8625430814115" y="124.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="398.8625430814115" y="124.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="423.7914520239997" y="124.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="423.7914520239997" y="124.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="448.7203609665879" y="124.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="448.7203609665879" y="124.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="623.2227235647055" y="124.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="623.2227235647055" y="124.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="373.93363413882327" y="174.78672682776465" width="99.71563577035288" height="200.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="373.93363413882327" y="174.78672682776465" width="99.71563577035288" height="200.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="573.364905679529" y="174.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="573.364905679529" y="174.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="623.2227235647055" y="224.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="623.2227235647055" y="224.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="274.2179983684704" y="274.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="274.2179983684704" y="274.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="473.64926990917616" y="274.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="473.64926990917616" y="274.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="523.5070877943526" y="274.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="523.5070877943526" y="274.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="573.364905679529" y="274.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="573.364905679529" y="274.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="548.4359967369409" y="299.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="548.4359967369409" y="299.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="324.0758162536468" y="324.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="324.0758162536468" y="324.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="523.5070877943526" y="324.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="523.5070877943526" y="324.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="623.2227235647055" y="324.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="623.2227235647055" y="324.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="548.4359967369409" y="349.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="548.4359967369409" y="349.78672682776465" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="274.2179983684704" y="374.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="274.2179983684704" y="374.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="373.93363413882327" y="374.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="373.93363413882327" y="374.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="436.2559064952938" y="374.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="436.2559064952938" y="374.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="461.18481543788204" y="374.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="461.18481543788204" y="374.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="473.64926990917616" y="374.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="473.64926990917616" y="374.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="573.364905679529" y="374.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="573.364905679529" y="374.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="423.7914520239997" y="399.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="423.7914520239997" y="399.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="448.7203609665879" y="399.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="448.7203609665879" y="399.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="523.5070877943526" y="399.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="523.5070877943526" y="399.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="324.0758162536468" y="424.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="324.0758162536468" y="424.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="423.7914520239997" y="424.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="423.7914520239997" y="424.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="623.2227235647055" y="424.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="623.2227235647055" y="424.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="74.78672682776465" y="474.78672682776465" width="99.71563577035288" height="200.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="74.78672682776465" y="474.78672682776465" width="99.71563577035288" height="200.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="174.50236259811754" y="474.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="174.50236259811754" y="474.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="224.360180483294" y="474.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="224.360180483294" y="474.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="236.8246349545881" y="474.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="236.8246349545881" y="474.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="249.2890894258822" y="474.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="249.2890894258822" y="474.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="261.7535438971763" y="474.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="261.7535438971763" y="474.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="373.93363413882327" y="474.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="373.93363413882327" y="474.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="573.364905679529" y="474.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="573.364905679529" y="474.78672682776465" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="224.360180483294" y="499.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="224.360180483294" y="499.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="236.8246349545881" y="499.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="236.8246349545881" y="499.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="249.2890894258822" y="499.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="249.2890894258822" y="499.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="261.7535438971763" y="499.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="261.7535438971763" y="499.78672682776465" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="473.64926990917616" y="499.78672682776465" width="99.71563577035288" height="200.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="473.64926990917616" y="499.78672682776465" width="99.71563577035288" height="200.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="224.360180483294" y="524.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="224.360180483294" y="524.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="274.2179983684704" y="524.7867268277646" width="99.71563577035288" height="200.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="274.2179983684704" y="524.7867268277646" width="99.71563577035288" height="200.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="423.7914520239997" y="524.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="423.7914520239997" y="524.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="623.2227235647055" y="524.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="623.2227235647055" y="524.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="654.3838597429408" y="524.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="654.3838597429408" y="524.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="666.8483142142348" y="524.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="666.8483142142348" y="524.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="648.1516325072937" y="537.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="648.1516325072937" y="537.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="660.6160869785878" y="537.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="660.6160869785878" y="537.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="648.1516325072937" y="549.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="648.1516325072937" y="549.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="174.50236259811754" y="574.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="174.50236259811754" y="574.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="373.93363413882327" y="574.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="373.93363413882327" y="574.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="573.364905679529" y="574.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="573.364905679529" y="574.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="598.2938146221172" y="574.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="598.2938146221172" y="574.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="623.2227235647055" y="574.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="623.2227235647055" y="574.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="610.7582690934113" y="587.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="610.7582690934113" y="587.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="635.6871780359995" y="587.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="635.6871780359995" y="587.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="598.2938146221172" y="599.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="598.2938146221172" y="599.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="623.2227235647055" y="599.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="623.2227235647055" y="599.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="648.1516325072937" y="599.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="648.1516325072937" y="599.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="610.7582690934113" y="612.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="610.7582690934113" y="612.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="635.6871780359995" y="612.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="635.6871780359995" y="612.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="224.360180483294" y="624.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="224.360180483294" y="624.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="423.7914520239997" y="624.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="423.7914520239997" y="624.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="573.364905679529" y="624.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="573.364905679529" y="624.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="598.2938146221172" y="624.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="598.2938146221172" y="624.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="610.7582690934113" y="637.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="610.7582690934113" y="637.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="623.2227235647055" y="637.2867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="623.2227235647055" y="637.2867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="598.2938146221172" y="649.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="598.2938146221172" y="649.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="648.1516325072937" y="649.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="648.1516325072937" y="649.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="610.7582690934113" y="662.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="610.7582690934113" y="662.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="660.6160869785878" y="662.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="660.6160869785878" y="662.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="74.78672682776465" y="674.7867268277646" width="99.71563577035288" height="200.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="74.78672682776465" y="674.7867268277646" width="99.71563577035288" height="200.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="174.50236259811754" y="674.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="174.50236259811754" y="674.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="373.93363413882327" y="674.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="373.93363413882327" y="674.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="648.1516325072937" y="674.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="648.1516325072937" y="674.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="573.364905679529" y="687.2867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="573.364905679529" y="687.2867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="623.2227235647055" y="687.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="623.2227235647055" y="687.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="660.6160869785878" y="687.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="660.6160869785878" y="687.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="473.64926990917616" y="699.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="473.64926990917616" y="699.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="523.5070877943526" y="699.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="523.5070877943526" y="699.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="535.9715422656467" y="699.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="535.9715422656467" y="699.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="548.4359967369409" y="699.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="548.4359967369409" y="699.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="560.9004512082349" y="699.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="560.9004512082349" y="699.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="635.6871780359995" y="699.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="635.6871780359995" y="699.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="623.2227235647055" y="712.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="623.2227235647055" y="712.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="648.1516325072937" y="712.2867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="648.1516325072937" y="712.2867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="224.360180483294" y="724.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="224.360180483294" y="724.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="274.2179983684704" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="274.2179983684704" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="286.6824528397645" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="286.6824528397645" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="299.1469073110586" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="299.1469073110586" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="311.6113617823527" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="311.6113617823527" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="324.0758162536468" y="724.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="324.0758162536468" y="724.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="355.23695243188206" y="724.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="355.23695243188206" y="724.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="367.7014069031762" y="724.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="367.7014069031762" y="724.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="423.7914520239997" y="724.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="423.7914520239997" y="724.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="523.5070877943526" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="523.5070877943526" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="535.9715422656467" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="535.9715422656467" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="548.4359967369409" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="548.4359967369409" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="560.9004512082349" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="560.9004512082349" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="635.6871780359995" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="635.6871780359995" y="724.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="349.00472519623503" y="737.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="349.00472519623503" y="737.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="361.46917966752915" y="737.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="361.46917966752915" y="737.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="274.2179983684704" y="749.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="274.2179983684704" y="749.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="286.6824528397645" y="749.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="286.6824528397645" y="749.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="299.1469073110586" y="749.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="299.1469073110586" y="749.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="311.6113617823527" y="749.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="311.6113617823527" y="749.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="349.00472519623503" y="749.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="349.00472519623503" y="749.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="523.5070877943526" y="749.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="523.5070877943526" y="749.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="623.2227235647055" y="749.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="623.2227235647055" y="749.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="648.1516325072937" y="762.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="648.1516325072937" y="762.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="174.50236259811754" y="774.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="174.50236259811754" y="774.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="274.2179983684704" y="774.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="274.2179983684704" y="774.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="324.0758162536468" y="774.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="324.0758162536468" y="774.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="373.93363413882327" y="774.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="373.93363413882327" y="774.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="660.6160869785878" y="774.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="660.6160869785878" y="774.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="573.364905679529" y="787.2867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="573.364905679529" y="787.2867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="598.2938146221172" y="787.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="598.2938146221172" y="787.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="604.5260418577643" y="787.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="604.5260418577643" y="787.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="610.7582690934113" y="787.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="610.7582690934113" y="787.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="616.9904963290584" y="787.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="616.9904963290584" y="787.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="648.1516325072937" y="787.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="648.1516325072937" y="787.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="349.00472519623503" y="799.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="349.00472519623503" y="799.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="473.64926990917616" y="799.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="473.64926990917616" y="799.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="598.2938146221172" y="799.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="598.2938146221172" y="799.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="604.5260418577643" y="799.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="604.5260418577643" y="799.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="610.7582690934113" y="799.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="610.7582690934113" y="799.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="616.9904963290584" y="799.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="616.9904963290584" y="799.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light_reverse" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="623.2227235647055" y="799.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="623.2227235647055" y="799.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="660.6160869785878" y="799.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="660.6160869785878" y="799.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="598.2938146221172" y="812.2867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="598.2938146221172" y="812.2867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="635.6871780359995" y="812.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="635.6871780359995" y="812.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="224.360180483294" y="824.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="224.360180483294" y="824.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="423.7914520239997" y="824.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="423.7914520239997" y="824.7867268277646" width="49.85781788517644" height="100.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="623.2227235647055" y="824.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="623.2227235647055" y="824.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="648.1516325072937" y="824.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="648.1516325072937" y="824.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="573.364905679529" y="837.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="573.364905679529" y="837.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="635.6871780359995" y="837.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="635.6871780359995" y="837.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="523.5070877943526" y="849.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="523.5070877943526" y="849.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="554.668223972588" y="849.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="554.668223972588" y="849.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="567.132678443882" y="849.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="567.132678443882" y="849.7867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="585.829360150823" y="849.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="585.829360150823" y="849.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="548.4359967369409" y="862.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="548.4359967369409" y="862.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="560.9004512082349" y="862.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="560.9004512082349" y="862.2867268277646" width="6.232227235647055" height="12.5" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="573.364905679529" y="862.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="573.364905679529" y="862.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="598.2938146221172" y="862.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="598.2938146221172" y="862.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="623.2227235647055" y="862.2867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="623.2227235647055" y="862.2867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="548.4359967369409" y="874.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="548.4359967369409" y="874.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="585.829360150823" y="874.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="585.829360150823" y="874.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="610.7582690934113" y="874.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="610.7582690934113" y="874.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="648.1516325072937" y="874.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="648.1516325072937" y="874.7867268277646" width="24.92890894258822" height="50.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="598.2938146221172" y="887.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="598.2938146221172" y="887.2867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_light" transform="rotate(0)"/></svg>
-<svg id="fractal_archi_001" x="610.7582690934113" y="899.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="fractal_archi_001" x="610.7582690934113" y="899.7867268277646" width="12.46445447129411" height="25.0" viewBox="-1.52587890625e-05 0 554.030029296875 1111.219970703125" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_fractal_archi_001_deep" transform="rotate(0)"/></svg>
 <text x="74.78672682776465" y="964.7867268277646">分形风格示例</text>
 <text x="74.78672682776465" y="984.7867268277646">2022.09.02</text>
-<svg id="GDS+UR" x="325.98080937457536" y="944.7867268277646" width="347.09973207530646" height="40.0" viewBox="80.85000610351562 69.80000305175781 1215.6300048828125 140.08999633789062" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
+<svg id="GDS+UR" x="325.98080937457536" y="944.7867268277646" width="347.09973207530646" height="40.0" viewBox="80.85000610351562 69.80000305175781 1215.6300048828125 140.08999633789062" onclick="printInfo(this)" preserveAspectRatio="xMidYMax meet" xml:space="preserve">
 <use xlink:href="#archi_GDS+UR"/></svg>
 <defs>
 <g id='archi_fractal_archi_001_deep'>

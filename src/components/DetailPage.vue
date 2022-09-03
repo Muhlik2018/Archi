@@ -1,14 +1,27 @@
 <template>
   <div class="DetailPage">
-  <HeadNav></HeadNav>
+    <HeadNav></HeadNav>
     <div class="back-button">&lt; 返回</div>
     <div class="photo-detail">
       <div class="photo-preview">
-        <object type="image/svg+xml" data="raster.svg"  alt="" style="min-height: 78rem;"></object>
-        <div class="photo-preview-text">
+        <!-- <object id="svgContainer" type="image/svg+xml" data="raster.svg"  alt="" style="min-height: 78rem;" @click="printInfo(this)"></object> -->
+        <!-- <embed
+          id="svgContainer"
+          type="image/svg+xml"
+          src="fractal_ac_0.svg"
+          style="min-height: 78rem"
+        /> -->
+        <div
+          id="svgTemplate"
+          v-html="renderSVG.value"
+          ref="svg"
+          @click="printInfo($event)"
+        ></div>
+        <div class="photo-preview-text" id="DetailPage-photo-preview-text">
+          {{ photoInfo }}
+          <!-- Text description pop-up window of the element selected in the svg.
           Text description pop-up window of the element selected in the svg.
-          Text description pop-up window of the element selected in the svg.
-          Text description pop-up window of the element selected in the svg.
+          Text description pop-up window of the element selected in the svg. -->
         </div>
       </div>
       <hr style="width: 100%" />
@@ -65,7 +78,7 @@
       </div>
     </div>
     <hr style="width: 95%" />
-  <FooterNav></FooterNav>
+    <FooterNav></FooterNav>
   </div>
 </template>
 
@@ -74,20 +87,19 @@ import HeadNav from "./HeadNav.vue";
 import FooterNav from "./FooterNav.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
-import { reactive } from "@vue/reactivity";
+import { reactive, ref } from "@vue/reactivity";
 import { useRouter, useRoute } from "vue-router";
+import { onMounted } from "@vue/runtime-core";
+import SVG from "@/assets/fractal_ac_0.svg";
 
-// eslint-disable-next-line no-unused-vars
-function printInfo(e){
-  console.log(e);
-}
 export default {
   name: "DetailPage",
-  components: { 
-    Swiper, 
-    SwiperSlide,     
+  components: {
+    Swiper,
+    SwiperSlide,
     HeadNav,
-    FooterNav},
+    FooterNav,
+  },
   setup() {
     const router = useRouter();
     const route = useRoute();
@@ -115,19 +127,45 @@ export default {
         author: "作家",
       },
     ]);
-    let printInfo=(e)=>{
-      console.log('e',e)
-    }
-    // let showInfo=()=>{
-    //   console.log('e','e');
-    // }
-    
+    let photoInfo = ref(
+      "Text description pop-up window of the element selected in the svg.Text description pop-up window of the element selected in the svg.Text description pop-up window of the element selected in the svg.Text description pop-up window of the element selected in the svg.Text description pop-up window of the element selected in the svg.Text description pop-up window of the element selected in the svg.Text description pop-up window of the element selected in the svg."
+    );
+    let svgDOM = reactive({});
+    let renderSVG = reactive({});
+    // let windowTemp=ref("1");
+    onMounted(() => {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", SVG, true);
+      xhr.send();
+      xhr.addEventListener("load", () => {
+        const resXML = xhr.responseXML;
+        svgDOM.value = resXML.documentElement.cloneNode(true);
+        svgDOM.value.style.width = "64rem";
+        svgDOM.value.style.height = "75rem";
+        let serializer = new XMLSerializer();
+        let sXML = serializer.serializeToString(svgDOM.value);
+        renderSVG.value = sXML;
+      });
+    });
+    let printInfo = (e) => {
+      let temp = e.path.find((element) => {
+        console.log("element", element.nodeName);
+        return element.nodeName == "svg" && element.id != "";
+      });
+      console.log("temp", temp);
+      if (temp) {
+        photoInfo.value = temp.id+" 随机数测试："+Math.random();
+      }
+    };
     return {
       morePhotoContext,
       detailId,
       picutreId,
       router,
       route,
+      svgDOM,
+      renderSVG,
+      photoInfo,
       printInfo,
     };
   },
@@ -188,6 +226,10 @@ export default {
   padding: 1rem;
   background: rgba(240, 240, 240, 0.7);
   margin-bottom: 6rem;
+
+  background: #ffffff;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 32px;
 }
 .photo-detail-text {
   width: 100%;
