@@ -175,7 +175,7 @@ export default {
 
 <style scoped>
 .GenerateArt1 {
-  width: 120rem;
+  width: 100%;
 
   margin: 0 auto;
 }
@@ -194,7 +194,7 @@ export default {
   cursor: pointer;
 }
 .GenerateArt3 {
-  width: 107.4375rem;
+  width: 89.5%;
   height: 31.625rem;
 
   margin-top: 3.625rem;
@@ -262,12 +262,12 @@ export default {
   /* width: 94.75rem;
   height: 72.8125rem; */
 
-  width: 93.75rem;
+  width: 78%;
   height: 66.8rem;
 
   margin: 0 auto;
   margin-top: 11.6875rem;
-  margin-left: 13.125rem;
+  margin-left: 11%;
   border-radius: 1.875rem;
 
   background: linear-gradient(
@@ -291,7 +291,7 @@ export default {
   margin-left: 3.6875rem;
   margin-top: 3.75rem; */
 
-   width: 41.25rem;
+   width: 34.3%;
   height: 59.6875rem;
 
   margin-left: 3.6875rem;
@@ -307,7 +307,7 @@ export default {
 
   margin-top: 1.25rem;
   margin-left: 1.5625rem; */
-  width: 38.125rem;  
+  width: 32%;  
   height: 51.875rem;
 
   margin-top: 1.25rem;

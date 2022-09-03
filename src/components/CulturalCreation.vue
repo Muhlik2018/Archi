@@ -14,16 +14,16 @@
         <div><img src="../assets/Vector6.svg" /></div>
       </div>
 
-      <div>
-        <div class="paint" style="width: 120rem; height: 19.9375rem">
+      <div style="width: 100%;">
+        <div class="paint" style="width: 100%; height: 19.9375rem">
           <div>
             <div class="paintTitle">珐琅画</div>
             <div class="paintContent">
               珐琅画的介绍珐琅画的介绍珐琅画的介绍珐琅画的介绍珐琅画的介绍珐琅画的介绍珐琅画的介绍
             </div>
-            <div class="Rectangle19" style="top:95%;left:215%;transform: translateX(-50%) translateY(-50%);">
-              <img src="../assets/Rectangle19.svg" alt="" />
-            </div>
+          </div>
+          <div class="Rectangle19" style="">
+            <img src="../assets/Rectangle19.svg" alt="" />
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@ export default {
 <style scoped>
 .culturalCreationBackground {
   background: url("../assets/Rectangle20.svg") no-repeat;
-  width: 120rem;
+  width: 100%;
   height: 65rem;
   margin: 0 auto;
   background-size: cover;
@@ -61,7 +61,7 @@ export default {
   margin: 0 auto;
   margin-top: 13.6875rem;
   height: 111.25rem;
-  width: 120rem;
+  width: 100%;
 }
 .content > div {
   height: 33%;
@@ -79,7 +79,6 @@ export default {
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  
 }
 .paint {
   width: 100%;
@@ -90,14 +89,17 @@ export default {
     rgba(146, 250, 255, 0.5) 107.97%
   );
   margin-top: 5.5rem;
+  
 }
 .paint > div {
-  margin-left: 26rem;
+  left: 21%;
+  top:50%;
+  transform: translateX(0) translateY(-70%);
   margin-top: 2.3125rem;
   height: 13rem;
   width: 34.25rem;
 
-  position: relative;
+  position: absolute;
 }
 .paintTitle {
   font-family: "Amaranth";
@@ -125,9 +127,11 @@ export default {
 
   color: #606060;
 }
-.Rectangle19 {
+.paint>.Rectangle19 {
   position: absolute;
-  left: 75.0625rem;
+  top: 30%;
+  left: 94%;
+  transform: translateX(-100%) translateY(0);
 }
 .Rectangle19 > img {
   border-bottom-left-radius: 50%;
@@ -180,5 +184,3 @@ export default {
   color: #ffffff;
 }
 </style>
-
-<!-- 20220811 晚-->

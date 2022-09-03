@@ -110,7 +110,7 @@ export default {
 
 <style scoped>
 .GenerateArt1 {
-  width: 120rem;
+  width: 100%;
   margin: 0 auto;
 }
 .GenerateArtBack {
@@ -128,11 +128,11 @@ export default {
   cursor: pointer;
 }
 .GenerateArt {
-  width: 107.4375rem;
+  width: 89.5%;
   height: 31.625rem;
 
   margin-top: 3.625rem;
-  margin-left: 6.3125rem;
+  margin-left: 5.2%;
   border-radius: 1.25rem;
 
   background: #ab97ff;
@@ -195,7 +195,7 @@ export default {
 
 .Generate {
   height: 40.625rem;
-  width: 107.5rem;
+  width: 87.5%;
 
   margin: 0 auto;
   margin-top: 3.875rem;
@@ -205,11 +205,14 @@ export default {
   /* position: relative; */
 }
 
+.Generate div:nth-of-type(1) {
+  margin-left: 5.7%;
+}
 .Generate div {
-  height: 40.625rem;
-  width: 31.25rem;
+  height: 40rem;
+  width: 25%;
 
-  margin-right: 6.25rem;
+  margin-right: 5.7%;
   margin-bottom: 6.25rem;
   border-radius: 1.25rem;
   box-sizing: border-box;
@@ -251,7 +254,7 @@ export default {
   background: rgba(83, 29, 171, 0.4);
 }
 .Generate img {
-  width: 65%;
+  width: 60%;
 
   left: 50%;
   top: 10%;
@@ -260,7 +263,7 @@ export default {
   position: absolute;
 }
 .nextStep {
-  width: 20.1875rem;
+  width: 16.6%;
   height: 6.25rem;
 
   margin: 0 auto;
