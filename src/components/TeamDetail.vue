@@ -1,5 +1,6 @@
 <template>
   <div class="TeamDetail">
+    <HeadNav></HeadNav>
     <div class="ourTeam">
       <img src="../assets/BigLogo.svg" />
       <div class="ourTeamBottom">
@@ -100,19 +101,23 @@
         <div class="member-detailItem-workfor">项目负责人</div>
       </div>
     </div>
+    <FooterNav></FooterNav>
   </div>
 </template>
 
 <script>
   
 import { useRouter } from "vue-router";
+import HeadNav from "./HeadNav.vue";
+import FooterNav from "./FooterNav.vue";
 export default {
-  setup() {
-    const router = useRouter();
-    return {
-      router,
-    };
-  },
+    setup() {
+        const router = useRouter();
+        return {
+            router,
+        };
+    },
+    components: { HeadNav, FooterNav }
 };
 </script>
 
