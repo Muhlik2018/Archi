@@ -73,9 +73,19 @@
       <div class="chooseColor">
         <div class="chooseColorTitle">选择配色：</div>
         <div class="colorDiv">
-          <div class="colorBox"></div>
-          <div class="colorBox"></div>
-          <div class="colorBox"></div>
+          <Swiper navigation :modules="modules" :slidesPerView="3.5">
+            <swiper-slide v-for="item in 7" :key="item">
+              <div class="colorBox">
+                <div class="colorBoxInner1" style="background-color:red">
+                  <div class="colorBoxInner2" style="background-color:gold">
+                    <div class="colorBoxInner3" style="background-color:green"></div>
+                  </div>
+                </div>
+              </div>
+            </swiper-slide>
+          </Swiper>
+          <!-- <div class="colorBox"></div> -->
+          <!-- <div class="colorBox"></div> -->
         </div>
       </div>
       <div class="todo-button-outer">
@@ -173,8 +183,8 @@ export default {
     ]);
     let generateImg = ref("Detail3-1.svg");
     let generateSize = ref(50);
-    const scenerio=ref(router.currentRoute.value.params.Scenerio);
-    
+    const scenerio = ref(router.currentRoute.value.params.Scenerio);
+
     return {
       canChooseItem,
       haveChoosenItem,
@@ -190,13 +200,14 @@ export default {
       this.router.push({ name: pageName });
     },
     SwitchElement(id) {
-      const target = this.canChooseItem.findIndex((item) => (item.id == id));
+      const target = this.canChooseItem.findIndex((item) => item.id == id);
       if (this.canChooseItem[target].selected) {
-        const removeTarget=this.haveChoosenItem.findIndex((item)=>(item.id == id))
-        this.haveChoosenItem.splice(removeTarget,1);
+        const removeTarget = this.haveChoosenItem.findIndex(
+          (item) => item.id == id
+        );
+        this.haveChoosenItem.splice(removeTarget, 1);
         this.canChooseItem[target].selected = false;
-      } 
-      else {
+      } else {
         this.haveChoosenItem.push({
           id: id,
           src: this.canChooseItem[target].src,
@@ -414,13 +425,45 @@ export default {
 }
 .colorDiv {
   display: flex;
+  width: 35rem;
+}
+.colorDiv .swiper-slide {
+  width: 5.5rem !important;
+  margin: 0 2rem;
 }
 .colorBox {
   width: 5.5rem;
   height: 5.5rem;
   margin: 1.5rem;
-  background: linear-gradient(0deg, #4472c4, #4472c4),
-    linear-gradient(0deg, #4472c4, #4472c4), #4472c4;
+  /* background: linear-gradient(0deg, #4472c4, #4472c4),
+    linear-gradient(0deg, #4472c4, #4472c4), #4472c4; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.colorBox .hadSelected{
+  border: #ab97ff 2px dotted;
+}
+.colorBoxInner1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+}
+.colorBoxInner2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+.colorBoxInner3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
 }
 .todo-button-outer {
   width: 100%;
