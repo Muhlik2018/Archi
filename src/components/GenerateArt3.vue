@@ -93,11 +93,20 @@
           </div>
           <p class="RightinputNameDesc">输入你的名字</p>
           <div class="download"><img src="../assets/Group483.svg" /></div>
-          <div class="download-qrcode"><img src="../assets/image23.svg" /></div>
+          <div class="download-qrcode">
+            <vue-qr
+              ref="qrCode"
+              :text="textValue"
+              :logoSrc="logoPath"
+              :logoScale="10"
+              :size="500"
+            />
+          </div>
           <div class="codeScan">扫码下载你的作品</div>
         </div>
       </div>
       <div class="wave"></div>
+      <!-- <div style="width:100px;height:100px"><img src="../assets/image23.svg"></div> -->
     </div>
 
     <FooterNav></FooterNav>
@@ -109,6 +118,7 @@
 import FooterNav from "./FooterNav.vue";
 import HeadNav from "./HeadNav.vue";
 import { useRouter } from "vue-router";
+import vueQr from "vue-qr/src/packages/vue-qr.vue";
 export default {
   setup() {
     const router = useRouter();
@@ -123,6 +133,7 @@ export default {
   components: {
     HeadNav,
     FooterNav,
+    vueQr,
   },
   methods: {
     goPage(pageName) {
@@ -143,22 +154,22 @@ export default {
       const day = date.getDate() > 10 ? date.getDate() : "0" + date.getDate();
       return `${year}.${month}.${day}`;
     },
+    // downloadQR() {
+    //   const a = document.createElement("a");
+    //   // 下载的文件名
+    //   a.download = "二维码";
+    //   // url
+    //   a.href = this.$refs.qrCode.$el.src;
+    //   // 触发点击
+    //   a.click();
+    // },
   },
   data() {
     return {
       inputName: "小锅焖大米",
       date: "",
-      // color: [
-      //   {
-      //     isSelected: true,
-      //   },
-      //   {
-      //     isSelected: false,
-      //   },
-      //   {
-      //     isSelected: false,
-      //   },
-      // ],
+      // logoPath: require("@/assets/1.png"),
+      textValue: "https://cn.vuejs.org/",
       swiper: [
         {
           img: require("@/assets/image13.svg"),
@@ -583,7 +594,6 @@ export default {
   text-transform: uppercase;
   color: #3a3a3a;
 
-  cursor: pointer;
 }
 .color-group {
   margin-left: 3.8125rem;

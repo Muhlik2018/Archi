@@ -182,6 +182,7 @@
 import HeadNav from "./HeadNav.vue";
 import FooterNav from "./FooterNav.vue";
 import { useRouter } from "vue-router";
+// import axios from "axios";
 export default {
   setup() {
     const router = useRouter();
@@ -193,6 +194,11 @@ export default {
     HeadNav,
     FooterNav,
   },
+  // beforeMount() {
+  //   axios.get('/ac/api/image/theme').then(({data})=>{
+  //     console.log(data);
+  //   })
+  // },
   methods: {
     goPage(pageName) {
       this.router.push({name: pageName});
