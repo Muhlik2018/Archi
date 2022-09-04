@@ -40,7 +40,8 @@
           </div>
           <div class="photo-detail-background-right">
             <div class="photo-detail-QRcode">
-              <el-image src="Detail-2.svg" fit="contain"></el-image>
+              <!-- <el-image src="Detail-2.svg" fit="contain"></el-image> -->
+              <vue-qr class="photo-detail-QRcode-img" :text="qrcodeText"></vue-qr>
               <div class="photo-detail-QRcode-text">扫码保存至手机</div>
             </div>
           </div>
@@ -97,6 +98,7 @@ import "swiper/css";
 import { reactive, ref } from "@vue/reactivity";
 import { useRouter, useRoute } from "vue-router";
 import { onMounted, getCurrentInstance } from "@vue/runtime-core";
+import vueQr from 'vue-qr/src/packages/vue-qr.vue';
 import SVG from "@/assets/fractal_ac_0.svg";
 
 export default {
@@ -106,6 +108,7 @@ export default {
     SwiperSlide,
     HeadNav,
     FooterNav,
+    vueQr,
   },
   setup() {
     const router = useRouter();
@@ -142,10 +145,12 @@ export default {
     let renderSVG = reactive({});
     let hadClicked = ref(false);
     let currentInstance = ""; //photoPreviewInfo的ref属性
+    let qrcodeText=ref("http://www.baidu.com");
 
     onMounted(() => {
       currentInstance = getCurrentInstance(); //获取对应dom节点
 
+      //解析svg读取加载到页面上
       const xhr = new XMLHttpRequest();
       xhr.open("GET", SVG, true);
       xhr.send();
@@ -191,6 +196,7 @@ export default {
       photoInfoOffset,
       hadClicked,
       currentInstance,
+      qrcodeText,
       printInfo,
       hideInfo,
     };
@@ -301,11 +307,15 @@ export default {
 }
 .photo-detail-QRcode {
   width: 7rem;
-  height: 6rem;
+  height: 8rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+.photo-detail-QRcode-img{
+  width: 7rem;
+  height: 7rem;
 }
 .photo-detail-QRcode-text {
   font-family: "Inter";

@@ -16,7 +16,7 @@
           <button class="tgf-right-button" @click="goGenerate()">去创作</button>
         </div>
       </div>
-      <el-image src="Home1.svg" fit="contain" style="width: 100%"></el-image>
+      <el-image :src="homeTheme" fit="contain" style="width: 100%"></el-image>
     </div>
     <div class="carousel">
       <el-carousel height="800px" :autoplay="false">
@@ -74,7 +74,8 @@
         </swiper>
       </div>
     </div>
-    <div class="category">
+    <!-- 下面的本阶段隐藏 -->
+    <div class="category" v-if="false">
       <div class="category-header">分类</div>
       <div class="category-box">
         <div
@@ -95,7 +96,7 @@
         </div>
       </div>
     </div>
-    <div class="collection">
+    <div class="collection" v-if="false">
       <div class="collection-header">你的收藏</div>
       <div class="collection-box">
         <swiper navigation :modules="modules" :slidesPerView="5">
@@ -111,7 +112,7 @@
         </swiper>
       </div>
     </div>
-  <FooterNav></FooterNav>
+    <FooterNav></FooterNav>
   </div>
 </template>
 
@@ -122,17 +123,19 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import { reactive } from "@vue/reactivity";
+import { reactive, ref } from "@vue/reactivity";
 import { useRouter } from "vue-router";
+import { onBeforeMount } from "@vue/runtime-core";
+import axios from "axios";
 
 export default {
   name: "HomePage",
-  components: { 
-    Swiper, 
-    SwiperSlide,     
+  components: {
+    Swiper,
+    SwiperSlide,
     HeadNav,
-    FooterNav
-    },
+    FooterNav,
+  },
   setup() {
     const router = useRouter();
     let categoryContext = reactive([
@@ -152,24 +155,75 @@ export default {
         detail: "根据颜色来发现艺术作品",
       },
     ]);
+    let homeTheme = ref("Home1.svg");
+    let homeClassic = reactive([]);
+    let homeScene = reactive([]);
+
+    onBeforeMount(() => {
+      // 获取主题背景图
+      axios
+        .get("/ac/api/image/theme")
+        .then(({ data }) => {
+          console.log("theme data", data);
+          if (data.code === 200) {
+            data = data.data;
+            homeTheme.value = data.url;
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+
+      // 获取经典画作轮播图
+      axios
+        .get("/ac/api/image/classic")
+        .then(({ data }) => {
+          console.log("classic data", data);
+          if (data.code === 200) {
+            data = data.data;
+            homeClassic.value = data;
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+
+      // 获取场景风格轮播图
+      axios
+        .get("/ac/api/image/scene")
+        .then(({ data }) => {
+          console.log("scene data", data);
+          if (data.code === 200) {
+            data = data.data;
+            homeScene.value = data;
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+    });
+
     return {
       categoryContext,
       router,
       modules: [Navigation],
+      homeTheme,
+      homeClassic,
+      homeScene,
     };
   },
   methods: {
     goDetail(id) {
       this.router.push({ name: "detail", params: { id } });
     },
-    goGenerate(){
-      this.router.push({ name: "GenerateArt1"});
+    goGenerate() {
+      this.router.push({ name: "GenerateArt1" });
     },
-    goOtherPage(id){
-      if(id==1){
-        this.router.push({name:"ArchiCulture"});
+    goOtherPage(id) {
+      if (id == 1) {
+        this.router.push({ name: "ArchiCulture" });
       }
-    }
+    },
   },
 };
 </script>
