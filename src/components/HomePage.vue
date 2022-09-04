@@ -20,7 +20,7 @@
     </div>
     <div class="carousel">
       <el-carousel height="800px" :autoplay="false">
-        <el-carousel-item v-for="item in 4" :key="item">
+        <el-carousel-item v-for="item in 4" :key="item" @click="goOtherPage(item.id)">
           <!-- <h3 class="small justify-center" text="2xl">{{ item }}</h3> -->
           <div class="carousel-box">
             <div class="carousel-text">
@@ -82,7 +82,6 @@
           class="category-item"
           v-for="item in categoryContext"
           :key="item.id"
-          @click="goOtherPage(item.id)"
         >
           <div class="category-item-text">
             <div class="category-item-title">{{ item.title }}</div>
@@ -168,6 +167,9 @@ export default {
           if (data.code === 200) {
             data = data.data;
             homeTheme.value = data.url;
+
+            // 到时候要删掉
+            homeTheme.value = "Home1.svg";
           }
         })
         .catch((err) => {
@@ -221,6 +223,9 @@ export default {
     },
     goOtherPage(id) {
       if (id == 1) {
+        this.router.push({ name: "ArchiCulture" });
+      }
+      else{
         this.router.push({ name: "ArchiCulture" });
       }
     },
