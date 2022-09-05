@@ -18,7 +18,11 @@ module.exports = defineConfig({
   devServer:{
     proxy:{
       '/ac':{
-        target:"http://124.221.115.230:8180",
+        target:"http://archi-casca.micerlabs.com",
+        changeOrigin:true,//跨域设置
+      },
+      '/static':{
+        target:"http://archi-casca.micerlabs.com",
         changeOrigin:true,//跨域设置
       }
     }

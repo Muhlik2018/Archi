@@ -18,28 +18,34 @@
       </div>
       <el-image :src="homeTheme" fit="contain" style="width: 100%"></el-image>
     </div>
-    <div class="carousel">
+    <div class="carousel" v-if="homeScene.value.length>0">
       <el-carousel height="800px" :autoplay="false">
-        <el-carousel-item v-for="item in 4" :key="item" @click="goOtherPage(item.id)">
+        <el-carousel-item
+          v-for="(item, index) in homeScene.value"
+          :key="index"
+          @click="goOtherPage(item.scene)"
+        >
           <!-- <h3 class="small justify-center" text="2xl">{{ item }}</h3> -->
           <div class="carousel-box">
-            <div class="carousel-text">
-              <div class="carousel-text-title">TITLE</div>
-              <div class="carousel-text-details">
-                The quick brown fox jumps over the lazy dog
+            <div class="carousel-text-box">
+              <div class="carousel-text-content">
+                <div class="carousel-text-title">{{ item.scene }}</div>
+                <div class="carousel-text-details">
+                  The quick brown fox jumps over the lazy dog
+                </div>
               </div>
             </div>
             <el-image
-              src="Home2.svg"
+              :src="item.url"
               fit="contain"
               style="width: 100%"
             ></el-image>
-            <el-image
+            <!-- <el-image
               class="carousel-image-mask"
               src="Home2-1.svg"
               fit="contain"
               style="width: 100%"
-            ></el-image>
+            ></el-image> -->
           </div>
         </el-carousel-item>
       </el-carousel>
@@ -167,9 +173,6 @@ export default {
           if (data.code === 200) {
             data = data.data;
             homeTheme.value = data.url;
-
-            // 到时候要删掉
-            homeTheme.value = "Home1.svg";
           }
         })
         .catch((err) => {
@@ -224,8 +227,7 @@ export default {
     goOtherPage(id) {
       if (id == 1) {
         this.router.push({ name: "ArchiCulture" });
-      }
-      else{
+      } else {
         this.router.push({ name: "ArchiCulture" });
       }
     },
@@ -256,9 +258,21 @@ export default {
   align-items: center;
   justify-content: space-between;
 }
+.to-generate::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 58.35%
+  );
+  transform: rotate(-180deg);
+}
 .tgf-left {
   width: 40rem;
-  margin: 10rem;
+  margin: 4rem;
 }
 .tgf-left-up {
   font-family: "Abel";
@@ -290,7 +304,7 @@ export default {
   text-transform: uppercase;
   color: #000000;
   border: none;
-  margin: 10rem;
+  margin: 4rem;
 }
 
 .carousel {
@@ -314,13 +328,32 @@ export default {
   width: 100%;
   z-index: 500;
 }
-.carousel-text {
+.carousel-text-box {
   position: absolute;
-  width: 35rem;
+  width: 100%;
+  height: 100%;
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  margin: 3rem;
+  justify-content: flex-end;
+}
+.carousel-text-box::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.7) 5.03%,
+    rgba(0, 0, 0, 0) 29.12%
+  );
+  transform: rotate(-180deg);
+}
+.carousel-text-content{
+  width: 40rem;
+  position: absolute;
+  z-index: 500;
+  margin: 2rem 4rem;
 }
 .carousel-text-title {
   font-family: "Arimo";
