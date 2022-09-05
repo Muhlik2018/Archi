@@ -59,7 +59,7 @@
       <div class="top5-swiper">
         <swiper
           :centeredSlides="true"
-          :spaceBetween="-190"
+          :spaceBetween="-300"
           :slidesPerView="3.8"
           :initialSlide="2"
         >
@@ -429,10 +429,12 @@ export default {
   align-items: center;
   width: 90%;
 }
+.top5-swiper>>>.swiper-wrapper{
+  align-items: center;
+}
 .top5-swiper .swiper-slide {
   text-align: center;
   height: 70%;
-  /* width: 50%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -447,7 +449,7 @@ export default {
 }
 .top5-swiper .swiper-slide-active,
 .top5-swiper .swiper-slide-duplicate-active {
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 .top5-swiper .swiper-slide-next {
   transform: scale(0.8);
