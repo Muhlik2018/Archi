@@ -18,8 +18,8 @@
       </div>
       <el-image :src="homeTheme" fit="contain" style="width: 100%"></el-image>
     </div>
-    <div class="carousel" v-if="homeScene.value.length>0">
-      <el-carousel height="800px" :autoplay="false">
+    <div class="carousel" v-if="homeScene.value.length > 0">
+      <el-carousel height="62rem" :autoplay="false">
         <el-carousel-item
           v-for="(item, index) in homeScene.value"
           :key="index"
@@ -313,9 +313,16 @@ export default {
   display: flex;
   justify-content: center;
 }
-.el-carousel {
+.carousel .el-carousel {
   width: 100%;
-  margin: 2rem;
+  margin: 3rem 1rem;
+}
+.carousel >>> .el-carousel__arrow {
+  transform: scale(3);
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #000000;
+  margin: 0 3rem;
 }
 .carousel-box {
   height: 100%;
@@ -337,7 +344,7 @@ export default {
   flex-direction: column;
   justify-content: flex-end;
 }
-.carousel-text-box::before{
+.carousel-text-box::before {
   content: "";
   width: 100%;
   height: 100%;
@@ -349,7 +356,7 @@ export default {
   );
   transform: rotate(-180deg);
 }
-.carousel-text-content{
+.carousel-text-content {
   width: 40rem;
   position: absolute;
   z-index: 500;
