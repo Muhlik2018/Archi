@@ -75,10 +75,17 @@
         <div class="colorDiv">
           <Swiper navigation :modules="modules" :slidesPerView="3.5">
             <swiper-slide v-for="item in 7" :key="item">
-              <div class="colorBox">
-                <div class="colorBoxInner1" style="background-color:red">
-                  <div class="colorBoxInner2" style="background-color:gold">
-                    <div class="colorBoxInner3" style="background-color:green"></div>
+              <div
+                class="colorBox"
+                :class="{ haveSelected: whetherColorSelected(item) }"
+                @click="selectColor(item)"
+              >
+                <div class="colorBoxInner1" style="background-color: red">
+                  <div class="colorBoxInner2" style="background-color: gold">
+                    <div
+                      class="colorBoxInner3"
+                      style="background-color: green"
+                    ></div>
                   </div>
                 </div>
               </div>
@@ -181,8 +188,9 @@ export default {
       //   selected:false,
       // },
     ]);
-    let generateImg = ref("Detail3-1.svg");
+    let generateImg = ref("raster-1.svg");
     let generateSize = ref(50);
+    let colorSelected = ref("");
     const scenerio = ref(router.currentRoute.value.params.Scenerio);
 
     return {
@@ -192,6 +200,7 @@ export default {
       generateSize,
       router,
       scenerio,
+      colorSelected,
       modules: [Navigation],
     };
   },
@@ -214,6 +223,12 @@ export default {
         });
         this.canChooseItem[target].selected = true;
       }
+    },
+    whetherColorSelected(id) {
+      return id === this.colorSelected ? true : false;
+    },
+    selectColor(id) {
+      this.colorSelected = id;
     },
   },
 };
@@ -441,24 +456,24 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.colorBox .hadSelected{
-  border: #ab97ff 2px dotted;
+.colorDiv .haveSelected {
+  border: #ab97ff 0.5rem solid;
 }
-.colorBoxInner1{
+.colorBoxInner1 {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 5rem;
   height: 5rem;
 }
-.colorBoxInner2{
+.colorBoxInner2 {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 3.5rem;
   height: 3.5rem;
 }
-.colorBoxInner3{
+.colorBoxInner3 {
   display: flex;
   justify-content: center;
   align-items: center;
