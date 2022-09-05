@@ -122,8 +122,12 @@ import vueQr from "vue-qr/src/packages/vue-qr.vue";
 export default {
   setup() {
     const router = useRouter();
+    const id = router.currentRoute.value.params.id;
+    console.log("id", id);
+    
     return {
       router,
+      id,
     };
   },
   created() {
@@ -593,7 +597,6 @@ export default {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #3a3a3a;
-
 }
 .color-group {
   margin-left: 3.8125rem;

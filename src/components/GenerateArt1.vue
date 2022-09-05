@@ -33,6 +33,13 @@
           <img src="../assets/image17.svg" />
           <p>条纹</p>
         </div>
+        <div
+          @click="handleClickScenerio('fractal')"
+          :class="{ currentGenerate: scenerio=='fractal' }"
+        >
+          <img src="../assets/image17.svg" />
+          <p>条纹</p>
+        </div>
       </div>
       <div class="nextStep" v-show="scenerio" @click="goPage('GenerateArt2')">
         下一步
@@ -175,17 +182,18 @@ export default {
 
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   /* position: relative; */
 }
 
 .Generate div:nth-of-type(1) {
-  margin-left: 5.7%;
+  /* margin-left: 5.7%; */
 }
 .Generate div {
   height: 40.625rem;
-  width: 25%;
+  width: 20%;
 
-  margin-right: 5.7%;
+  /* margin-right: 5.7%; */
   margin-bottom: 6.25rem;
   border-radius: 1.25rem;
   box-sizing: border-box;

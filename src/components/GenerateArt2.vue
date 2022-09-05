@@ -14,13 +14,13 @@
       <div class="canChoose">
         <div class="canChooseTitle">选择元素</div>
         <Swiper navigation :modules="modules" :slidesPerView="3.5">
-          <swiper-slide v-for="item in canChooseItem" :key="item.id">
-            <el-image
-              :src="item.src"
-              fit="cover"
-              @click="SwitchElement(item.id)"
-              :class="{ haveSelected: item.selected }"
-            ></el-image>
+          <swiper-slide
+            v-for="item in canChooseItem"
+            :key="item.id"
+            @click="SwitchElement(item.id)"
+            :class="{ haveSelected: item.selected }"
+          >
+            <el-image :src="item.url" fit="cover"></el-image>
           </swiper-slide>
         </Swiper>
       </div>
@@ -42,8 +42,8 @@
             >
               <el-image
                 class="haveChoosenContentImg"
-                :src="item.src"
-                fit="cover"
+                :src="item.url"
+                fit="contain"
               ></el-image>
             </swiper-slide>
           </Swiper>
@@ -65,7 +65,13 @@
         <div class="generateSize">
           <div class="generateSizeIcon">+</div>
           <div class="generateSizeSlider">
-            <el-slider v-model="generateSize" vertical height="40rem" />
+            <el-slider
+              v-model="generateSize"
+              :step="0.1"
+              :max="1"
+              vertical
+              height="40rem"
+            />
           </div>
           <div class="generateSizeIcon">-</div>
         </div>
@@ -74,17 +80,23 @@
         <div class="chooseColorTitle">选择配色：</div>
         <div class="colorDiv">
           <Swiper navigation :modules="modules" :slidesPerView="3.5">
-            <swiper-slide v-for="item in 7" :key="item">
+            <swiper-slide v-for="item in colorSet" :key="item.id">
               <div
                 class="colorBox"
-                :class="{ haveSelected: whetherColorSelected(item) }"
-                @click="selectColor(item)"
+                :class="{ haveSelected: whetherColorSelected(item.id) }"
+                @click="selectColor(item.id)"
               >
-                <div class="colorBoxInner1" style="background-color: red">
-                  <div class="colorBoxInner2" style="background-color: gold">
+                <div
+                  class="colorBoxInner1"
+                  :style="{ backgroundColor: item.colorSet[0] }"
+                >
+                  <div
+                    class="colorBoxInner2"
+                    :style="{ backgroundColor: item.colorSet[1] }"
+                  >
                     <div
                       class="colorBoxInner3"
-                      style="background-color: green"
+                      :style="{ backgroundColor: item.colorSet[2] }"
                     ></div>
                   </div>
                 </div>
@@ -97,9 +109,8 @@
       </div>
       <div class="todo-button-outer">
         <div class="todo-button-inner">
-          <button class="todo-button" @click="goPage('GenerateArt3')">
-            去创作
-          </button>
+          <!-- <button class="todo-button" @click="goPage('GenerateArt3')"> -->
+          <button class="todo-button" @click="generatePhoto()">去创作</button>
         </div>
       </div>
     </div>
@@ -114,6 +125,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { reactive, ref } from "@vue/reactivity";
 import { useRouter } from "vue-router";
+import { onBeforeMount } from "@vue/runtime-core";
+import axios from "axios";
 
 import HeadNav from "./HeadNav.vue";
 import FooterNav from "./FooterNav.vue";
@@ -131,67 +144,64 @@ export default {
   // },
   setup() {
     const router = useRouter();
-    let canChooseItem = reactive([
-      {
-        id: 1,
-        src: "Detail3-1.svg",
-      },
-      {
-        id: 2,
-        src: "Detail3-2.svg",
-      },
-      {
-        id: 3,
-        src: "Detail3-3.svg",
-      },
-      {
-        id: 4,
-        src: "Detail3-4.svg",
-      },
-      {
-        id: 5,
-        src: "Detail3-3.svg",
-      },
-      {
-        id: 6,
-        src: "Detail3-3.svg",
-      },
-      {
-        id: 7,
-        src: "Detail3-3.svg",
-      },
-    ]);
-    let haveChoosenItem = reactive([
-      // {
-      //   id: 1,
-      //   src: "Detail3-1.svg",
-      //   selected: false,
-      // },
-      // {
-      //   id: 2,
-      //   src: "Detail3-2.svg",
-      //   selected:false,
-      // },
-      // {
-      //   id: 3,
-      //   src: "Detail3-3.svg",
-      //   selected:false,
-      // },
-      // {
-      //   id: 4,
-      //   src: "Detail3-3.svg",
-      //   selected:false,
-      // },
-      // {
-      //   id: 5,
-      //   src: "Detail3-3.svg",
-      //   selected:false,
-      // },
-    ]);
-    let generateImg = ref("raster-1.svg");
-    let generateSize = ref(50);
+    let canChooseItem = reactive([]);
+    let haveChoosenItem = reactive([]);
+    let generateImg = ref("");
+    let generateSize = ref(0.5);
+    let colorSet = reactive([]);
     let colorSelected = ref("");
     const scenerio = ref(router.currentRoute.value.params.Scenerio);
+
+    onBeforeMount(() => {
+      if (scenerio.value === undefined) {
+        router.push({ name: "GenerateArt1" });
+      }
+      // 获取场景风格轮播图
+      axios
+        .get("/ac/api/image/scene")
+        .then(({ data }) => {
+          if (data.code === 200) {
+            data = data.data;
+            data.forEach((element) => {
+              if (element.scene === scenerio.value) {
+                generateImg.value = element.url;
+              }
+            });
+          } else {
+            alert("请求失败请重试");
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+
+      // 获取元素列表
+      axios
+        .get(`/ac/api/archi/${scenerio.value}`)
+        .then(({ data }) => {
+          if (data.code === 200) {
+            data = data.data;
+            canChooseItem.push(...data);
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+
+      axios
+        .get(`/ac/api/gen/color/${scenerio.value}`)
+        .then(({ data }) => {
+          if (data.code === 200) {
+            data = data.data;
+            colorSet.push(...data);
+          } else {
+            alert("请求失败请重试");
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+    });
 
     return {
       canChooseItem,
@@ -201,6 +211,7 @@ export default {
       router,
       scenerio,
       colorSelected,
+      colorSet,
       modules: [Navigation],
     };
   },
@@ -217,10 +228,7 @@ export default {
         this.haveChoosenItem.splice(removeTarget, 1);
         this.canChooseItem[target].selected = false;
       } else {
-        this.haveChoosenItem.push({
-          id: id,
-          src: this.canChooseItem[target].src,
-        });
+        this.haveChoosenItem.push(this.canChooseItem[target]);
         this.canChooseItem[target].selected = true;
       }
     },
@@ -229,6 +237,40 @@ export default {
     },
     selectColor(id) {
       this.colorSelected = id;
+    },
+    generatePhoto() {
+      if (this.haveChoosenItem.length > 0 && this.colorSelected) {
+        const archi_id = this.haveChoosenItem.map((element) => {
+          return element.id;
+        });
+        const scale = this.generateSize;
+        const color_id = this.colorSelected;
+        const scene = this.scenerio;
+        // console.log(archi_id, scale, color_id, scene);
+        axios
+          .post("/ac/api/gen", {
+            data: {
+              archi_id,
+              scale,
+              color_id,
+              scene,
+            },
+          })
+          .then(({ data }) => {
+            if (data.code === 200) {
+              data = data.data;
+              this.router.push({
+                name: "GenerateArt3",
+                params: { id: data.id },
+              });
+            }
+          })
+          .catch((err) => {
+            console.log("err", err);
+          });
+      } else {
+        alert("元素和颜色必选！");
+      }
     },
   },
 };
@@ -335,6 +377,7 @@ export default {
 }
 .canChoose >>> .swiper-wrapper {
   width: 90% !important;
+  align-items: center;
 }
 .canChoose .swiper-slide {
   width: 15% !important;
@@ -342,9 +385,14 @@ export default {
   justify-content: center;
   align-items: center;
   margin: 1rem;
+  background: #ffffff;
+}
+.canChoose >>> .el-image__inner {
+  max-height: 10rem;
+  background: #ffffff;
 }
 .canChoose .haveSelected {
-  border: 1rem double skyblue;
+  border: #71c5fc 0.35rem dashed;
 }
 
 .haveChosenAndGenerated {
@@ -374,6 +422,7 @@ export default {
 }
 .haveChoosen .swiper {
   height: 40rem;
+  width: 20rem;
 }
 .haveChoosen .swiper-slide {
   display: flex;
@@ -392,6 +441,9 @@ export default {
   width: 50%;
   margin: 1rem 0;
 }
+.haveChoosenContentImg >>> .el-image__inner {
+  max-height: 10rem;
+}
 .generateImgBox {
   width: 70%;
   display: flex;
@@ -403,6 +455,7 @@ export default {
 .generateImg {
   margin: 1rem;
   height: 95%;
+  max-width: 95%;
   /* border: 0.5px solid #a8a8a8;
   border-radius: 10px;
   display: block; */
@@ -412,6 +465,11 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.generateSize::after {
+  content: "大小";
+  color: #71c5fc;
+  font-size: 2rem;
 }
 .generateSizeIcon {
   font-family: "Inter";
@@ -457,7 +515,7 @@ export default {
   align-items: center;
 }
 .colorDiv .haveSelected {
-  border: #ab97ff 0.5rem solid;
+  border: #71c5fc 0.35rem dashed;
 }
 .colorBoxInner1 {
   display: flex;
