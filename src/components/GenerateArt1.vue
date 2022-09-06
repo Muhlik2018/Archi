@@ -38,7 +38,7 @@
           :class="{ currentGenerate: scenerio=='fractal' }"
         >
           <img src="../assets/image17.svg" />
-          <p>条纹</p>
+          <p>分形</p>
         </div>
       </div>
       <div class="nextStep" v-show="scenerio" @click="goPage('GenerateArt2')">

@@ -431,6 +431,8 @@ export default {
 }
 .top5-swiper>>>.swiper-wrapper{
   align-items: center;
+  justify-content: center;
+  margin-left: 6rem;
 }
 .top5-swiper .swiper-slide {
   text-align: center;
@@ -440,6 +442,7 @@ export default {
   align-items: center;
   transition: 300ms;
   transform: scale(0.7);
+  margin-right: -20rem !important;
 }
 .top5-swiper .swiper-item {
   display: flex;
