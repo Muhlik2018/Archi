@@ -168,6 +168,10 @@ export default {
   },
   beforeMount(){
     this.id=this.$route.params.id;
+    console.log(this.id);
+    if(!this.id){
+      this.goPage('GenerateArt1')
+    }
     // console.log(this.id);
     // axios
         // .get(`/ac/api/gen/${this.id}`)
@@ -338,10 +342,10 @@ export default {
   display: flex;
 }
 .GenerateArt1 .GenerateArtDownload > div:nth-of-type(1) {
-  flex: 55;
+  flex: 65;
 }
 .GenerateArt1 .GenerateArtDownload > div:nth-of-type(2) {
-  flex: 45;
+  flex: 35;
 }
 .GenerateArt1 .GenerateArtImg {
   /* width: 41.25rem;
@@ -691,13 +695,13 @@ export default {
 </style>
 <style>
 .GenerateArt1 .el-carousel__container {
-  width: 90%;
-  height: 70%;
+  width: 85%;
+  height: 75%;
 
   margin-left: 5%;
-  margin-top: 10%;
+  margin-top: 7.5%;
 
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
 
   position: relative;
 
@@ -708,8 +712,10 @@ export default {
   /* width: 38.125rem;
   height: 53.9375rem; */
 
-  width: 95%;
+  /* width: 95%; */
   height:  95%;
+  background-color: #ffffff;
+  padding: 3rem;
 
   /* margin-left: 1.5%;
   margin-top: 1.5%; */
@@ -719,6 +725,10 @@ export default {
   left: 50%;
 
 }
+.GenerateArt1 .el-carousel__arrow--right {
+  left: 102%;
+  
+}
 .GenerateArt1 .el-carousel__arrow {
   top: 0;
 }
@@ -727,9 +737,7 @@ export default {
   transform: translateY(-50%);
   background: none;
 }
-.GenerateArt1 .el-carousel__arrow--right {
-  left: 100%;
-}
+
 .GenerateArt1 .el-carousel__arrow--left {
   display: none;
 }
@@ -737,8 +745,8 @@ export default {
   font-size: 8rem;
 }
 .GenerateArtDownload .el-carousel__indicators {
-  top: 85%;
-  left: 50%;
+  top: 88%;
+  left: 47.5%;
 }
 .GenerateArtDownload .el-carousel__indicator--horizontal .el-carousel__button {
   width: 0.9375rem;

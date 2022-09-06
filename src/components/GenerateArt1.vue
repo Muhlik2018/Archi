@@ -84,8 +84,9 @@ export default {
     axios.get("/ac/api/image/scene").then(({ data }) => {
       if (data.code === 200) {
         data = data.data;
-        this.scenerioList = data;
-        // console.log(this.scenerioList);
+        this.scenerioList = data.filter((item)=>{
+          return item.scene=='grid'||item.scene=='sketch'||item.scene=='fractal'||item.scene=='raster'
+        });
       } else {
         alert("请求失败请重试");
       }
