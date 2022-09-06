@@ -35,14 +35,29 @@
         </div> -->
         <div>
           <el-carousel
-            :interval="100000"
+            :interval="2000"
             arrow="always"
             style="width: 100%; height: 100%; background: rgba(0, 0, 0, 0)"
+            autoplay="true"
+            ref="carousel"
+            v-if="swiper.length > 0"
           >
-            <el-carousel-item v-for="item in swiper" :key="item">
-              <img :src="item.img" />
+
+          <template  v-for="(item) in swiper" :key="item.url">
+            
+              <el-carousel-item>
+              <img :src="item.url" />
             </el-carousel-item>
-            <div class="footer">
+            
+          </template>
+            
+
+
+
+
+
+
+            <!-- <div class="footer">
               <div style="flex: 1">
                 <input
                   type="text"
@@ -61,7 +76,7 @@
                   <img src="../assets/BigLogo.svg" />
                 </div>
               </div>
-            </div>
+            </div> -->
           </el-carousel>
         </div>
 
@@ -88,10 +103,10 @@
         </div> -->
         <div>
           <div class="RightDate">{{ date }}</div>
-          <div style="margin: 0 auto; text-align: center">
+          <!-- <div style="margin: 0 auto; text-align: center">
             <input class="RightinputName" v-model="inputName" />
           </div>
-          <p class="RightinputNameDesc">输入你的名字</p>
+          <p class="RightinputNameDesc">输入你的名字</p> -->
           <div class="download"><img src="../assets/Group483.svg" /></div>
           <div class="download-qrcode">
             <vue-qr
@@ -105,7 +120,11 @@
           <div class="codeScan">扫码下载你的作品</div>
         </div>
       </div>
-      <div class="wave"></div>
+      <div class="todo-button-outer">
+        <div class="todo-button-inner">
+          
+        </div>
+      </div>
       <!-- <div style="width:100px;height:100px"><img src="../assets/image23.svg"></div> -->
     </div>
 
@@ -119,12 +138,11 @@ import FooterNav from "./FooterNav.vue";
 import HeadNav from "./HeadNav.vue";
 import { useRouter } from "vue-router";
 import vueQr from "vue-qr/src/packages/vue-qr.vue";
+import axios from "axios";
 export default {
   setup() {
     const router = useRouter();
     const id = router.currentRoute.value.params.id;
-    console.log("id", id);
-    
     return {
       router,
       id,
@@ -133,7 +151,39 @@ export default {
   created() {
     let tmpDate = new Date();
     this.date = this.transDate(tmpDate);
+
+    axios
+        .get("/ac/api/image/scene")
+        .then(({ data }) => {
+          if (data.code === 200) {
+            data=data.data
+            this.swiper=data
+          } else {
+            alert("请求失败请重试");
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
   },
+  beforeMount(){
+    this.id=this.$route.params.id;
+    // console.log(this.id);
+    // axios
+        // .get(`/ac/api/gen/${this.id}`)
+        // .then(({ data }) => {
+        //   if (data.code === 200) {
+        //     console.log(data);
+        //   } else {
+        //     alert("请求失败请重试");
+        //   }
+        // })
+        // .catch((err) => {
+        //   console.log("err", err);
+        // });
+        
+  },
+
   components: {
     HeadNav,
     FooterNav,
@@ -170,32 +220,12 @@ export default {
   },
   data() {
     return {
-      inputName: "小锅焖大米",
+      // inputName: "小锅焖大米",
       date: "",
+      // id:'',
       // logoPath: require("@/assets/1.png"),
       textValue: "https://cn.vuejs.org/",
-      swiper: [
-        {
-          img: require("@/assets/image13.svg"),
-          id: 0,
-        },
-        {
-          img: require("@/assets/image13.svg"),
-          id: 1,
-        },
-        {
-          img: require("@/assets/image13.svg"),
-          id: 2,
-        },
-        {
-          img: require("@/assets/image13.svg"),
-          id: 3,
-        },
-        {
-          img: require("@/assets/image13.svg"),
-          id: 4,
-        },
-      ],
+      swiper: [],
     };
   },
 };
@@ -291,7 +321,8 @@ export default {
   height: 72.8125rem; */
 
   width: 78%;
-  height: 66.8rem;
+  /* height: 66.8rem; */
+  height: 50rem;
 
   margin: 0 auto;
   margin-top: 11.6875rem;
@@ -505,7 +536,7 @@ export default {
   height: 2.9375rem;
 
   margin: 0 auto;
-  margin-top: 8.0625rem;
+  margin-top: 10%;
 
   line-height: 2.9375rem;
 
@@ -556,9 +587,8 @@ export default {
 }
 .download {
   margin: 0 auto;
-  margin-top: 2.5rem;
+  margin-top: 2%;
   display: block;
-  cursor: pointer;
   width: 7.125rem;
   height: 6.625rem;
 }
@@ -645,26 +675,49 @@ export default {
   height: 25rem;
   background: url("../assets/wave.svg");
 }
+.todo-button-inner {
+  margin-bottom: 3rem;
+}
+.todo-button-outer {
+  width: 100%;
+  height: 20rem;
+  background-image: url("~@/assets/Detail-bottom-background.svg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
 </style>
 <style>
 .GenerateArt1 .el-carousel__container {
-  width: 41.25rem;
-  height: 60.5rem;
+  width: 90%;
+  height: 70%;
 
-  margin-left: 3.6875rem;
-  margin-top: 2.9375rem;
+  margin-left: 5%;
+  margin-top: 10%;
 
   background-color: #ffffff;
 
   position: relative;
+
+  /* padding: 0.5rem,1.5625rem; */
 }
 
 .GenerateArt1 .el-carousel__item img {
-  width: 38.125rem;
-  height: 53.9375rem;
+  /* width: 38.125rem;
+  height: 53.9375rem; */
 
-  margin-top: 0.5rem;
-  margin-left: 1.5625rem;
+  width: 95%;
+  height:  95%;
+
+  /* margin-left: 1.5%;
+  margin-top: 1.5%; */
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+  top: 50%;
+  left: 50%;
+
 }
 .GenerateArt1 .el-carousel__arrow {
   top: 0;
@@ -675,17 +728,17 @@ export default {
   background: none;
 }
 .GenerateArt1 .el-carousel__arrow--right {
-  left: 43.4375rem;
+  left: 100%;
 }
 .GenerateArt1 .el-carousel__arrow--left {
   display: none;
 }
 .GenerateArt1 .el-carousel__arrow i {
-  font-size: 8.5rem;
+  font-size: 8rem;
 }
 .GenerateArtDownload .el-carousel__indicators {
-  top: 63.125rem;
-  left: 25rem;
+  top: 85%;
+  left: 50%;
 }
 .GenerateArtDownload .el-carousel__indicator--horizontal .el-carousel__button {
   width: 0.9375rem;
