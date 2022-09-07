@@ -228,6 +228,11 @@ export default {
         this.haveChoosenItem.splice(removeTarget, 1);
         this.canChooseItem[target].selected = false;
       } else {
+        //分形只能选择一个
+        if (this.scenerio === "fractal" && this.haveChoosenItem.length > 0) {
+          alert("分形作画只能选择一个archi元素");
+          return;
+        }
         this.haveChoosenItem.push(this.canChooseItem[target]);
         this.canChooseItem[target].selected = true;
       }
@@ -249,12 +254,11 @@ export default {
         // console.log(archi_id, scale, color_id, scene);
         axios
           .post("/ac/api/gen", {
-              archi_id,
-              scale,
-              color_id,
-              scene,
-            },
-          )
+            archi_id,
+            scale,
+            color_id,
+            scene,
+          })
           .then(({ data }) => {
             if (data.code === 200) {
               data = data.data;
@@ -262,6 +266,8 @@ export default {
                 name: "GenerateArt3",
                 params: { id: data.id },
               });
+            } else {
+              alert("网络错误");
             }
           })
           .catch((err) => {
@@ -355,7 +361,7 @@ export default {
 
 .canChoose {
   width: 83.5%;
-  background: rgba(192, 192, 192, 0.2);
+  background: #b9c9fc;
   border-radius: 20px;
   padding: 4rem;
 }
@@ -380,18 +386,20 @@ export default {
 }
 .canChoose .swiper-slide {
   width: 15% !important;
+  height: 13rem;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 1rem;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.56);
+  border: 0.3125rem dashed rgba(255, 255, 255, 0.95);
+  border-radius: 1.875rem;
 }
 .canChoose >>> .el-image__inner {
   max-height: 10rem;
-  background: #ffffff;
 }
 .canChoose .haveSelected {
-  border: #71c5fc 0.35rem dashed;
+  background: #ddd2ee;
 }
 
 .haveChosenAndGenerated {
@@ -407,6 +415,8 @@ export default {
   border: 4px dashed #9747ff;
   border-radius: 20px;
   border-left-style: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 .haveChoosenTitle {
   font-family: "Inter";
@@ -421,13 +431,19 @@ export default {
 }
 .haveChoosen .swiper {
   height: 40rem;
-  width: 20rem;
+  margin: 0;
+  width: 100%;
 }
 .haveChoosen .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0.5rem;
+  border-width: 3px 0px 3px 0px;
+  border-style: dashed;
+  border-color: #8b8b8b;
+}
+.haveChoosen .swiper-slide:nth-child(2n+1){
+  background: #DDD2EE;
 }
 .haveChoosenContent {
   width: 80%;

@@ -18,10 +18,10 @@
       </div>
       <el-image :src="homeTheme" fit="contain" style="width: 100%"></el-image>
     </div>
-    <div class="carousel" v-if="homeScene.value.length > 0">
+    <div class="carousel" v-if="homeScene.length">
       <el-carousel height="62rem" :autoplay="false">
         <el-carousel-item
-          v-for="(item, index) in homeScene.value"
+          v-for="(item, index) in homeScene"
           :key="index"
           @click="goOtherPage(item.scene)"
         >
@@ -61,20 +61,20 @@
           :centeredSlides="true"
           :spaceBetween="-300"
           :slidesPerView="3.8"
-          :initialSlide="2"
+          :initialSlide="4"
         >
           <swiper-slide
-            v-for="(item, index) in 5"
+            v-for="(item, index) in homeClassic"
             data-index="index"
             :key="index"
-            @click="goDetail(item)"
+            @click="goDetail(item.scene, item.url)"
           >
             <div class="swiper-item">
               <div class="swiper-item-text">
-                <div class="swiper-item-category">category</div>
+                <div class="swiper-item-category">{{ item.scene }}</div>
                 <div class="swiper-item-description">分类描述+作者信息</div>
               </div>
-              <el-image :src="'Home3-' + item + '.svg'" fit="cover"></el-image>
+              <el-image :src="item.url" fit="cover"></el-image>
             </div>
           </swiper-slide>
         </swiper>
@@ -169,7 +169,7 @@ export default {
       axios
         .get("/ac/api/image/theme")
         .then(({ data }) => {
-          console.log("theme data", data);
+          // console.log("theme data", data);
           if (data.code === 200) {
             data = data.data;
             homeTheme.value = data.url;
@@ -186,7 +186,49 @@ export default {
           console.log("classic data", data);
           if (data.code === 200) {
             data = data.data;
-            homeClassic.value = data;
+            homeClassic.push(...data);
+            // homeClassic.push(
+            //   {
+            //     url: "/fractal_ac_0014.jpg",
+            //     type: "svg",
+            //     scene: "raster",
+            //   },
+            //   {
+            //     url: "/fractal_ac_0015.jpg",
+            //     type: "svg",
+            //     scene: "raster",
+            //   },
+            //   {
+            //     url: "/fractal_ac_0014.jpg",
+            //     type: "svg",
+            //     scene: "fractal",
+            //   },
+            //   {
+            //     url: "/fractal_ac_0015.jpg",
+            //     type: "svg",
+            //     scene: "fractal",
+            //   },
+            //   {
+            //     url: "/fractal_ac_0014.jpg",
+            //     type: "svg",
+            //     scene: "grid",
+            //   },
+            //   {
+            //     url: "/fractal_ac_0015.jpg",
+            //     type: "svg",
+            //     scene: "grid",
+            //   },
+            //   {
+            //     url: "/fractal_ac_0015.jpg",
+            //     type: "svg",
+            //     scene: "sketch",
+            //   },
+            //   {
+            //     url: "/fractal_ac_0014.jpg",
+            //     type: "svg",
+            //     scene: "sketch",
+            //   },
+            // );
           }
         })
         .catch((err) => {
@@ -197,10 +239,10 @@ export default {
       axios
         .get("/ac/api/image/scene")
         .then(({ data }) => {
-          console.log("scene data", data);
+          // console.log("scene data", data);
           if (data.code === 200) {
             data = data.data;
-            homeScene.value = data;
+            homeScene.push(...data);
           }
         })
         .catch((err) => {
@@ -218,8 +260,8 @@ export default {
     };
   },
   methods: {
-    goDetail(id) {
-      this.router.push({ name: "detail", params: { id } });
+    goDetail(scene, url) {
+      this.router.push({ name: "detail", params: { scene, url } });
     },
     goGenerate() {
       this.router.push({ name: "GenerateArt1" });
@@ -429,10 +471,10 @@ export default {
   align-items: center;
   width: 90%;
 }
-.top5-swiper>>>.swiper-wrapper{
+.top5-swiper >>> .swiper-wrapper {
   align-items: center;
   justify-content: center;
-  margin-left: 6rem;
+  margin-left: 75rem;
 }
 .top5-swiper .swiper-slide {
   text-align: center;
@@ -442,7 +484,7 @@ export default {
   align-items: center;
   transition: 300ms;
   transform: scale(0.7);
-  margin-right: -20rem !important;
+  margin-right: -12rem !important;
 }
 .top5-swiper .swiper-item {
   display: flex;
