@@ -1,24 +1,25 @@
 <template>
     <div class="Page">
         <HeadNav></HeadNav>
-        <div class="carousel">
-            <el-carousel height="61.875em" :autoplay="true">
-                <el-carousel-item v-for="item in 4" :key="item">
-                    <div class="carousel-box">
-                        <div class="carousel-text">
-                            <div class="carousel-text-title">岭南古建</div>
-                            <div class="carousel-text-details">
-                                岭南文化作为中华民族传统文化中最具特色和活力的地域文化之一，拥有两千多年历史，浩如烟海，源远流长。岭南建筑作为岭南文化的重要载体，更是岭南文化的精髓。
+        <div class="carousel" v-if="homeScene.value.length > 0">
+            <el-carousel height="61.875em" :autoplay="false" @change="turnPage">
+                <el-carousel-item v-for="(item, index) in homeScene.value" :key="index">
+                    <div class="carousel-box" >
+                        <div class="carousel-text-box">
+                            <div class="carousel-text">
+                                <div class="carousel-text-title">{{ item.scene }}</div>
+                                <div class="carousel-text-details">
+                                    岭南文化作为中华民族传统文化中最具特色和活力的地域文化之一
+                                </div>
                             </div>
                         </div>
-                        <el-image src="linnan1.svg" fit="contain" style="width: 100%"></el-image>
-                        <el-image class="carousel-image-mask" src="Home2-1.svg" fit="contain" style="width: 100%">
+                        <el-image :src="item.url" fit="contain" style="width: 100%">
                         </el-image>
                     </div>
                 </el-carousel-item>
             </el-carousel>
         </div>
-        <div @scroll="handleScroll">
+        <div>
             <WaterFall :list="imgData" />
         </div>
         <FooterNav></FooterNav>
@@ -33,180 +34,218 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { useRouter } from "vue-router";
 import WaterFall from "./WaterFall.vue"
+import axios from "axios";
+import { reactive } from "@vue/reactivity";
+import { onBeforeMount } from "@vue/runtime-core";
+
 
 export default {
-    name: "HomePage",
     components: {
         HeadNav,
         FooterNav,
         WaterFall
     },
-    data: function () {
+    data() {
         return {
-            imgData: [{
-                url: "wf1.svg",
-                describe: 'bdbdbdbdgbsdbs',
-                userName: '',
-                userAvatar: '',
-                latitude: 23.1,
-                longitude: 113.4,
-                width: 30,
-                height: 30,
-                iconPath: 'wf1.svg',
-                class: 'advertisement',
-                joinCluster: true,
+            scene: "",
+            imgData: [],
+            imgData1: [{
+                "id": "raster_ac_0000",
+                "url": "/static/image/archicasca/raster/raster_ac_0000.svg",
+                "type": "svg",
+                "scene": null
             },
             {
-                id: 2,
-                name: '测试图片2',
-                url: 'wf2.svg',
-                describe: '我真的',
-                latitude: 23.2,
-                longitude: 113.5,
-                width: 30,
-                height: 30,
-                iconPath: 'wf2.svg',
-                joinCluster: true
+                "id": "raster_ac_0001",
+                "url": "/static/image/archicasca/raster/raster_ac_0001.svg",
+                "type": "svg",
+                "scene": null
             },
             {
-                id: 3,
-                name: '测试图片3',
-                url: 'wf3.svg',
-                describe: '我真的有好多好多好',
-                latitude: 23.3,
-                longitude: 113.6,
-                width: 30,
-                height: 30,
-                iconPath: 'wf3.svg',
-                joinCluster: true
+                "id": "raster_ac_00010",
+                "url": "/static/image/archicasca/raster/raster_ac_00010.svg",
+                "type": "svg",
+                "scene": null
             },
             {
-                id: 4,
-                name: '测试图片3',
-                url: 'wf4.svg',
-                describe: '骑楼',
-                latitude: 23.1,
-                longitude: 113.6,
-                width: 30,
-                height: 30,
-                iconPath: 'wf4.svg',
-                joinCluster: true
+                "id": "raster_ac_00011",
+                "url": "/static/image/archicasca/raster/raster_ac_00011.svg",
+                "type": "svg",
+                "scene": null
             },
             {
-                id: 5,
-                name: '测试图片3',
-                url: 'wf5.svg',
-                describe: '我真的',
-                latitude: 23.2,
-                longitude: 113.3,
-                width: 30,
-                height: 30,
-                iconPath: 'wf5.svg',
-                joinCluster: true
+                "id": "raster_ac_00012",
+                "url": "/static/image/archicasca/raster/raster_ac_00012.svg",
+                "type": "svg",
+                "scene": null
             },
             {
-                id: 6,
-                name: '测试图片3',
-                url: 'wf6.svg',
-                describe: '屋脊',
-                latitude: 23.4,
-                longitude: 113.5,
-                width: 30,
-                height: 30,
-                iconPath: 'wf6.svg',
-                joinCluster: true
+                "id": "raster_ac_00013",
+                "url": "/static/image/archicasca/raster/raster_ac_00013.svg",
+                "type": "svg",
+                "scene": null
             },
             {
-                id: 7,
-                name: '测试图片3',
-                url: 'wf7.svg',
-                describe: '我真的',
-                latitude: 23.6,
-                longitude: 113.7,
-                width: 30,
-                height: 30,
-                iconPath: 'wf7.svg',
-                joinCluster: true
+                "id": "raster_ac_00014",
+                "url": "/static/image/archicasca/raster/raster_ac_00014.svg",
+                "type": "svg",
+                "scene": null
             },
             {
-                id: 8,
-                url: 'wf8.svg',
-                describe: '土建',
-                latitude: 23.3,
-                longitude: 113.1,
-                width: 30,
-                height: 30,
-                iconPath: 'wf8.svg',
-                joinCluster: true
-            },
-            {
-                id: 9,
-                url: 'wf9.svg',
-                describe: '满周窗',
-                latitude: 23.3,
-                longitude: 113.1,
-                width: 30,
-                height: 30,
-                iconPath: 'wf9.svg',
-                joinCluster: true
-            },
-            {
-                id: 10,
-                url: 'wf10.svg',
-                describe: '图片描述',
-                latitude: 23.3,
-                longitude: 113.1,
-                width: 30,
-                height: 30,
-                iconPath: 'wf10.svg',
-                joinCluster: true
-            },
-            {
-                id: 11,
-                url: 'wf11.svg',
-                describe: '祠堂',
-                latitude: 23.3,
-                longitude: 113.1,
-                width: 30,
-                height: 30,
-                iconPath: 'wf11.svg',
-                joinCluster: true
-            },
-            {
-                id: 12,
-                url: 'wf12.svg',
-                describe: '湖与桥',
-                latitude: 23.3,
-                longitude: 113.1,
-                width: 30,
-                height: 30,
-                iconPath: 'wf12.svg',
-                joinCluster: true
-            },
-            {
-                id: 13,
-                url: 'wf13.svg',
-                describe: '图片描述',
-                latitude: 23.3,
-                longitude: 113.1,
-                width: 30,
-                height: 30,
-                iconPath: 'wf13.svg',
-                joinCluster: true
-            },
-            ]
+                "id": "raster_ac_00015",
+                "url": "/static/image/archicasca/raster/raster_ac_00015.svg",
+                "type": "svg",
+                "scene": null
+            },]
         }
+    },
+    created() {
+        this.ini();
     },
     setup() {
         const router = useRouter();
+        let homeScene = reactive([]);
+        onBeforeMount(() => {
+            // 获取场景风格轮播图
+            axios
+                .get("/ac/api/image/scene")
+                .then(({ data }) => {
+                    console.log("scene data", data);
+                    if (data.code === 200) {
+                        data = data.data;
+                        homeScene.value = data;
+                    }
+                })
+                .catch((err) => {
+                    console.log("err", err);
+                });
+
+        });
         return {
             router,
             modules: [Navigation],
+            homeScene,
         };
     },
     methods: {
-        goDetail(id) {
-            this.router.push({ name: "detail", params: { id } });
+        ini() {
+            axios
+                .get("/ac/api/archicasca/raster")
+                .then(res => {
+                    console.log("pic data", res);
+                    if (res.data.code === 200) {
+                        this.imgData = res.data.data
+                        console.log("finish")
+                    }
+                })
+                .catch((err) => {
+                    console.log("err", err);
+                });
+        },
+        getPic(index) {
+            if (index == 0) {
+                axios({
+                    method: "get",
+                    url: "/ac/api/archicasca/freedom",
+                    headers: {
+                        "Content-Type": "x-www-form-urlencoded"
+                    }
+                })
+                    .then(res => {
+                        console.log("pic data", res);
+                        if (res.data.code === 200) {
+                            this.imgData = res.data.data
+                            console.log(this.imgData)
+                            console.log("finish")
+                        }
+                    })
+                    .catch((err) => {
+                        console.log("err", err);
+                    });
+            }
+            if (index == 1) {
+                axios({
+                    method: "get",
+                    url: "/ac/api/archicasca/grid",
+                    headers: {
+                        "Content-Type": "x-www-form-urlencoded"
+                    }
+                })
+                    .then(res => {
+                        console.log("pic data", res);
+                        if (res.data.code === 200) {
+                            this.imgData = res.data.data
+                            console.log(this.imgData)
+                            console.log("finish")
+                        }
+                    })
+                    .catch((err) => {
+                        console.log("err", err);
+                    });
+            }
+            if (index == 3) {
+                axios({
+                    method: "get",
+                    url: "/ac/api/archicasca/sketch",
+                    headers: {
+                        "Content-Type": "x-www-form-urlencoded"
+                    }
+                })
+                    .then(res => {
+                        console.log("pic data", res);
+                        if (res.data.code === 200) {
+                            this.imgData = res.data.data
+                            console.log(this.imgData)
+                            console.log("finish")
+                        }
+                    })
+                    .catch((err) => {
+                        console.log("err", err);
+                    });
+            }
+            if (index == 4) {
+                axios({
+                    method: "get",
+                    url: "/ac/api/archicasca/fractal",
+                    headers: {
+                        "Content-Type": "x-www-form-urlencoded"
+                    }
+                })
+                    .then(res => {
+                        console.log("pic data", res);
+                        if (res.data.code === 200) {
+                            this.imgData = res.data.data
+                            console.log(this.imgData)
+                            console.log("finish")
+                        }
+                    })
+                    .catch((err) => {
+                        console.log("err", err);
+                    });
+            }
+            if (index == 2) {
+                axios({
+                    method: "get",
+                    url: "/ac/api/archicasca/raster",
+                    headers: {
+                        "Content-Type": "x-www-form-urlencoded"
+                    }
+                })
+                    .then(res => {
+                        console.log("pic data", res);
+                        if (res.data.code === 200) {
+                            this.imgData = res.data.data
+                            console.log(this.imgData)
+                            console.log("finish")
+                        }
+                    })
+                    .catch((err) => {
+                        console.log("err", err);
+                    });
+            }
+        },
+        turnPage(index) {
+            this.getPic(index);
         },
     },
 };
@@ -235,10 +274,44 @@ export default {
     position: relative;
 }
 
+.carousel .el-carousel {
+    width: 100%;
+    margin: 3rem 1rem;
+}
+
+.carousel-text-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.carousel-text-box::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(180deg,
+            rgba(0, 0, 0, 0.7) 5.03%,
+            rgba(0, 0, 0, 0) 29.12%);
+    transform: rotate(-180deg);
+}
+
 .carousel-image-mask {
     position: absolute;
     width: 100%;
     z-index: 500;
+}
+
+.carousel>>>.el-carousel__arrow {
+    transform: scale(3);
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #000000;
+    margin: 0 3rem;
 }
 
 .carousel-text {

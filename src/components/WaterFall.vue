@@ -1,5 +1,5 @@
 <template>
-    <div style="margin-left: 7.7%; margin-right: 7.7%; margin-top: 4%;">
+    <div style="margin-left: 5%; margin-right: 5%; margin-top: 2%;">
         <div id="List2" class="left" ref="List2">
             <div v-for="element in List2" :key="element">
                 <div class="fleterBox">
@@ -73,22 +73,20 @@ export default {
             }
         }
     },
-    data: function () {
+        data: function () {
         return {
+            piclist: [],
             List1: [],
             List2: [],
             List3: [],
             List4: [],
             List5: [],
-            Height1: "",
-            Height2: "",
-            Height3: "",
-            Height4: "",
-            Height5: "",
+            Height1: "1",
+            Height2: "2",
+            Height3: "3",
+            Height4: "4",
+            Height5: "5",
         }
-    },
-    create() {
-        this.initial();
     },
     mounted() {
         this.initial();
@@ -98,9 +96,10 @@ export default {
             //this.$data.leftList=this.$props.list;
             //this.$data.rightList=this.$props.list;
             this.loopList(0)
+            console.log("initial")
         },
         loopList(index) {
-            if (!this.$props.list[index]) return;
+            if (!this.$props.list[index]) { return; }
             this.Height1 = this.$refs.List1.offsetHeight;
             this.Height2 = this.$refs.List2.offsetHeight;
             this.Height3 = this.$refs.List3.offsetHeight;
@@ -122,14 +121,12 @@ export default {
             else if (this.Height5 <= this.Height1) {
                 this.$data.List5.push(this.$props.list[index])
             }
-
-
             this.$nextTick(() => {
                 this.loopList(++index);
             })
 
         }
-    }
+    },
 }
 </script>
 
@@ -140,13 +137,13 @@ html {
 }
 
 .left {
-    width: 15.2%;
+    width: 17.55%;
     float: left;
-    margin-right: 5.8%;
+    margin-right: 3%;
 }
 
 .right {
-    width: 15.2%;
+    width: 17.55%;
     float: right;
 }
 
