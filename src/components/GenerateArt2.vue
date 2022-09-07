@@ -249,13 +249,12 @@ export default {
         // console.log(archi_id, scale, color_id, scene);
         axios
           .post("/ac/api/gen", {
-            data: {
               archi_id,
               scale,
               color_id,
               scene,
             },
-          })
+          )
           .then(({ data }) => {
             if (data.code === 200) {
               data = data.data;

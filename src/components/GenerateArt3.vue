@@ -42,11 +42,16 @@
             ref="carousel"
             v-if="swiper.length > 0"
           >
+<<<<<<< HEAD
 
           <template  v-for="(item) in swiper" :key="item.url">
             
               <el-carousel-item>
               <img :src="item.url" />
+=======
+            <el-carousel-item v-for="item in swiper" :key="item">
+              <img :id="item.id" :src="item.img" />
+>>>>>>> origin/dev-Fang
             </el-carousel-item>
             
           </template>
@@ -106,8 +111,15 @@
           <!-- <div style="margin: 0 auto; text-align: center">
             <input class="RightinputName" v-model="inputName" />
           </div>
+<<<<<<< HEAD
           <p class="RightinputNameDesc">输入你的名字</p> -->
           <div class="download"><img src="../assets/Group483.svg" /></div>
+=======
+          <p class="RightinputNameDesc">输入你的名字</p>
+          <div class="download" @click="getPhoto()">
+            <img src="../assets/Group483.svg" />
+          </div>
+>>>>>>> origin/dev-Fang
           <div class="download-qrcode">
             <vue-qr
               ref="qrCode"
@@ -143,9 +155,36 @@ export default {
   setup() {
     const router = useRouter();
     const id = router.currentRoute.value.params.id;
+<<<<<<< HEAD
+=======
+    //临时测试下载写的
+    let getPhoto = () => {
+      let temp = document.getElementsByClassName(
+        "el-carousel__item is-active"
+      )[0].children[0];
+      console.log("canvas", temp);
+      let img = new Image();
+      img.src = temp.src;
+      let canvas = document.createElement("canvas");
+      img.onload = () => {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        let context = canvas.getContext("2d");
+        context.drawImage(img, 0, 0);
+        let a = document.createElement("a");
+        a.href = canvas.toDataURL("img/png");
+        a.download = temp.id;
+        a.click();
+      };
+
+      // let img=temp.toDataURL("image/png");
+    };
+    console.log("id", id);
+>>>>>>> origin/dev-Fang
     return {
       router,
       id,
+      getPhoto,
     };
   },
   created() {
@@ -229,7 +268,32 @@ export default {
       // id:'',
       // logoPath: require("@/assets/1.png"),
       textValue: "https://cn.vuejs.org/",
+<<<<<<< HEAD
       swiper: [],
+=======
+      swiper: [
+        {
+          img: require("@/assets/fractal_ac_0001.svg"),
+          id: 0,
+        },
+        {
+          img: require("@/assets/fractal_ac_0001.svg"),
+          id: 1,
+        },
+        {
+          img: require("@/assets/fractal_ac_0001.svg"),
+          id: 2,
+        },
+        {
+          img: require("@/assets/fractal_ac_0001.svg"),
+          id: 3,
+        },
+        {
+          img: require("@/assets/fractal_ac_0001.svg"),
+          id: 4,
+        },
+      ],
+>>>>>>> origin/dev-Fang
     };
   },
 };
