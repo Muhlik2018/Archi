@@ -1,5 +1,5 @@
 <template>
-    <div style="margin-left: 7.7%; margin-right: 7.7%; margin-top: 2%;">
+    <div style="margin-left: 5%; margin-right: 5%; margin-top: 2%;">
         <div id="List2" class="left" ref="List2">
             <div v-for="element in List2" :key="element">
                 <div class="fleterBox">
@@ -73,17 +73,6 @@ export default {
             }
         }
     },
-    watch: {
-        table: {
-            handler: function (val) {
-                console.log("监听3")
-                console.log(val)
-                this.piclist = val
-            },
-            immediate: true,
-            deep: true
-        }
-    },
         data: function () {
         return {
             piclist: [],
@@ -148,13 +137,13 @@ html {
 }
 
 .left {
-    width: 17.5%;
+    width: 17.55%;
     float: left;
     margin-right: 3%;
 }
 
 .right {
-    width: 17.5%;
+    width: 17.55%;
     float: right;
 }
 

@@ -19,7 +19,7 @@
                 </el-carousel-item>
             </el-carousel>
         </div>
-        <div @scroll="handleScroll">
+        <div>
             <WaterFall :list="imgData" />
         </div>
         <FooterNav></FooterNav>
@@ -102,9 +102,6 @@ export default {
     created() {
         this.ini();
     },
-    mounted(){
-        window.onscroll = this.throttle(this.onScroll)
-    },
     setup() {
         const router = useRouter();
         let homeScene = reactive([]);
@@ -124,7 +121,6 @@ export default {
                 });
 
         });
-
         return {
             router,
             modules: [Navigation],
@@ -139,7 +135,6 @@ export default {
                     console.log("pic data", res);
                     if (res.data.code === 200) {
                         this.imgData = res.data.data
-                        console.log(this.imgData)
                         console.log("finish")
                     }
                 })
@@ -252,34 +247,6 @@ export default {
         turnPage(index) {
             this.getPic(index);
         },
-        throttle(fn, interval = 300) {
-            let canRun = true;
-            return function () {
-                if (!canRun) return;
-                canRun = false;
-                setTimeout(() => {
-                    fn.apply(this, arguments);
-                    canRun = true;
-                }, interval);
-            }
-        },
-        onScroll() {
-            //变量scrollTop是滚动条滚动时,距离顶部的距离
-            let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            //变量windowHeight是可视区的高度
-            let windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
-            //变量scrollHeight是滚动条的总高度
-            let scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
-            //滚动条到底部的条件
-            console.log(scrollTop + windowHeight);
-            console.log(scrollHeight);
-            if (scrollTop + windowHeight + 400 >= scrollHeight) {
-                //写后台加载数据的函数
-                console.log('到底部了');
-                this.$data.imgData = this.$data.imgData.concat(this.$data.imgData);
-                console.log(this.$data.imgData.length);
-            }
-        }
     },
 };
 </script>
