@@ -40,7 +40,7 @@
             style="width: 100%; height: 100%; background: rgba(0, 0, 0, 0)"
           >
             <el-carousel-item v-for="item in swiper" :key="item">
-              <img :src="item.img" />
+              <img :id="item.id" :src="item.img" />
             </el-carousel-item>
             <div class="footer">
               <div style="flex: 1">
@@ -92,7 +92,9 @@
             <input class="RightinputName" v-model="inputName" />
           </div>
           <p class="RightinputNameDesc">输入你的名字</p>
-          <div class="download"><img src="../assets/Group483.svg" /></div>
+          <div class="download" @click="getPhoto()">
+            <img src="../assets/Group483.svg" />
+          </div>
           <div class="download-qrcode">
             <vue-qr
               ref="qrCode"
@@ -123,11 +125,33 @@ export default {
   setup() {
     const router = useRouter();
     const id = router.currentRoute.value.params.id;
+    //临时测试下载写的
+    let getPhoto = () => {
+      let temp = document.getElementsByClassName(
+        "el-carousel__item is-active"
+      )[0].children[0];
+      console.log("canvas", temp);
+      let img = new Image();
+      img.src = temp.src;
+      let canvas = document.createElement("canvas");
+      img.onload = () => {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        let context = canvas.getContext("2d");
+        context.drawImage(img, 0, 0);
+        let a = document.createElement("a");
+        a.href = canvas.toDataURL("img/png");
+        a.download = temp.id;
+        a.click();
+      };
+
+      // let img=temp.toDataURL("image/png");
+    };
     console.log("id", id);
-    
     return {
       router,
       id,
+      getPhoto,
     };
   },
   created() {
@@ -176,23 +200,23 @@ export default {
       textValue: "https://cn.vuejs.org/",
       swiper: [
         {
-          img: require("@/assets/image13.svg"),
+          img: require("@/assets/fractal_ac_0001.svg"),
           id: 0,
         },
         {
-          img: require("@/assets/image13.svg"),
+          img: require("@/assets/fractal_ac_0001.svg"),
           id: 1,
         },
         {
-          img: require("@/assets/image13.svg"),
+          img: require("@/assets/fractal_ac_0001.svg"),
           id: 2,
         },
         {
-          img: require("@/assets/image13.svg"),
+          img: require("@/assets/fractal_ac_0001.svg"),
           id: 3,
         },
         {
-          img: require("@/assets/image13.svg"),
+          img: require("@/assets/fractal_ac_0001.svg"),
           id: 4,
         },
       ],
