@@ -195,7 +195,10 @@ export default {
             if (data.code === 200) {
               data = data.data;
               for (let i = 0; i < 10 && i < data.length; i++) {
-                morePhotoContext.push(data[i]);
+                let temp = data[i];
+                temp.url=temp.url.replace(".svg", ".png");
+                console.log("temp", temp);
+                morePhotoContext.push(temp);
               }
             } else {
               alert("网络错误");

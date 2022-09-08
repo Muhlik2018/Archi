@@ -23,7 +23,7 @@
         <el-carousel-item
           v-for="(item, index) in homeScene"
           :key="index"
-          @click="goOtherPage(item.scene)"
+          @click="goScenePage(item.scene)"
         >
           <!-- <h3 class="small justify-center" text="2xl">{{ item }}</h3> -->
           <div class="carousel-box">
@@ -186,49 +186,12 @@ export default {
           console.log("classic data", data);
           if (data.code === 200) {
             data = data.data;
+            data.forEach((element) => {
+              const str = element.url.replace(".svg", ".png");
+              // console.log("str", str);
+              element.url = str;
+            });
             homeClassic.push(...data);
-            // homeClassic.push(
-            //   {
-            //     url: "/fractal_ac_0014.jpg",
-            //     type: "svg",
-            //     scene: "raster",
-            //   },
-            //   {
-            //     url: "/fractal_ac_0015.jpg",
-            //     type: "svg",
-            //     scene: "raster",
-            //   },
-            //   {
-            //     url: "/fractal_ac_0014.jpg",
-            //     type: "svg",
-            //     scene: "fractal",
-            //   },
-            //   {
-            //     url: "/fractal_ac_0015.jpg",
-            //     type: "svg",
-            //     scene: "fractal",
-            //   },
-            //   {
-            //     url: "/fractal_ac_0014.jpg",
-            //     type: "svg",
-            //     scene: "grid",
-            //   },
-            //   {
-            //     url: "/fractal_ac_0015.jpg",
-            //     type: "svg",
-            //     scene: "grid",
-            //   },
-            //   {
-            //     url: "/fractal_ac_0015.jpg",
-            //     type: "svg",
-            //     scene: "sketch",
-            //   },
-            //   {
-            //     url: "/fractal_ac_0014.jpg",
-            //     type: "svg",
-            //     scene: "sketch",
-            //   },
-            // );
           }
         })
         .catch((err) => {
@@ -260,17 +223,17 @@ export default {
     };
   },
   methods: {
-    goDetail(scene, url) {
+    goDetail(scene, pngUrl) {
+      const url = pngUrl.replace(".png", ".svg");
       this.router.push({ name: "detail", params: { scene, url } });
     },
     goGenerate() {
       this.router.push({ name: "GenerateArt1" });
     },
-    goOtherPage(id) {
-      if (id == 1) {
-        this.router.push({ name: "ArchiCulture" });
-      } else {
-        this.router.push({ name: "ArchiCulture" });
+    goScenePage(scene) {
+      if (scene) {
+        console.log("scene", scene);
+        this.router.push({ name: "ArchiCulture", params: { scene } });
       }
     },
   },
@@ -495,9 +458,9 @@ export default {
   position: relative;
   height: 100%;
 }
-.top5-swiper .el-image{
+.top5-swiper .el-image {
   height: 100%;
-} 
+}
 .top5-swiper .swiper-slide-active,
 .top5-swiper .swiper-slide-duplicate-active {
   transform: scale(0.95);
@@ -519,7 +482,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  color: #754ABC;
+  color: #754abc;
   z-index: 1000;
   margin: 0 3rem;
 }
