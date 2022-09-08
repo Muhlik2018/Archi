@@ -1,5 +1,5 @@
 <template>
-  <div class="GenerateArt2">
+  <div class="GenerateArt2" v-loading="loading">
     <HeadNav></HeadNav>
     <div class="top">
       <!-- <el-image src="GenerateArtTopLogo.jpg" fit="cover"></el-image> -->
@@ -150,6 +150,7 @@ export default {
     let generateSize = ref(0.5);
     let colorSet = reactive([]);
     let colorSelected = ref("");
+    let loading=ref(false);
     const scenerio = ref(router.currentRoute.value.params.Scenerio);
 
     onBeforeMount(() => {
@@ -212,6 +213,7 @@ export default {
       scenerio,
       colorSelected,
       colorSet,
+      loading,
       modules: [Navigation],
     };
   },
@@ -251,6 +253,7 @@ export default {
         const scale = this.generateSize;
         const color_id = this.colorSelected;
         const scene = this.scenerio;
+        this.loading=true;
         // console.log(archi_id, scale, color_id, scene);
         axios
           .post("/ac/api/gen", {
@@ -262,12 +265,10 @@ export default {
           .then(({ data }) => {
             if (data.code === 200) {
               data = data.data;
-              this.router.push({
-                name: "GenerateArt3",
-                params: { id: data.id },
-              });
+              this.getGeneratePhoto(data.id);
             } else {
               alert("网络错误");
+              this.loading=false;
             }
           })
           .catch((err) => {
@@ -276,6 +277,38 @@ export default {
       } else {
         alert("元素和颜色必选！");
       }
+    },
+    getGeneratePhoto(id) {
+      axios
+        .get(`/ac/api/gen/${id}`)
+        .then(({ data }) => {
+          if (data.code === 200) {
+            data = data.data;
+            console.log("data", data);
+            if (data.status === 200) {
+              this.router.push({
+                name: "GenerateArt3",
+                params: { id: data.id },
+              });
+            } else if (data.status === 300) {
+              this.loading=false;
+              alert("异常结束");
+            } else if (data.status === 400) {
+              this.loading=false;
+              alert("参数错误");
+            } else if (data.status === 500) {
+              this.loading=false;
+              alert("严重错误");
+            } else {
+              setTimeout(() => {
+                this.getGeneratePhoto(data.id);
+              }, 2000);
+            }
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };
@@ -442,8 +475,8 @@ export default {
   border-style: dashed;
   border-color: #8b8b8b;
 }
-.haveChoosen .swiper-slide:nth-child(2n+1){
-  background: #DDD2EE;
+.haveChoosen .swiper-slide:nth-child(2n + 1) {
+  background: #ddd2ee;
 }
 .haveChoosenContent {
   width: 80%;

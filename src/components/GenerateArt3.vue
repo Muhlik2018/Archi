@@ -38,24 +38,16 @@
             :interval="2000"
             arrow="always"
             style="width: 100%; height: 100%; background: rgba(0, 0, 0, 0)"
-            autoplay="true"
+            :autoplay="false"
             ref="carousel"
-            v-if="swiper.length > 0"
+            v-if="genImg.images"
+            @change="carouselChange"
           >
-
-          <template  v-for="(item) in swiper" :key="item.url">
-            
+            <template v-for="item in genImg.images" :key="item.download_url">
               <el-carousel-item>
-              <img :src="item.url" />
-            </el-carousel-item>
-            
-          </template>
-            
-
-
-
-
-
+                <img :src="item.download_url" />
+              </el-carousel-item>
+            </template>
 
             <!-- <div class="footer">
               <div style="flex: 1">
@@ -107,12 +99,13 @@
             <input class="RightinputName" v-model="inputName" />
           </div>
           <p class="RightinputNameDesc">输入你的名字</p> -->
-          <div class="download"><img src="../assets/Group483.svg" /></div>
+          <div class="download" @click="downloadClick">
+            <img src="../assets/Group483.svg" />
+          </div>
           <div class="download-qrcode">
             <vue-qr
               ref="qrCode"
               :text="textValue"
-              :logoSrc="logoPath"
               :logoScale="10"
               :size="500"
             />
@@ -121,9 +114,7 @@
         </div>
       </div>
       <div class="todo-button-outer">
-        <div class="todo-button-inner">
-          
-        </div>
+        <div class="todo-button-inner"></div>
       </div>
       <!-- <div style="width:100px;height:100px"><img src="../assets/image23.svg"></div> -->
     </div>
@@ -151,41 +142,32 @@ export default {
   created() {
     let tmpDate = new Date();
     this.date = this.transDate(tmpDate);
-
-    axios
-        .get("/ac/api/image/scene")
-        .then(({ data }) => {
-          if (data.code === 200) {
-            data=data.data
-            this.swiper=data
-          } else {
-            alert("请求失败请重试");
-          }
-        })
-        .catch((err) => {
-          console.log("err", err);
-        });
   },
-  beforeMount(){
-    this.id=this.$route.params.id;
-    console.log(this.id);
-    if(!this.id){
-      this.goPage('GenerateArt1')
+  beforeMount() {
+    this.id = this.$route.params.id;
+    if (!this.id) {
+      this.goPage("GenerateArt1");
     }
     // console.log(this.id);
-    // axios
-        // .get(`/ac/api/gen/${this.id}`)
-        // .then(({ data }) => {
-        //   if (data.code === 200) {
-        //     console.log(data);
-        //   } else {
-        //     alert("请求失败请重试");
-        //   }
-        // })
-        // .catch((err) => {
-        //   console.log("err", err);
-        // });
-        
+    axios
+      .get(`/ac/api/gen/${this.id}`)
+      .then(({ data }) => {
+        if (data.code === 200) {
+          data = data.data;
+          this.genImg = data;
+          const url =
+            window.location.protocol +
+            "//" +
+            window.location.host +
+            this.genImg.images[0].download_url;
+          this.textValue = url;
+        } else {
+          alert("请求失败请重试");
+        }
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
   },
 
   components: {
@@ -212,6 +194,27 @@ export default {
       const day = date.getDate() > 10 ? date.getDate() : "0" + date.getDate();
       return `${year}.${month}.${day}`;
     },
+    downloadClick() {
+      const img = document.getElementsByClassName(
+        "el-carousel__item is-active"
+      )[0].children[0];
+      const a = document.createElement("a");
+      // 下载的文件名
+      a.download = this.genImg.id;
+      // url
+      a.href = img.src;
+      // 触发点击
+      a.click();
+    },
+    carouselChange(now, prev) {
+      console.log(now, prev);
+      const url =
+        window.location.protocol +
+        "//" +
+        window.location.host +
+        this.genImg.images[now].download_url;
+      this.textValue = url;
+    },
     // downloadQR() {
     //   const a = document.createElement("a");
     //   // 下载的文件名
@@ -226,9 +229,10 @@ export default {
     return {
       // inputName: "小锅焖大米",
       date: "",
+      genImg: {},
       // id:'',
       // logoPath: require("@/assets/1.png"),
-      textValue: "https://cn.vuejs.org/",
+      textValue: "",
       swiper: [],
     };
   },
@@ -713,7 +717,7 @@ export default {
   height: 53.9375rem; */
 
   /* width: 95%; */
-  height:  95%;
+  height: 95%;
   background-color: #ffffff;
   padding: 3rem;
 
@@ -723,11 +727,9 @@ export default {
   transform: translateX(-50%) translateY(-50%);
   top: 50%;
   left: 50%;
-
 }
 .GenerateArt1 .el-carousel__arrow--right {
   left: 102%;
-  
 }
 .GenerateArt1 .el-carousel__arrow {
   top: 0;
