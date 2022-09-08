@@ -222,9 +222,8 @@ export default {
               console.log("data", data);
 
               photoInfo.value = archi.id + " 随机数测试：" + Math.random();
-              photoInfoOffset.value =
-                Number(archi.getAttribute("x")) +
-                Number(archi.getAttribute("width"));
+              photoInfoOffset.value = Number(archi.getAttribute("x"));
+              // Number(archi.getAttribute("width"));
               // console.log("photoInfoOffset", photoInfoOffset.value);
               hadClicked.value = true;
             }
