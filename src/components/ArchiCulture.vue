@@ -1,10 +1,10 @@
 <template>
     <div class="Page">
         <HeadNav></HeadNav>
-        <div class="carousel" v-if="homeScene.value.length > 0">
+        <div class="carousel">
             <el-carousel height="61.875em" :autoplay="false" @change="turnPage">
                 <el-carousel-item v-for="(item, index) in homeScene.value" :key="index">
-                    <div class="carousel-box" >
+                    <div class="carousel-box">
                         <div class="carousel-text-box">
                             <div class="carousel-text">
                                 <div class="carousel-text-title">{{ item.scene }}</div>
@@ -19,8 +19,20 @@
                 </el-carousel-item>
             </el-carousel>
         </div>
-        <div>
-            <WaterFall :list="imgData" />
+        <div v-if="show==0">
+            <WaterFall :list="freedom_list" />
+        </div>
+        <div v-if="show==1">
+            <WaterFall :list="grid_list" />
+        </div>
+        <div v-if="show==2">
+            <WaterFall :list="raster_list" />
+        </div>
+        <div v-if="show==3">
+            <WaterFall4 :list="sketch_list" />
+        </div>
+        <div v-if="show==4">
+            <WaterFall :list="fractal_list" />
         </div>
         <FooterNav></FooterNav>
     </div>
@@ -37,70 +49,30 @@ import WaterFall from "./WaterFall.vue"
 import axios from "axios";
 import { reactive } from "@vue/reactivity";
 import { onBeforeMount } from "@vue/runtime-core";
+import WaterFall4 from "./WaterFall4.vue";
 
 
 export default {
     components: {
         HeadNav,
         FooterNav,
-        WaterFall
+        WaterFall,
+        WaterFall4
     },
     data() {
         return {
             scene: "",
+            show: "3",
             imgData: [],
-            imgData1: [{
-                "id": "raster_ac_0000",
-                "url": "/static/image/archicasca/raster/raster_ac_0000.svg",
-                "type": "svg",
-                "scene": null
-            },
-            {
-                "id": "raster_ac_0001",
-                "url": "/static/image/archicasca/raster/raster_ac_0001.svg",
-                "type": "svg",
-                "scene": null
-            },
-            {
-                "id": "raster_ac_00010",
-                "url": "/static/image/archicasca/raster/raster_ac_00010.svg",
-                "type": "svg",
-                "scene": null
-            },
-            {
-                "id": "raster_ac_00011",
-                "url": "/static/image/archicasca/raster/raster_ac_00011.svg",
-                "type": "svg",
-                "scene": null
-            },
-            {
-                "id": "raster_ac_00012",
-                "url": "/static/image/archicasca/raster/raster_ac_00012.svg",
-                "type": "svg",
-                "scene": null
-            },
-            {
-                "id": "raster_ac_00013",
-                "url": "/static/image/archicasca/raster/raster_ac_00013.svg",
-                "type": "svg",
-                "scene": null
-            },
-            {
-                "id": "raster_ac_00014",
-                "url": "/static/image/archicasca/raster/raster_ac_00014.svg",
-                "type": "svg",
-                "scene": null
-            },
-            {
-                "id": "raster_ac_00015",
-                "url": "/static/image/archicasca/raster/raster_ac_00015.svg",
-                "type": "svg",
-                "scene": null
-            },]
+            raster_list: [],
+            freedom_list: [],
+            grid_list: [],
+            sketch_list: []
         }
     },
     created() {
-        this.ini();
+
+        this.getPic();
     },
     setup() {
         const router = useRouter();
@@ -128,125 +100,106 @@ export default {
         };
     },
     methods: {
-        ini() {
-            axios
-                .get("/ac/api/archicasca/raster")
+        getPic() {
+            axios({
+                method: "get",
+                url: "/ac/api/archicasca/freedom",
+                headers: {
+                    "Content-Type": "x-www-form-urlencoded"
+                }
+            })
                 .then(res => {
                     console.log("pic data", res);
                     if (res.data.code === 200) {
-                        this.imgData = res.data.data
-                        console.log("finish")
+                        this.freedom_list = res.data.data
+                        console.log(this.freedom_list)
+                        console.log("freedom")
                     }
                 })
                 .catch((err) => {
                     console.log("err", err);
                 });
+
+            axios({
+                method: "get",
+                url: "/ac/api/archicasca/grid",
+                headers: {
+                    "Content-Type": "x-www-form-urlencoded"
+                }
+            })
+                .then(res => {
+                    console.log("pic data", res);
+                    if (res.data.code === 200) {
+                        this.grid_list = res.data.data
+                        console.log(this.grid_list)
+                        console.log("grid")
+                    }
+                })
+                .catch((err) => {
+                    console.log("err", err);
+                });
+
+
+            axios({
+                method: "get",
+                url: "/ac/api/archicasca/sketch",
+                headers: {
+                    "Content-Type": "x-www-form-urlencoded"
+                }
+            })
+                .then(res => {
+                    console.log("pic data", res);
+                    if (res.data.code === 200) {
+                        this.sketch_list = res.data.data
+                        console.log(this.sketch_list)
+                        console.log("sketch")
+                    }
+                })
+                .catch((err) => {
+                    console.log("err", err);
+                });
+
+            axios({
+                method: "get",
+                url: "/ac/api/archicasca/fractal",
+                headers: {
+                    "Content-Type": "x-www-form-urlencoded"
+                }
+            })
+                .then(res => {
+                    console.log("pic data", res);
+                    if (res.data.code === 200) {
+                        this.fractal_list = res.data.data
+                        console.log(this.fractal_list)
+                        console.log("fractal")
+                    }
+                })
+                .catch((err) => {
+                    console.log("err", err);
+                });
+            axios({
+                method: "get",
+                url: "/ac/api/archicasca/raster",
+                headers: {
+                    "Content-Type": "x-www-form-urlencoded"
+                }
+            })
+                .then(res => {
+                    console.log("pic data", res);
+                    if (res.data.code === 200) {
+                        this.raster_list = res.data.data
+                        console.log(this.raster_list)
+                        console.log("fraster")
+                    }
+                })
+                .catch((err) => {
+                    console.log("err", err);
+                });
+
         },
-        getPic(index) {
-            if (index == 0) {
-                axios({
-                    method: "get",
-                    url: "/ac/api/archicasca/freedom",
-                    headers: {
-                        "Content-Type": "x-www-form-urlencoded"
-                    }
-                })
-                    .then(res => {
-                        console.log("pic data", res);
-                        if (res.data.code === 200) {
-                            this.imgData = res.data.data
-                            console.log(this.imgData)
-                            console.log("finish")
-                        }
-                    })
-                    .catch((err) => {
-                        console.log("err", err);
-                    });
-            }
-            if (index == 1) {
-                axios({
-                    method: "get",
-                    url: "/ac/api/archicasca/grid",
-                    headers: {
-                        "Content-Type": "x-www-form-urlencoded"
-                    }
-                })
-                    .then(res => {
-                        console.log("pic data", res);
-                        if (res.data.code === 200) {
-                            this.imgData = res.data.data
-                            console.log(this.imgData)
-                            console.log("finish")
-                        }
-                    })
-                    .catch((err) => {
-                        console.log("err", err);
-                    });
-            }
-            if (index == 3) {
-                axios({
-                    method: "get",
-                    url: "/ac/api/archicasca/sketch",
-                    headers: {
-                        "Content-Type": "x-www-form-urlencoded"
-                    }
-                })
-                    .then(res => {
-                        console.log("pic data", res);
-                        if (res.data.code === 200) {
-                            this.imgData = res.data.data
-                            console.log(this.imgData)
-                            console.log("finish")
-                        }
-                    })
-                    .catch((err) => {
-                        console.log("err", err);
-                    });
-            }
-            if (index == 4) {
-                axios({
-                    method: "get",
-                    url: "/ac/api/archicasca/fractal",
-                    headers: {
-                        "Content-Type": "x-www-form-urlencoded"
-                    }
-                })
-                    .then(res => {
-                        console.log("pic data", res);
-                        if (res.data.code === 200) {
-                            this.imgData = res.data.data
-                            console.log(this.imgData)
-                            console.log("finish")
-                        }
-                    })
-                    .catch((err) => {
-                        console.log("err", err);
-                    });
-            }
-            if (index == 2) {
-                axios({
-                    method: "get",
-                    url: "/ac/api/archicasca/raster",
-                    headers: {
-                        "Content-Type": "x-www-form-urlencoded"
-                    }
-                })
-                    .then(res => {
-                        console.log("pic data", res);
-                        if (res.data.code === 200) {
-                            this.imgData = res.data.data
-                            console.log(this.imgData)
-                            console.log("finish")
-                        }
-                    })
-                    .catch((err) => {
-                        console.log("err", err);
-                    });
-            }
-        },
-        turnPage(index) {
-            this.getPic(index);
-        },
+         turnPage(index) {
+             this.show = index;
+         },
     },
 };
 </script>
