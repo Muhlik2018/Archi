@@ -23,7 +23,14 @@
           class="photo-preview-info"
           :style="{ left: photoInfoOffset + 'px' }"
         >
-          <p @click="hideInfo()">x</p>
+          <!-- <p >x</p> -->
+          <div @click="hideInfo()" class="photo-preview-info-x">
+            <img
+              src="Detail-X-Vector.svg"
+              alt="X"
+              style="width: 60%; height: 60%"
+            />
+          </div>
           <img src="Detail-1.svg" class="photo-preview-reality" />
           <p>{{ photoInfo }}</p>
           <!-- Text description pop-up window of the element selected in the svg.
@@ -73,12 +80,10 @@
         <Swiper :slidesPerView="3">
           <swiper-slide v-for="item in morePhotoContext" :key="item.id">
             <div class="more-photo-swiper-item">
-              <el-image :src="item.url" fit="cover"></el-image>
+              <el-image :src="item.url" fit="contain"></el-image>
               <div class="more-photo-swiper-item-text">
                 <div class="more-photo-swiper-item-type">{{ detailScene }}</div>
-                <div class="more-photo-swiper-item-author">
-                  <!-- {{ item.id }} -->
-                </div>
+                <div class="more-photo-swiper-item-author">算法程序</div>
               </div>
             </div>
           </swiper-slide>
@@ -189,7 +194,7 @@ export default {
           .then(({ data }) => {
             if (data.code === 200) {
               data = data.data;
-              for (let i = 0; i < 5 && i < data.length; i++) {
+              for (let i = 0; i < 10 && i < data.length; i++) {
                 morePhotoContext.push(data[i]);
               }
             } else {
@@ -316,6 +321,18 @@ export default {
   border-radius: 32px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+.photo-preview-info-x {
+  background: #b9c9fc;
+  border-radius: 90%;
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  left: 30rem;
+  top: -1rem;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -475,6 +492,14 @@ export default {
   justify-content: center;
   align-items: center;
   margin: 1rem;
+}
+.more-photo-box >>> .el-image__inner {
+  height: 50rem;
+}
+.more-photo-swiper-item-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .more-photo-swiper-item-type {
   font-family: "Amaranth";

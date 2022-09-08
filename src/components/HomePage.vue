@@ -72,9 +72,9 @@
             <div class="swiper-item">
               <div class="swiper-item-text">
                 <div class="swiper-item-category">{{ item.scene }}</div>
-                <div class="swiper-item-description">分类描述+作者信息</div>
+                <div class="swiper-item-description">算法程序</div>
               </div>
-              <el-image :src="item.url" fit="cover"></el-image>
+              <el-image :src="item.url" fit="contain"></el-image>
             </div>
           </swiper-slide>
         </swiper>
@@ -425,7 +425,6 @@ export default {
 
 .top5 {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -463,6 +462,7 @@ export default {
 }
 .top5-swiper {
   width: 90%;
+  height: 40rem;
   margin: auto;
 }
 .top5-swiper .swiper {
@@ -470,28 +470,34 @@ export default {
   justify-content: center;
   align-items: center;
   width: 90%;
+  height: 100%;
 }
 .top5-swiper >>> .swiper-wrapper {
   align-items: center;
   justify-content: center;
   margin-left: 75rem;
+  height: 100%;
 }
 .top5-swiper .swiper-slide {
   text-align: center;
-  height: 70%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 300ms;
   transform: scale(0.7);
-  margin-right: -12rem !important;
+  margin-right: -14rem !important;
 }
 .top5-swiper .swiper-item {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
   position: relative;
+  height: 100%;
 }
+.top5-swiper .el-image{
+  height: 100%;
+} 
 .top5-swiper .swiper-slide-active,
 .top5-swiper .swiper-slide-duplicate-active {
   transform: scale(0.95);
@@ -513,16 +519,16 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  color: #ffffff;
+  color: #754ABC;
   z-index: 1000;
-  margin: 3rem;
+  margin: 0 3rem;
 }
 .top5-swiper .swiper-item-category {
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
+  font-size: 2rem;
+  line-height: 2rem;
   text-transform: uppercase;
 }
 .top5-swiper .swiper-item-description {
@@ -533,6 +539,9 @@ export default {
   line-height: 1.5rem;
   text-transform: uppercase;
   margin-top: 0.5rem;
+}
+.top5-swiper >>> .el-image__inner {
+  background-color: white;
 }
 
 .category {
