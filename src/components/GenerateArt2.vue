@@ -29,9 +29,13 @@
       <div class="haveChosenAndGenerated">
         <div class="haveChoosen">
           <div class="haveChoosenTitle">已选元素：</div>
+          <div class="haveChoosenUpDiv">
+            <div class="haveChoosenUp">^</div>
+          </div>
           <Swiper
             v-show="haveChoosenItem"
-            navigation
+            class="haveChoosenSwiper"
+            :navigation="haveChoosenSwiperButton.navigation"
             direction="vertical"
             :modules="modules"
             :slidesPerView="4"
@@ -49,6 +53,9 @@
               ></el-image>
             </swiper-slide>
           </Swiper>
+          <div class="haveChoosenDownDiv">
+            <div class="haveChoosenDown">^</div>
+          </div>
           <!-- <div class="haveChoosenContent">
             <img
               class="haveChoosenContentImg"
@@ -153,6 +160,12 @@ export default {
     let colorSet = reactive([]);
     let colorSelected = ref("");
     let loading = ref(false);
+    let haveChoosenSwiperButton = reactive({
+      navigation: {
+        prevEl: ".haveChoosenUp",
+        nextEl: ".haveChoosenDown",
+      },
+    });
     const scenerio = ref(router.currentRoute.value.params.Scenerio);
 
     onBeforeMount(() => {
@@ -217,6 +230,7 @@ export default {
       colorSet,
       loading,
       modules: [Navigation],
+      haveChoosenSwiperButton,
     };
   },
   methods: {
@@ -418,7 +432,7 @@ export default {
 .canChoose .swiper {
   display: flex;
   position: initial;
-  --swiper-navigation-size:3.5rem;
+  --swiper-navigation-size: 3.5rem;
 }
 .canChoose >>> .swiper-wrapper {
   width: 90% !important;
@@ -467,7 +481,7 @@ export default {
   text-align: center;
   text-transform: uppercase;
   color: #531dab;
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 .haveChoosen .swiper {
   height: 40rem;
@@ -497,8 +511,27 @@ export default {
   margin: 1rem 0;
 }
 .haveChoosenContentImg >>> .el-image__inner {
-  max-height: 10rem;
+  max-height: 8rem;
 }
+.haveChoosen .haveChoosenUpDiv {
+  /* transform: rotate(90deg); */
+  cursor: pointer;
+  user-select: none;
+  color: #007aff;
+  font-size: 3.5rem;
+  height: 3.8rem;
+  line-height: 3.5rem;
+}
+.haveChoosen .haveChoosenDownDiv {
+  transform: rotate(-180deg);
+  cursor: pointer;
+  user-select: none;
+  color: #007aff;
+  font-size: 3.5rem;
+  height: 3.8rem;
+  line-height: 3.5rem;
+}
+
 .generateImgBox {
   width: 70%;
   display: flex;
@@ -560,9 +593,9 @@ export default {
   position: relative;
   padding: 0 3rem;
 }
-.colorDiv .swiper{
+.colorDiv .swiper {
   position: initial;
-  --swiper-navigation-size:3.5rem;
+  --swiper-navigation-size: 3.5rem;
 }
 .colorDiv .swiper-slide {
   width: 5.5rem !important;
@@ -577,6 +610,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: #ffffff 0.35rem dashed;
 }
 .colorDiv .haveSelected {
   border: #71c5fc 0.35rem dashed;
