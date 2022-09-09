@@ -19,7 +19,7 @@
       <el-image :src="homeTheme" fit="contain" style="width: 100%"></el-image>
     </div>
     <div class="carousel" v-if="homeScene.length">
-      <el-carousel height="62rem"  :autoplay="false"  @change="turnPage">
+      <el-carousel height="62rem" arrow="always" :autoplay="false"  @change="turnPage">
         <el-carousel-item
           v-for="(item, index) in homeScene"
           :key="index"
