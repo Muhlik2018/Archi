@@ -20,6 +20,7 @@
         <div
           ref="photoPreviewInfo"
           v-show="hadClicked"
+          v-if="photoInfo"
           class="photo-preview-info"
           :style="{ left: photoInfoOffset + 'px' }"
         >

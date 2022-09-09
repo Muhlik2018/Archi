@@ -68,7 +68,7 @@
       </div>
     </div>
 
-    <div class="title" v-if="false">{{SubjectCnName}}</div>
+    <div class="title" v-if="false">{{ SubjectCnName }}</div>
     <div class="titleDesc" v-if="false">项目系统开发与运营、宣传与活动</div>
 
     <div class="member">
@@ -205,25 +205,24 @@ export default {
   components: { HeadNav, FooterNav },
   data() {
     return {
-      subject:'computer'
+      subject: "computer",
     };
   },
-  methods:{
-    selectSubject(subjectName)
-    {
-      this.subject=subjectName;
-    }
+  methods: {
+    selectSubject(subjectName) {
+      this.subject = subjectName;
+    },
   },
-  computed:{
-    SubjectCnName(){
-      if(this.subject=='computer')return '计算机与软件'
-      else if(this.subject=='design')return '建筑/艺术设计'
-      else if(this.subject=='math')return '数学'
-      else if(this.subject=='information')return '信息与交互设计'
-      else if(this.subject=='finance')return '金融/工商管理'
-      else return ''
-    }
-  }
+  computed: {
+    SubjectCnName() {
+      if (this.subject == "computer") return "计算机与软件";
+      else if (this.subject == "design") return "建筑/艺术设计";
+      else if (this.subject == "math") return "数学";
+      else if (this.subject == "information") return "信息与交互设计";
+      else if (this.subject == "finance") return "金融/工商管理";
+      else return "";
+    },
+  },
 };
 </script>
 
@@ -333,10 +332,8 @@ export default {
 }
 .selected {
   border: solid 0.9375rem transparent;
-
   left: -0.9375rem;
   top: -0.9375rem;
-
   border-radius: 50%;
   background-image: linear-gradient(#fff, #fff),
     linear-gradient(180deg, #531dab 0%, rgba(0, 159, 232, 0) 100%);
@@ -348,7 +345,7 @@ export default {
   position: absolute;
   vertical-align: center;
 }
-.notselected {
+/* .notselected {
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 0%,
@@ -360,6 +357,21 @@ export default {
 
   z-index: 100;
   position: absolute;
+} */
+.notselected {
+  border: solid 0.9375rem transparent;
+  left: -0.9375rem;
+  top: -0.9375rem;
+  border-radius: 50%;
+  background-image: linear-gradient(#fff, #fff),
+    linear-gradient(180deg, #531dab 0%, rgba(0, 159, 232, 0) 100%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  display: inline-grid;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  vertical-align: center;
 }
 .title {
   margin-top: 8rem;
