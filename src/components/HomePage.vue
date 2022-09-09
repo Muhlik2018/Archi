@@ -8,9 +8,9 @@
             <div>生成艺术</div>
             <div>GENERATE ART</div>
           </div>
-          <!-- <div class="tgf-left-down">
+          <div class="tgf-left-down">
             The quick brown fox jumps over the lazy dog
-          </div> -->
+          </div>
         </div>
         <div class="tgf-right">
           <button class="tgf-right-button" @click="goGenerate()">去创作</button>
@@ -19,7 +19,7 @@
       <el-image :src="homeTheme" fit="contain" style="width: 100%"></el-image>
     </div>
     <div class="carousel" v-if="homeScene.length">
-      <el-carousel height="62rem" :autoplay="false">
+      <el-carousel height="62rem"  :autoplay="false"  @change="turnPage">
         <el-carousel-item
           v-for="(item, index) in homeScene"
           :key="index"
@@ -29,9 +29,9 @@
           <div class="carousel-box">
             <div class="carousel-text-box">
               <div class="carousel-text-content">
-                <div class="carousel-text-title">{{ item.scene }}</div>
+                <div class="carousel-text-title">{{ scene_name }}</div>
                 <div class="carousel-text-details">
-                  The quick brown fox jumps over the lazy dog
+                 {{scene_descripe}}
                 </div>
               </div>
             </div>
@@ -141,6 +141,15 @@ export default {
     HeadNav,
     FooterNav,
   },
+  data() {
+    return {
+      scene_name:"",
+      scene_descripe:''
+    };
+  },
+  created() {
+    this.getinfo();
+  },
   setup() {
     const router = useRouter();
     let categoryContext = reactive([
@@ -163,7 +172,7 @@ export default {
     let homeTheme = ref("");
     let homeClassic = reactive([]);
     let homeScene = reactive([]);
-
+    let show = ref(0);
     onBeforeMount(() => {
       // 获取主题背景图
       axios
@@ -220,6 +229,7 @@ export default {
       homeTheme,
       homeClassic,
       homeScene,
+      show 
     };
   },
   methods: {
@@ -236,6 +246,31 @@ export default {
         this.router.push({ name: "ArchiCulture", params: { scene } });
       }
     },
+    turnPage(index) {
+      this.show = index;
+      this.getinfo();
+    },
+    getinfo(){
+      if (this.show === 0) {
+      this.scene_name="自由创作"
+      this.scene_descripe="携建筑之形意，运层叠之技法，展城市记忆与文化艺术神韵。"
+    } else if (this.show === 1) {
+      this.scene_name="格子风格"
+      this.scene_descripe="以窗格为基，嵌入建筑形意，大美至简。"
+    } else if  (this.show === 2)  {
+      this.scene_name="光栅风格"
+      this.scene_descripe="斑斓光栅，建筑浮动，城市日夜美景。"
+    } else if (this.show === 3)  {
+      this.scene_name="轮廓风格"
+      this.scene_descripe="水平线上，层叠建筑形意、江河远山，勾勒城市印象。"
+    } else if  (this.show === 4)  {
+      this.scene_name="分形风格"
+      this.scene_descripe="传统建筑，几何构图，分形展和谐美丽。"
+    } else {
+      this.scene_name="自由创作"
+      this.scene_descripe="携建筑之形意，运层叠之技法，展城市记忆与文化艺术神韵。"
+    }
+    }
   },
 };
 </script>
@@ -365,7 +400,8 @@ export default {
   width: 40rem;
   position: absolute;
   z-index: 500;
-  margin: 2rem 4rem;
+  margin-left: 3rem;
+  margin-bottom: 2rem;
 }
 .carousel-text-title {
   font-family: "Arimo";
@@ -375,6 +411,7 @@ export default {
   line-height: 3.5rem;
   text-transform: uppercase;
   color: #ffffff;
+  margin-bottom: 1rem;
 }
 .carousel-text-details {
   font-family: "Inter";

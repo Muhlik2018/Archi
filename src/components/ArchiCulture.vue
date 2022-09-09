@@ -2,15 +2,15 @@
   <div class="Page">
     <HeadNav></HeadNav>
     <div v-if="homeScene.length > 0" class="carousel">
-      <el-carousel height="61.875em" :autoplay="false" @change="turnPage">
+      <el-carousel height="61.875em" :autoplay="false" @change="turnPage" >
         <el-carousel-item v-for="(item, index) in homeScene" :key="index">
           <div class="carousel-box">
             <div class="carousel-text-box">
               <div class="carousel-text">
-                <div class="carousel-text-title">{{ item.scene }}</div>
-                <!-- <div class="carousel-text-details">
-                  岭南文化作为中华民族传统文化中最具特色和活力的地域文化之一
-                </div> -->
+                <div class="carousel-text-title">{{ scene_name }}</div>
+                <div class="carousel-text-details">
+                  {{scene_descripe}}
+                </div>
               </div>
             </div>
             <el-image :src="item.url" fit="contain" style="width: 100%">
@@ -60,19 +60,18 @@ export default {
   },
   data() {
     return {
-      //   raster_list: [],
-      //   freedom_list: [],
-      //   grid_list: [],
-      //   sketch_list: [],
+      scene_name:"",
+      scene_descripe:''
     };
   },
   created() {
-    this.getPic();
+    this.getinfo();
   },
   setup() {
     const router = useRouter();
     const scene = ref(router.currentRoute.value.params.scene);
     let show = ref(0);
+    let start = ref(0);
     let freedom_list = reactive([]);
     let grid_list = reactive([]);
     let sketch_list = reactive([]);
@@ -82,21 +81,27 @@ export default {
     if (scene.value === "freedom") {
       console.log(0);
       show.value = 0;
+      start.value = 0;
     } else if (scene.value === "grid") {
       console.log(1);
       show.value = 1;
+      start.value = 1;
     } else if (scene.value === "raster") {
       console.log(2);
       show.value = 2;
+      start.value = 2;
     } else if (scene.value === "sketch") {
       console.log(3);
       show.value = 3;
+      start.value = 3;
     } else if (scene.value === "fractal") {
       console.log(4);
       show.value = 4;
+      start.value = 4;
     } else {
       console.log(0);
       show.value = 0;
+      start.value = 0;
     }
 
     let homeScene = reactive([]);
@@ -110,7 +115,7 @@ export default {
         },
       })
         .then((res) => {
-          //   console.log("pic data", res);
+             console.log("pic data", res);
           if (res.data.code === 200) {
             freedom_list.push(...res.data.data);
             // console.log(freedom_list);
@@ -122,9 +127,9 @@ export default {
         })
         .finally(() => {
           if (scene.value === "freedom") {
-            show.value=-1;
+            show.value = -1;
             setTimeout(() => {
-              show.value=0;
+              show.value = 0;
             }, 20);
           }
         });
@@ -154,9 +159,9 @@ export default {
         })
         .finally(() => {
           if (scene.value === "grid") {
-            show.value=-1;
+            show.value = -1;
             setTimeout(() => {
-              show.value=1;
+              show.value = 1;
             }, 20);
           }
         });
@@ -186,9 +191,9 @@ export default {
         })
         .finally(() => {
           if (scene.value === "sketch") {
-            show.value=-1;
+            show.value = -1;
             setTimeout(() => {
-              show.value=3;
+              show.value = 3;
             }, 20);
           }
         });
@@ -218,9 +223,9 @@ export default {
         })
         .finally(() => {
           if (scene.value === "fractal") {
-            show.value=-1;
+            show.value = -1;
             setTimeout(() => {
-              show.value=4;
+              show.value = 4;
             }, 20);
           }
         });
@@ -250,9 +255,9 @@ export default {
         })
         .finally(() => {
           if (scene.value === "raster") {
-            show.value=-1;
+            show.value = -1;
             setTimeout(() => {
-              show.value=2;
+              show.value = 2;
             }, 20);
           }
         });
@@ -288,12 +293,35 @@ export default {
       sketch_list,
       fractal_list,
       raster_list,
+      start
     };
   },
   methods: {
     turnPage(index) {
       this.show = index;
+      this.getinfo();
     },
+    getinfo(){
+      if (this.show === 0) {
+      this.scene_name="自由创作"
+      this.scene_descripe="携建筑之形意，运层叠之技法，展城市记忆与文化艺术神韵。"
+    } else if (this.show === 1) {
+      this.scene_name="格子风格"
+      this.scene_descripe="以窗格为基，嵌入建筑形意，大美至简。"
+    } else if  (this.show === 2)  {
+      this.scene_name="光栅风格"
+      this.scene_descripe="斑斓光栅，建筑浮动，城市日夜美景。"
+    } else if (this.show === 3)  {
+      this.scene_name="轮廓风格"
+      this.scene_descripe="水平线上，层叠建筑形意、江河远山，勾勒城市印象。"
+    } else if  (this.show === 4)  {
+      this.scene_name="分形风格"
+      this.scene_descripe="传统建筑，几何构图，分形展和谐美丽。"
+    } else {
+      this.scene_name="自由创作"
+      this.scene_descripe="携建筑之形意，运层叠之技法，展城市记忆与文化艺术神韵。"
+    }
+    }
   },
 };
 </script>
@@ -340,11 +368,9 @@ export default {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.7) 5.03%,
-    rgba(0, 0, 0, 0) 29.12%
-  );
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0.7) 5.03%,
+      rgba(0, 0, 0, 0) 29.12%);
   transform: rotate(-180deg);
 }
 
@@ -354,7 +380,7 @@ export default {
   z-index: 500;
 }
 
-.carousel >>> .el-carousel__arrow {
+.carousel>>>.el-carousel__arrow {
   transform: scale(3);
   background: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -364,19 +390,19 @@ export default {
 
 .carousel-text {
   position: absolute;
-  width: 46rem;
+  width: 52rem;
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  margin: 3rem;
+  margin: 4rem;
 }
 
 .carousel-text-title {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 6rem;
-  line-height: 8rem;
+  font-size: 5.5rem;
+  line-height: 7rem;
   text-transform: uppercase;
   color: #ffffff;
 }
