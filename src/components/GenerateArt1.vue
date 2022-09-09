@@ -52,8 +52,8 @@
           <p>条纹</p>
         </div> -->
       </div>
-      <div class="nextStep" v-show="scenerio" @click="goPage('GenerateArt2')">
-        下一步
+      <div class="nextStep">
+        <div class="nextStepBtn" v-show="scenerio" @click="goPage('GenerateArt2')">下一步</div>
       </div>
       <div class="todo-button-outer">
         <div class="todo-button-inner"></div>
@@ -264,14 +264,14 @@ export default {
 .nextStep {
   width: 16.6%;
   height: 6.25rem;
-
   margin: 0 auto;
   margin-top: 8rem;
+}
+.nextStepBtn{
+  width: 100%;
   border-radius: 1.25rem;
-
   background: #faed00;
   box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
-
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -280,7 +280,6 @@ export default {
   text-align: center;
   text-transform: uppercase;
   color: #531dab;
-
   cursor: pointer;
 }
 .wave {

@@ -418,6 +418,7 @@ export default {
 .canChoose .swiper {
   display: flex;
   position: initial;
+  --swiper-navigation-size:3.5rem;
 }
 .canChoose >>> .swiper-wrapper {
   width: 90% !important;
@@ -561,6 +562,7 @@ export default {
 }
 .colorDiv .swiper{
   position: initial;
+  --swiper-navigation-size:3.5rem;
 }
 .colorDiv .swiper-slide {
   width: 5.5rem !important;

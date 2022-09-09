@@ -45,7 +45,7 @@
           >
             <template v-for="item in genImg.images" :key="item.download_url">
               <el-carousel-item>
-                <img :src="item.download_url" />
+                <img :src="item.download_url" style="object-fit: contain;width: 100%;" />
               </el-carousel-item>
             </template>
 

@@ -1,18 +1,20 @@
 <template>
   <div class="Headnav">
     <div style="display: flex">
-      <div style="flex: 1;display:flex;align-items:center">
-        <div class="frame" @click="goPage('Home')"><img src="../assets/ArchiLogo.svg" alt="" /></div>
+      <div style="flex: 1; display: flex; align-items: center">
+        <div class="frame" @click="goPage('Home')">
+          <img src="../assets/ArchiLogo.svg" alt="" />
+        </div>
         <div class="home"><img src="../assets/Home.svg" alt="" /></div>
       </div>
       <div>
         <div class="nav">
           <!-- <div @click="goPage('TeamMembers')">关于我们</div> -->
           <div @click="goPage('Home')">首页</div>
-          <div @click="goPage('TeamDetail')">关于我们</div>
           <!-- <div @click="goPage('CulturalCreation')">文创周边</div> -->
           <!-- <div @click="goPage('ArchiActivities')">活动</div> -->
           <div @click="goPage('GenerateArt1')">创作</div>
+          <div @click="goPage('TeamDetail')">关于我们</div>
         </div>
       </div>
     </div>
@@ -23,15 +25,15 @@
 // import "../js/flexible.js";
 import { useRouter } from "vue-router";
 export default {
-    setup() {
+  setup() {
     const router = useRouter();
     return {
       router,
     };
   },
-    methods: {
+  methods: {
     goPage(pageName) {
-      this.router.push({name: pageName});
+      this.router.push({ name: pageName });
     },
   },
 };
@@ -57,12 +59,11 @@ export default {
   vertical-align: top;
 }
 .nav > div {
-  
   width: 6.25rem;
   height: 4.5625rem;
-  
+
   margin-right: 3.125rem;
-  
+
   display: inline-block;
 
   font-family: "Inter";
@@ -81,12 +82,11 @@ export default {
 }
 
 .icon {
-  
   width: 2.75rem;
   height: 3.9312rem;
 
   display: inline-block;
-  
+
   vertical-align: middle;
 }
 
@@ -104,49 +104,46 @@ export default {
   height: 100%;
 
   margin-left: 1.0625rem;
-  
+
   top: 50%;
   transform: translateY(-50%);
-  
+
   position: absolute;
-  
+
   vertical-align: bottom;
-  
+
   cursor: pointer;
 }
 .home {
   height: 100%;
 
   margin-left: 8.1875rem;
-  
+
   top: 50%;
   transform: translateY(-50%);
-  
+
   position: absolute;
-  
+
   cursor: pointer;
 
   vertical-align: middle;
-  
 }
 .frame img {
   width: 2.5625rem;
   height: 3.75rem;
-  
+
   top: 50%;
   transform: translateY(-50%);
-  
+
   position: absolute;
 }
 .home img {
-  
   width: 2.5rem;
   height: 1.75rem;
-  
+
   top: 50%;
   transform: translateY(-50%);
-  
+
   position: absolute;
-  
 }
 </style>

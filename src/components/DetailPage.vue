@@ -15,6 +15,7 @@
           id="svgTemplate"
           v-html="renderSVG.value"
           ref="svg"
+          style="height:75rem;"
           @click="printInfo($event)"
         ></div>
         <div
