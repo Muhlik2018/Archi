@@ -8,9 +8,9 @@
             <div class="carousel-text-box">
               <div class="carousel-text">
                 <div class="carousel-text-title">{{ item.scene }}</div>
-                <div class="carousel-text-details">
+                <!-- <div class="carousel-text-details">
                   岭南文化作为中华民族传统文化中最具特色和活力的地域文化之一
-                </div>
+                </div> -->
               </div>
             </div>
             <el-image :src="item.url" fit="contain" style="width: 100%">
