@@ -8,6 +8,7 @@
       <div>
         <div class="nav">
           <!-- <div @click="goPage('TeamMembers')">关于我们</div> -->
+          <div @click="goPage('Home')">首页</div>
           <div @click="goPage('TeamDetail')">关于我们</div>
           <!-- <div @click="goPage('CulturalCreation')">文创周边</div> -->
           <!-- <div @click="goPage('ArchiActivities')">活动</div> -->

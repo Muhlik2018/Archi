@@ -13,16 +13,18 @@
       </div>
       <div class="canChoose">
         <div class="canChooseTitle">选择元素</div>
-        <Swiper navigation :modules="modules" :slidesPerView="3.5">
-          <swiper-slide
-            v-for="item in canChooseItem"
-            :key="item.id"
-            @click="SwitchElement(item.id)"
-            :class="{ haveSelected: item.selected }"
-          >
-            <el-image :src="item.url" fit="cover"></el-image>
-          </swiper-slide>
-        </Swiper>
+        <div class="outSwiperBox">
+          <Swiper navigation :modules="modules" :slidesPerView="3.5">
+            <swiper-slide
+              v-for="item in canChooseItem"
+              :key="item.id"
+              @click="SwitchElement(item.id)"
+              :class="{ haveSelected: item.selected }"
+            >
+              <el-image :src="item.url" fit="cover"></el-image>
+            </swiper-slide>
+          </Swiper>
+        </div>
       </div>
       <div class="haveChosenAndGenerated">
         <div class="haveChoosen">
@@ -32,7 +34,7 @@
             navigation
             direction="vertical"
             :modules="modules"
-            :slidesPerView="3.5"
+            :slidesPerView="4"
           >
             <swiper-slide
               v-for="item in haveChoosenItem"
@@ -150,7 +152,7 @@ export default {
     let generateSize = ref(0.5);
     let colorSet = reactive([]);
     let colorSelected = ref("");
-    let loading=ref(false);
+    let loading = ref(false);
     const scenerio = ref(router.currentRoute.value.params.Scenerio);
 
     onBeforeMount(() => {
@@ -253,7 +255,7 @@ export default {
         const scale = this.generateSize;
         const color_id = this.colorSelected;
         const scene = this.scenerio;
-        this.loading=true;
+        this.loading = true;
         // console.log(archi_id, scale, color_id, scene);
         axios
           .post("/ac/api/gen", {
@@ -268,7 +270,7 @@ export default {
               this.getGeneratePhoto(data.id);
             } else {
               alert("网络错误");
-              this.loading=false;
+              this.loading = false;
             }
           })
           .catch((err) => {
@@ -291,13 +293,13 @@ export default {
                 params: { id: data.id },
               });
             } else if (data.status === 300) {
-              this.loading=false;
+              this.loading = false;
               alert("异常结束");
             } else if (data.status === 400) {
-              this.loading=false;
+              this.loading = false;
               alert("参数错误");
             } else if (data.status === 500) {
-              this.loading=false;
+              this.loading = false;
               alert("严重错误");
             } else {
               setTimeout(() => {
@@ -409,9 +411,13 @@ export default {
   color: #531dab;
   margin: 2rem 0;
 }
+.canChoose .outSwiperBox {
+  position: relative;
+  padding: 0 3rem;
+}
 .canChoose .swiper {
   display: flex;
-  justify-content: center;
+  position: initial;
 }
 .canChoose >>> .swiper-wrapper {
   width: 90% !important;
@@ -543,10 +549,18 @@ export default {
   text-align: center;
   text-transform: uppercase;
   color: #531dab;
+  display: flex;
+  align-items: center;
 }
 .colorDiv {
   display: flex;
-  width: 35rem;
+  width: 40rem;
+  align-items: center;
+  position: relative;
+  padding: 0 3rem;
+}
+.colorDiv .swiper{
+  position: initial;
 }
 .colorDiv .swiper-slide {
   width: 5.5rem !important;
@@ -555,7 +569,7 @@ export default {
 .colorBox {
   width: 5.5rem;
   height: 5.5rem;
-  margin: 1.5rem;
+  /* margin: 1.5rem; */
   /* background: linear-gradient(0deg, #4472c4, #4472c4),
     linear-gradient(0deg, #4472c4, #4472c4), #4472c4; */
   display: flex;

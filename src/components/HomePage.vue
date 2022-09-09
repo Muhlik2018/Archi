@@ -8,9 +8,9 @@
             <div>生成艺术</div>
             <div>GENERATE ART</div>
           </div>
-          <div class="tgf-left-down">
+          <!-- <div class="tgf-left-down">
             The quick brown fox jumps over the lazy dog
-          </div>
+          </div> -->
         </div>
         <div class="tgf-right">
           <button class="tgf-right-button" @click="goGenerate()">去创作</button>

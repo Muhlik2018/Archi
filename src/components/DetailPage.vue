@@ -1,7 +1,7 @@
 <template>
   <div class="DetailPage">
     <HeadNav></HeadNav>
-    <div class="back-button">&lt; 返回</div>
+    <div class="back-button" @click="goHome">&lt; 返回</div>
     <div class="photo-detail">
       <div class="photo-preview">
         <!-- <object id="svgContainer" type="image/svg+xml" data="raster.svg"  alt="" style="min-height: 78rem;" @click="printInfo(this)"></object> -->
@@ -204,7 +204,7 @@ export default {
     let printInfo = (e) => {
       let archi = e.path.find((element) => {
         // console.log("element", element.id);
-        if (element.id===undefined) {
+        if (element.id === undefined) {
           return false;
         }
         return element.nodeName == "svg" && element.id != "";
@@ -245,6 +245,9 @@ export default {
     let goGenerate = () => {
       router.push({ name: "GenerateArt1" });
     };
+    let goHome = () => {
+      router.push({ name: "Home" });
+    };
     return {
       morePhotoContext,
       detailScene,
@@ -262,6 +265,7 @@ export default {
       printInfo,
       hideInfo,
       goGenerate,
+      goHome,
     };
   },
 };
