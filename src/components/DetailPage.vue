@@ -19,8 +19,8 @@
         ></div>
         <div
           ref="photoPreviewInfo"
-          v-show="hadClicked"
           v-if="photoInfo"
+          v-show="hadClicked"
           class="photo-preview-info"
           :style="{ left: photoInfoOffset + 'px' }"
         >
@@ -35,13 +35,13 @@
           <div class="archi-info">
             <div class="archi-info-img-div">
               <img
-                v-for="(item, index) in photoInfo.info.images"
+                v-for="(item, index) in photoInfo.images"
                 :key="index"
                 :src="item.url"
                 class="photo-preview-reality"
               />
             </div>
-            <p>{{ photoInfo.info.text }}</p>
+            <p>{{ photoInfo.text }}</p>
           </div>
           <!-- Text description pop-up window of the element selected in the svg.
           Text description pop-up window of the element selected in the svg.
@@ -131,30 +131,10 @@ export default {
     let detailScene = router.currentRoute.value.params.scene;
     let detailUrl = router.currentRoute.value.params.url;
     let detailInfo = ref({});
-    let morePhotoContext = reactive([
-      // {
-      //   id: 1,
-      //   type: "创作类别标题",
-      //   author: "作家",
-      // },
-      // {
-      //   id: 2,
-      //   type: "创作类别标题",
-      //   author: "作家",
-      // },
-      // {
-      //   id: 3,
-      //   type: "创作类别标题",
-      //   author: "作家",
-      // },
-      // {
-      //   id: 4,
-      //   type: "创作类别标题",
-      //   author: "作家",
-      // },
-    ]);
+    let morePhotoContext = reactive([]);
 
     let photoInfo = ref({});
+    let clickId = ref("");
     let photoInfoOffset = ref(0);
     let svgDOM = reactive({});
     let renderSVG = reactive({});
@@ -207,7 +187,7 @@ export default {
               for (let i = 0; i < 10 && i < data.length; i++) {
                 let temp = data[i];
                 temp.url = temp.url.replace(".svg", ".png");
-                console.log("temp", temp);
+                // console.log("temp", temp);
                 morePhotoContext.push(temp);
               }
             } else {
@@ -223,30 +203,44 @@ export default {
     //获取archi元素信息
     let printInfo = (e) => {
       let archi = e.path.find((element) => {
-        // console.log("element", element.nodeName);
+        // console.log("element", element.id);
+        if (element.id===undefined) {
+          return false;
+        }
         return element.nodeName == "svg" && element.id != "";
       });
       // console.log("temp", temp);
+      if (clickId.value === archi.id) {
+        return;
+      } else {
+        clickId.value = archi.id;
+      }
       if (archi) {
         axios
           .get(`/ac/api/archi/info/${archi.id}`)
           .then(({ data }) => {
             if (data.code === 200) {
               data = data.data;
-              console.log("data", data);
-              photoInfo.value = data;
+              // console.log("data", data);
+              photoInfo.value = data.info;
               photoInfoOffset.value = Number(archi.getAttribute("x"));
               hadClicked.value = true;
+            } else {
+              clickId.value = "";
             }
           })
           .catch((err) => {
             console.log("err", err);
+            clickId.value = "";
           });
+      } else {
+        clickId.value = "";
       }
     };
     let hideInfo = () => {
       // console.log("blur");
       hadClicked.value = false;
+      clickId.value = "";
     };
     let goGenerate = () => {
       router.push({ name: "GenerateArt1" });
@@ -260,6 +254,7 @@ export default {
       svgDOM,
       renderSVG,
       photoInfo,
+      clickId,
       photoInfoOffset,
       hadClicked,
       qrcodeText,
