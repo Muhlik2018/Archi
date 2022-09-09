@@ -7,9 +7,10 @@
       </div>
       <div>
         <div class="nav">
-          <div @click="goPage('TeamMembers')">关于我们</div>
-          <div @click="goPage('CulturalCreation')">文创周边</div>
-          <div @click="goPage('ArchiActivities')">活动</div>
+          <!-- <div @click="goPage('TeamMembers')">关于我们</div> -->
+          <div @click="goPage('TeamDetail')">关于我们</div>
+          <!-- <div @click="goPage('CulturalCreation')">文创周边</div> -->
+          <!-- <div @click="goPage('ArchiActivities')">活动</div> -->
           <div @click="goPage('GenerateArt1')">创作</div>
         </div>
       </div>

@@ -68,8 +68,8 @@
       </div>
     </div>
 
-    <div class="title">{{SubjectCnName}}</div>
-    <div class="titleDesc">项目系统开发与运营、宣传与活动</div>
+    <div class="title" v-if="false">{{SubjectCnName}}</div>
+    <div class="titleDesc" v-if="false">项目系统开发与运营、宣传与活动</div>
 
     <div class="member">
       <div class="member-detailItem">

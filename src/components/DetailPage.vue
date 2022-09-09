@@ -31,8 +31,17 @@
               style="width: 60%; height: 60%"
             />
           </div>
-          <img src="Detail-1.svg" class="photo-preview-reality" />
-          <p>{{ photoInfo }}</p>
+          <div class="archi-info">
+            <div class="archi-info-img-div">
+              <img
+                v-for="(item, index) in photoInfo.info.images"
+                :key="index"
+                :src="item.url"
+                class="photo-preview-reality"
+              />
+            </div>
+            <p>{{ photoInfo.info.text }}</p>
+          </div>
           <!-- Text description pop-up window of the element selected in the svg.
           Text description pop-up window of the element selected in the svg.
           Text description pop-up window of the element selected in the svg. -->
@@ -121,7 +130,6 @@ export default {
     let detailScene = router.currentRoute.value.params.scene;
     let detailUrl = router.currentRoute.value.params.url;
     let detailInfo = ref({});
-    let photoInfo = ref("");
     let morePhotoContext = reactive([
       // {
       //   id: 1,
@@ -145,6 +153,7 @@ export default {
       // },
     ]);
 
+    let photoInfo = ref({});
     let photoInfoOffset = ref(0);
     let svgDOM = reactive({});
     let renderSVG = reactive({});
@@ -196,7 +205,7 @@ export default {
               data = data.data;
               for (let i = 0; i < 10 && i < data.length; i++) {
                 let temp = data[i];
-                temp.url=temp.url.replace(".svg", ".png");
+                temp.url = temp.url.replace(".svg", ".png");
                 console.log("temp", temp);
                 morePhotoContext.push(temp);
               }
@@ -210,6 +219,7 @@ export default {
       }
     });
 
+    //获取archi元素信息
     let printInfo = (e) => {
       let archi = e.path.find((element) => {
         // console.log("element", element.nodeName);
@@ -223,11 +233,8 @@ export default {
             if (data.code === 200) {
               data = data.data;
               console.log("data", data);
-
-              photoInfo.value = archi.id + " 随机数测试：" + Math.random();
+              photoInfo.value = data;
               photoInfoOffset.value = Number(archi.getAttribute("x"));
-              // Number(archi.getAttribute("width"));
-              // console.log("photoInfoOffset", photoInfoOffset.value);
               hadClicked.value = true;
             }
           })
@@ -308,12 +315,12 @@ export default {
 .photo-preview-info {
   position: absolute;
   z-index: 10000;
-  width: 30rem;
+  width: 50rem;
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 1.2rem;
-  line-height: 1.2rem;
+  line-height: 1.8rem;
   color: #000000;
   padding: 1rem;
   background: rgba(240, 240, 240, 0.7);
@@ -331,15 +338,23 @@ export default {
   width: 3rem;
   height: 3rem;
   position: absolute;
-  left: 30rem;
+  left: 50rem;
   top: -1rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+.archi-info {
+  max-width: 50rem;
+  max-height: 50rem;
+}
+.archi-info-img-div {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
 .photo-preview-reality {
-  max-width: 80%;
+  max-width: 15rem;
   max-height: 15rem;
 }
 .photo-detail-text {
