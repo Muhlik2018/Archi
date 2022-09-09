@@ -2,13 +2,12 @@
 <div style="margin-left: 5%; margin-right: 5%; margin-top: 2%;">
     <div id="left" class="left" ref="left">
         <div v-for="element in leftList" :key="element">
-            <p class="name">{{element.name}}</p>
             <img :src="element.url">
         </div>
     </div>
 
     <div id="mid" class="mid" ref="mid">
-        <div v-for="element in rightList" :key="element">
+        <div v-for="element in midList" :key="element">
             <img :src="element.url">
         </div>
     </div>
@@ -60,16 +59,12 @@ export default {
             let midheight = this.$refs.mid.offsetHeight;
             if (midheight < rightHeight && midheight <= leftHeight) {
                 this.$data.midList.push(this.$props.list[index])
-                console.log(index)
-
             }
             else if (rightHeight <= leftHeight) {
                 this.$data.rightList.push(this.$props.list[index])
-                console.log(index)
             }
             else if (leftHeight <= midheight) {
                 this.$data.leftList.push(this.$props.list[index])
-                console.log(index)
             }
             this.$nextTick(() => {
                 this.loopList(++index);
