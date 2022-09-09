@@ -1,5 +1,5 @@
 <template>
-<div style="margin-left: 5%; margin-right: 5%; margin-top: 2%;">
+<div style="margin-left: 5%;">
     <div id="left" class="left" ref="left">
         <div v-for="element in leftList" :key="element">
             <img :src="element.url">
@@ -81,26 +81,28 @@ html {
 }
 
 .left {
-    width: 20%;
+    width: 31%;
     float: left;
-    margin-right: 18%;
-    margin-left: -10%;
+    /* margin-right: 18%; */
+    /* margin-left: -10%; */
 }
 
 .mid {
-    width: 20%;
-    margin-left: 2%;
+    width: 31%;
+    /* margin-left: 2%; */
     float: left;
 
 }
 
 .right {
-    width: 20%;
-    margin-right: 10%;
-    float: right;
+    width: 31%;
+    /* margin-right: 10%; */
+    float: left;
     
 }
-
+img{
+    width: 100%;
+}
 .fleterBox {
     position: relative;
     background: #fff;

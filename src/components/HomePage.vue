@@ -160,7 +160,7 @@ export default {
         detail: "根据颜色来发现艺术作品",
       },
     ]);
-    let homeTheme = ref("Home1.svg");
+    let homeTheme = ref("");
     let homeClassic = reactive([]);
     let homeScene = reactive([]);
 

@@ -122,9 +122,9 @@ export default {
         })
         .finally(() => {
           if (scene.value === "freedom") {
-            show.value++;
+            show.value=-1;
             setTimeout(() => {
-              show.value--;
+              show.value=0;
             }, 20);
           }
         });
@@ -137,8 +137,13 @@ export default {
         },
       })
         .then((res) => {
-          //   console.log("pic data", res);
+          console.log("pic data", res);
           if (res.data.code === 200) {
+            res.data.data.forEach((element) => {
+              if (element.type === "svg") {
+                element.url = element.url.replace(".svg", ".png");
+              }
+            });
             grid_list.push(...res.data.data);
             // console.log(grid_list);
             // console.log("grid");
@@ -149,9 +154,9 @@ export default {
         })
         .finally(() => {
           if (scene.value === "grid") {
-            show.value++;
+            show.value=-1;
             setTimeout(() => {
-              show.value--;
+              show.value=1;
             }, 20);
           }
         });
@@ -166,6 +171,11 @@ export default {
         .then((res) => {
           //   console.log("pic data", res);
           if (res.data.code === 200) {
+            res.data.data.forEach((element) => {
+              if (element.type === "svg") {
+                element.url = element.url.replace(".svg", ".png");
+              }
+            });
             sketch_list.push(...res.data.data);
             // console.log(sketch_list);
             // console.log("sketch");
@@ -176,9 +186,9 @@ export default {
         })
         .finally(() => {
           if (scene.value === "sketch") {
-            show.value++;
+            show.value=-1;
             setTimeout(() => {
-              show.value--;
+              show.value=3;
             }, 20);
           }
         });
@@ -193,6 +203,11 @@ export default {
         .then((res) => {
           //   console.log("pic data", res);
           if (res.data.code === 200) {
+            res.data.data.forEach((element) => {
+              if (element.type === "svg") {
+                element.url = element.url.replace(".svg", ".png");
+              }
+            });
             fractal_list.push(...res.data.data);
             // console.log(fractal_list);
             // console.log("fractal");
@@ -203,13 +218,13 @@ export default {
         })
         .finally(() => {
           if (scene.value === "fractal") {
-            show.value++;
+            show.value=-1;
             setTimeout(() => {
-              show.value--;
+              show.value=4;
             }, 20);
           }
         });
-        
+
       axios({
         method: "get",
         url: "/ac/api/archicasca/raster",
@@ -220,6 +235,11 @@ export default {
         .then((res) => {
           //   console.log("pic data", res);
           if (res.data.code === 200) {
+            res.data.data.forEach((element) => {
+              if (element.type === "svg") {
+                element.url = element.url.replace(".svg", ".png");
+              }
+            });
             raster_list.push(...res.data.data);
             // console.log(raster_list);
             // console.log("fraster");
@@ -230,9 +250,9 @@ export default {
         })
         .finally(() => {
           if (scene.value === "raster") {
-            show.value++;
+            show.value=-1;
             setTimeout(() => {
-              show.value--;
+              show.value=2;
             }, 20);
           }
         });
