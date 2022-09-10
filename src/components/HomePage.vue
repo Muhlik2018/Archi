@@ -19,7 +19,12 @@
       <el-image :src="homeTheme" fit="contain" style="width: 100%"></el-image>
     </div>
     <div class="carousel" v-if="homeScene.length">
-      <el-carousel height="62rem" arrow="always" :autoplay="false"  @change="turnPage">
+      <el-carousel
+        height="62rem"
+        arrow="always"
+        :autoplay="false"
+        @change="turnPage"
+      >
         <el-carousel-item
           v-for="(item, index) in homeScene"
           :key="index"
@@ -31,7 +36,7 @@
               <div class="carousel-text-content">
                 <div class="carousel-text-title">{{ scene_name }}</div>
                 <div class="carousel-text-details">
-                 {{scene_descripe}}
+                  {{ scene_descripe }}
                 </div>
               </div>
             </div>
@@ -143,8 +148,8 @@ export default {
   },
   data() {
     return {
-      scene_name:"",
-      scene_descripe:''
+      scene_name: "",
+      scene_descripe: "",
     };
   },
   created() {
@@ -229,7 +234,7 @@ export default {
       homeTheme,
       homeClassic,
       homeScene,
-      show 
+      show,
     };
   },
   methods: {
@@ -250,27 +255,30 @@ export default {
       this.show = index;
       this.getinfo();
     },
-    getinfo(){
+    getinfo() {
       if (this.show === 0) {
-      this.scene_name="自由创作"
-      this.scene_descripe="携建筑之形意，运层叠之技法，展城市记忆与文化艺术神韵。"
-    } else if (this.show === 1) {
-      this.scene_name="格子风格"
-      this.scene_descripe="以窗格为基，嵌入建筑形意，大美至简。"
-    } else if  (this.show === 2)  {
-      this.scene_name="光栅风格"
-      this.scene_descripe="斑斓光栅，建筑浮动，城市日夜美景。"
-    } else if (this.show === 3)  {
-      this.scene_name="轮廓风格"
-      this.scene_descripe="水平线上，层叠建筑形意、江河远山，勾勒城市印象。"
-    } else if  (this.show === 4)  {
-      this.scene_name="分形风格"
-      this.scene_descripe="传统建筑，几何构图，分形展和谐美丽。"
-    } else {
-      this.scene_name="自由创作"
-      this.scene_descripe="携建筑之形意，运层叠之技法，展城市记忆与文化艺术神韵。"
-    }
-    }
+        this.scene_name = "自由创作";
+        this.scene_descripe =
+          "携建筑之形意，运层叠之技法，展城市记忆与文化艺术神韵。";
+      } else if (this.show === 1) {
+        this.scene_name = "格子风格";
+        this.scene_descripe = "以窗格为基，嵌入建筑形意，大美至简。";
+      } else if (this.show === 2) {
+        this.scene_name = "光栅风格";
+        this.scene_descripe = "斑斓光栅，建筑浮动，城市日夜美景。";
+      } else if (this.show === 3) {
+        this.scene_name = "轮廓风格";
+        this.scene_descripe =
+          "水平线上，层叠建筑形意、江河远山，勾勒城市印象。";
+      } else if (this.show === 4) {
+        this.scene_name = "分形风格";
+        this.scene_descripe = "传统建筑，几何构图，分形展和谐美丽。";
+      } else {
+        this.scene_name = "自由创作";
+        this.scene_descripe =
+          "携建筑之形意，运层叠之技法，展城市记忆与文化艺术神韵。";
+      }
+    },
   },
 };
 </script>
@@ -478,6 +486,7 @@ export default {
   margin-left: 75rem;
   height: 100%;
 }
+
 .top5-swiper .swiper-slide {
   text-align: center;
   height: 100%;
@@ -543,6 +552,60 @@ export default {
 .top5-swiper >>> .el-image__inner {
   background-color: white;
 }
+
+@media screen and (max-width:2450px) {
+  .top5-swiper >>> .swiper-wrapper {
+    margin-left: 63rem;
+  }
+  .top5-swiper .swiper-slide{
+    margin-right: -15rem !important;
+  }
+}
+@media screen and (max-width:2200px) {
+  .top5-swiper >>> .swiper-wrapper {
+    margin-left: 60rem;
+  }
+  .top5-swiper .swiper-slide{
+    margin-right: -16rem !important;
+  }
+}
+@media screen and (max-width:2100px) {
+  .top5-swiper >>> .swiper-wrapper {
+    margin-left: 71rem;
+  }
+  .top5-swiper .swiper-slide{
+    margin-right: -20rem !important;
+  }
+}
+@media screen and (max-width:2000px) {
+  .top5-swiper >>> .swiper-wrapper {
+    margin-left: 68rem;
+  }
+  .top5-swiper .swiper-slide{
+    margin-right: -20rem !important;
+  }
+}
+@media screen and (max-width:1900px) {
+  .top5-swiper >>> .swiper-wrapper {
+    margin-left: 58rem;
+  }
+  .top5-swiper .swiper-slide{
+    margin-right: -20rem !important;
+  }
+}
+@media screen and (max-width:1700px) {
+  .top5-swiper >>> .swiper-wrapper {
+    margin-left: 53rem;
+  }
+  .top5-swiper .swiper-slide{
+    margin-right: -20rem !important;
+  }
+}
+/* @media screen and (min-width: 2200px) and (max-width: 2300px) {
+  .top5-swiper >>> .swiper-wrapper {
+    margin-left: 65rem;
+  }
+} */
 
 .category {
   width: 90%;
