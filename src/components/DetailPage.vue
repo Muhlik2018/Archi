@@ -517,7 +517,7 @@ export default {
   margin: 1rem;
 }
 .more-photo-box >>> .el-image__inner {
-  height: 50rem;
+  max-height: 50rem;
 }
 .more-photo-swiper-item-text {
   display: flex;
