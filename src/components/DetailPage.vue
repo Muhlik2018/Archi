@@ -15,7 +15,7 @@
           id="svgTemplate"
           v-html="renderSVG.value"
           ref="svg"
-          style="height:75rem;"
+          :style="{height:detailScene==='sketch'?'45rem':'75rem'}"
           @click="printInfo($event)"
         ></div>
         <div
@@ -157,8 +157,13 @@ export default {
         xhr.addEventListener("load", () => {
           const resXML = xhr.responseXML;
           svgDOM.value = resXML.documentElement.cloneNode(true);
-          svgDOM.value.style.width = "64rem";
-          svgDOM.value.style.height = "75rem";
+          if (detailScene === "sketch") {
+            svgDOM.value.style.width = "90rem";
+            svgDOM.value.style.height = "45rem";
+          } else {
+            svgDOM.value.style.width = "64rem";
+            svgDOM.value.style.height = "75rem";
+          }
           let serializer = new XMLSerializer();
           let sXML = serializer.serializeToString(svgDOM.value);
           renderSVG.value = sXML;
