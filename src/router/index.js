@@ -19,12 +19,12 @@ const routes = [
         component: Home,
     },
     {
-        path: '/detail',
+        path: '/detail/:scene/:url',
         name: 'detail',
         component: Detail,
     },
     {
-        path: '/ArchiCulture',
+        path: '/ArchiCulture/:scene',
         name: 'ArchiCulture',
         component:ArchiCulture,
     },
@@ -49,7 +49,7 @@ const routes = [
         component: GenerateArt2,
     },
     {
-        path: '/GenerateArt3',
+        path: '/GenerateArt3/:id',
         name: 'GenerateArt3',
         component: GenerateArt3,
     },

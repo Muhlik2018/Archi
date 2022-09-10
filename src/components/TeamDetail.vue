@@ -321,7 +321,7 @@ export default {
 
   position: relative;
 
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 .subject-subjectname-subjectimg {
   width: 100%;

@@ -21,7 +21,7 @@
               @click="SwitchElement(item.id)"
               :class="{ haveSelected: item.selected }"
             >
-              <el-image :src="item.url" fit="cover"></el-image>
+              <el-image :src="item.url" fit="contain"></el-image>
             </swiper-slide>
           </Swiper>
         </div>
@@ -379,6 +379,7 @@ export default {
   font-size: 1.5rem;
   line-height: 1.5rem;
   color: #000000;
+  cursor: pointer;
 }
 .step2 {
   width: 100%;
@@ -448,6 +449,7 @@ export default {
   background: rgba(255, 255, 255, 0.56);
   border: 0.3125rem dashed rgba(255, 255, 255, 0.95);
   border-radius: 1.875rem;
+  cursor: pointer;
 }
 .canChoose >>> .el-image__inner {
   max-height: 10rem;
@@ -487,6 +489,7 @@ export default {
   height: 40rem;
   margin: 0;
   width: 100%;
+  cursor: move;
 }
 .haveChoosen .swiper-slide {
   display: flex;
@@ -611,6 +614,7 @@ export default {
   justify-content: center;
   align-items: center;
   border: #ffffff 0.35rem dashed;
+  cursor: pointer;
 }
 .colorDiv .haveSelected {
   border: #71c5fc 0.35rem dashed;
@@ -662,5 +666,6 @@ export default {
   text-transform: uppercase;
   color: #000000;
   border: none;
+  cursor: pointer;
 }
 </style>

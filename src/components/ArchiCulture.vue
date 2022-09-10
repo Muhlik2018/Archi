@@ -79,27 +79,27 @@ export default {
     let raster_list = reactive([]);
     // console.log("scene.value", scene.value);
     if (scene.value === "freedom") {
-      console.log(0);
+      // console.log(0);
       show.value = 0;
       start.value = 0;
     } else if (scene.value === "grid") {
-      console.log(1);
+      // console.log(1);
       show.value = 1;
       start.value = 1;
     } else if (scene.value === "raster") {
-      console.log(2);
+      // console.log(2);
       show.value = 2;
       start.value = 2;
     } else if (scene.value === "sketch") {
-      console.log(3);
+      // console.log(3);
       show.value = 3;
       start.value = 3;
     } else if (scene.value === "fractal") {
-      console.log(4);
+      // console.log(4);
       show.value = 4;
       start.value = 4;
     } else {
-      console.log(0);
+      // console.log(0);
       show.value = 0;
       start.value = 0;
     }

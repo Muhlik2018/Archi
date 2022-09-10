@@ -603,6 +603,7 @@ export default {
 .download img {
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 .download-qrcode {
   margin: 0 auto;

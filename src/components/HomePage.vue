@@ -353,6 +353,7 @@ export default {
   color: #000000;
   border: none;
   margin: 4rem;
+  cursor: pointer;
 }
 
 .carousel {
@@ -377,6 +378,7 @@ export default {
   display: flex;
   align-items: flex-end;
   position: relative;
+  cursor: pointer;
 }
 .carousel-image-mask {
   position: absolute;
@@ -503,6 +505,7 @@ export default {
   align-items: flex-end;
   position: relative;
   height: 100%;
+  cursor: pointer;
 }
 .top5-swiper .el-image {
   height: 100%;

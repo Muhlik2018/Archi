@@ -124,7 +124,7 @@ export default {
 
   position: absolute;
 
-  cursor: pointer;
+  /* cursor: pointer; */
 
   vertical-align: middle;
 }

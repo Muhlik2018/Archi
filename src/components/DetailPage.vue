@@ -164,6 +164,7 @@ export default {
             svgDOM.value.style.width = "64rem";
             svgDOM.value.style.height = "75rem";
           }
+          svgDOM.value.style.cursor="pointer";
           let serializer = new XMLSerializer();
           let sXML = serializer.serializeToString(svgDOM.value);
           renderSVG.value = sXML;
@@ -296,6 +297,7 @@ export default {
   font-size: 1.5rem;
   line-height: 1.56rem;
   color: #000000;
+  cursor: pointer;
 }
 
 .photo-detail {
@@ -349,6 +351,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .archi-info {
   max-width: 50rem;
@@ -481,6 +484,7 @@ export default {
   text-transform: uppercase;
   color: #000000;
   border: none;
+  cursor: pointer;
   /* margin-left: 17.7rem; */
   /* margin-top: 5rem; */
 }
@@ -508,6 +512,9 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.more-photo-box::v-deep .swiper-wrapper {
+  cursor: move;
 }
 .more-photo-box .swiper-slide {
   width: 30% !important;
