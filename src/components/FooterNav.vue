@@ -84,7 +84,7 @@ export default {
 .bottomnav span {
   color: #000000;
 
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .copyright {
