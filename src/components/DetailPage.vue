@@ -15,7 +15,7 @@
           id="svgTemplate"
           v-html="renderSVG.value"
           ref="svg"
-          :style="{height:detailScene==='sketch'?'45rem':'75rem'}"
+          :style="{height:detailScene==='sketch'?'51rem':'75rem'}"
           @click="printInfo($event)"
         ></div>
         <div
@@ -159,7 +159,7 @@ export default {
           svgDOM.value = resXML.documentElement.cloneNode(true);
           if (detailScene === "sketch") {
             svgDOM.value.style.width = "90rem";
-            svgDOM.value.style.height = "45rem";
+            svgDOM.value.style.height = "51rem";
           } else {
             svgDOM.value.style.width = "64rem";
             svgDOM.value.style.height = "75rem";
