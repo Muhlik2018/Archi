@@ -518,6 +518,7 @@ export default {
 }
 .more-photo-box >>> .el-image__inner {
   max-height: 50rem;
+  max-width: 40rem;
 }
 .more-photo-swiper-item-text {
   display: flex;
