@@ -8,38 +8,49 @@
             <div>生成艺术</div>
             <div>GENERATE ART</div>
           </div>
-          <div class="tgf-left-down">
+          <!-- <div class="tgf-left-down">
             The quick brown fox jumps over the lazy dog
-          </div>
+          </div> -->
         </div>
         <div class="tgf-right">
           <button class="tgf-right-button" @click="goGenerate()">去创作</button>
         </div>
       </div>
-      <el-image src="Home1.svg" fit="contain" style="width: 100%"></el-image>
+      <el-image :src="homeTheme" fit="contain" style="width: 100%"></el-image>
     </div>
-    <div class="carousel">
-      <el-carousel height="800px" :autoplay="false">
-        <el-carousel-item v-for="item in 4" :key="item">
+    <div class="carousel" v-if="homeScene.length">
+      <el-carousel
+        height="62rem"
+        arrow="always"
+        :autoplay="false"
+        @change="turnPage"
+      >
+        <el-carousel-item
+          v-for="(item, index) in homeScene"
+          :key="index"
+          @click="goScenePage(item.scene)"
+        >
           <!-- <h3 class="small justify-center" text="2xl">{{ item }}</h3> -->
           <div class="carousel-box">
-            <div class="carousel-text">
-              <div class="carousel-text-title">TITLE</div>
-              <div class="carousel-text-details">
-                The quick brown fox jumps over the lazy dog
+            <div class="carousel-text-box">
+              <div class="carousel-text-content">
+                <div class="carousel-text-title">{{ scene_name }}</div>
+                <div class="carousel-text-details">
+                  {{ scene_descripe }}
+                </div>
               </div>
             </div>
             <el-image
-              src="Home2.svg"
+              :src="item.url"
               fit="contain"
               style="width: 100%"
             ></el-image>
-            <el-image
+            <!-- <el-image
               class="carousel-image-mask"
               src="Home2-1.svg"
               fit="contain"
               style="width: 100%"
-            ></el-image>
+            ></el-image> -->
           </div>
         </el-carousel-item>
       </el-carousel>
@@ -53,35 +64,35 @@
       <div class="top5-swiper">
         <swiper
           :centeredSlides="true"
-          :spaceBetween="-190"
+          :spaceBetween="-300"
           :slidesPerView="3.8"
-          :initialSlide="2"
+          :initialSlide="4"
         >
           <swiper-slide
-            v-for="(item, index) in 5"
+            v-for="(item, index) in homeClassic"
             data-index="index"
             :key="index"
-            @click="goDetail(item)"
+            @click="goDetail(item.scene, item.url)"
           >
             <div class="swiper-item">
               <div class="swiper-item-text">
-                <div class="swiper-item-category">category</div>
-                <div class="swiper-item-description">分类描述+作者信息</div>
+                <div class="swiper-item-category">{{ item.scene }}</div>
+                <div class="swiper-item-description">算法程序</div>
               </div>
-              <el-image :src="'Home3-' + item + '.svg'" fit="cover"></el-image>
+              <el-image :src="item.url" fit="contain"></el-image>
             </div>
           </swiper-slide>
         </swiper>
       </div>
     </div>
-    <div class="category">
+    <!-- 下面的本阶段隐藏 -->
+    <div class="category" v-if="false">
       <div class="category-header">分类</div>
       <div class="category-box">
         <div
           class="category-item"
           v-for="item in categoryContext"
           :key="item.id"
-          @click="goOtherPage(item.id)"
         >
           <div class="category-item-text">
             <div class="category-item-title">{{ item.title }}</div>
@@ -95,7 +106,7 @@
         </div>
       </div>
     </div>
-    <div class="collection">
+    <div class="collection" v-if="false">
       <div class="collection-header">你的收藏</div>
       <div class="collection-box">
         <swiper navigation :modules="modules" :slidesPerView="5">
@@ -111,7 +122,7 @@
         </swiper>
       </div>
     </div>
-  <FooterNav></FooterNav>
+    <FooterNav></FooterNav>
   </div>
 </template>
 
@@ -122,17 +133,28 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import { reactive } from "@vue/reactivity";
+import { reactive, ref } from "@vue/reactivity";
 import { useRouter } from "vue-router";
+import { onBeforeMount } from "@vue/runtime-core";
+import axios from "axios";
 
 export default {
   name: "HomePage",
-  components: { 
-    Swiper, 
-    SwiperSlide,     
+  components: {
+    Swiper,
+    SwiperSlide,
     HeadNav,
-    FooterNav
-    },
+    FooterNav,
+  },
+  data() {
+    return {
+      scene_name: "",
+      scene_descripe: "",
+    };
+  },
+  created() {
+    this.getinfo();
+  },
   setup() {
     const router = useRouter();
     let categoryContext = reactive([
@@ -152,24 +174,111 @@ export default {
         detail: "根据颜色来发现艺术作品",
       },
     ]);
+    let homeTheme = ref("");
+    let homeClassic = reactive([]);
+    let homeScene = reactive([]);
+    let show = ref(0);
+    onBeforeMount(() => {
+      // 获取主题背景图
+      axios
+        .get("/ac/api/image/theme")
+        .then(({ data }) => {
+          // console.log("theme data", data);
+          if (data.code === 200) {
+            data = data.data;
+            homeTheme.value = data.url;
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+
+      // 获取经典画作轮播图
+      axios
+        .get("/ac/api/image/classic")
+        .then(({ data }) => {
+          console.log("classic data", data);
+          if (data.code === 200) {
+            data = data.data;
+            data.forEach((element) => {
+              const str = element.url.replace(".svg", ".png");
+              // console.log("str", str);
+              element.url = str;
+            });
+            homeClassic.push(...data);
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+
+      // 获取场景风格轮播图
+      axios
+        .get("/ac/api/image/scene")
+        .then(({ data }) => {
+          // console.log("scene data", data);
+          if (data.code === 200) {
+            data = data.data;
+            homeScene.push(...data);
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+    });
+
     return {
       categoryContext,
       router,
       modules: [Navigation],
+      homeTheme,
+      homeClassic,
+      homeScene,
+      show,
     };
   },
   methods: {
-    goDetail(id) {
-      this.router.push({ name: "detail", params: { id } });
+    goDetail(scene, pngUrl) {
+      const url = pngUrl.replace(".png", ".svg");
+      this.router.push({ name: "detail", params: { scene, url } });
     },
-    goGenerate(){
-      this.router.push({ name: "GenerateArt1"});
+    goGenerate() {
+      this.router.push({ name: "GenerateArt1" });
     },
-    goOtherPage(id){
-      if(id==1){
-        this.router.push({name:"ArchiCulture"});
+    goScenePage(scene) {
+      if (scene) {
+        console.log("scene", scene);
+        this.router.push({ name: "ArchiCulture", params: { scene } });
       }
-    }
+    },
+    turnPage(index) {
+      this.show = index;
+      this.getinfo();
+    },
+    getinfo() {
+      if (this.show === 0) {
+        this.scene_name = "自由创作";
+        this.scene_descripe =
+          "携建筑之形意，运层叠之技法，展城市记忆与文化艺术神韵。";
+      } else if (this.show === 1) {
+        this.scene_name = "格子风格";
+        this.scene_descripe = "以窗格为基，嵌入建筑形意，大美至简。";
+      } else if (this.show === 2) {
+        this.scene_name = "光栅风格";
+        this.scene_descripe = "斑斓光栅，建筑浮动，城市日夜美景。";
+      } else if (this.show === 3) {
+        this.scene_name = "轮廓风格";
+        this.scene_descripe =
+          "水平线上，层叠建筑形意、江河远山，勾勒城市印象。";
+      } else if (this.show === 4) {
+        this.scene_name = "分形风格";
+        this.scene_descripe = "传统建筑，几何构图，分形展和谐美丽。";
+      } else {
+        this.scene_name = "自由创作";
+        this.scene_descripe =
+          "携建筑之形意，运层叠之技法，展城市记忆与文化艺术神韵。";
+      }
+    },
   },
 };
 </script>
@@ -197,9 +306,21 @@ export default {
   align-items: center;
   justify-content: space-between;
 }
+.to-generate::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 58.35%
+  );
+  transform: rotate(-180deg);
+}
 .tgf-left {
   width: 40rem;
-  margin: 10rem;
+  margin: 4rem;
 }
 .tgf-left-up {
   font-family: "Abel";
@@ -231,7 +352,8 @@ export default {
   text-transform: uppercase;
   color: #000000;
   border: none;
-  margin: 10rem;
+  margin: 4rem;
+  cursor: pointer;
 }
 
 .carousel {
@@ -240,28 +362,56 @@ export default {
   display: flex;
   justify-content: center;
 }
-.el-carousel {
+.carousel .el-carousel {
   width: 100%;
-  margin: 2rem;
+  margin: 3rem 1rem;
+}
+.carousel >>> .el-carousel__arrow {
+  transform: scale(3);
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #000000;
+  margin: 0 3rem;
 }
 .carousel-box {
   height: 100%;
   display: flex;
   align-items: flex-end;
   position: relative;
+  cursor: pointer;
 }
 .carousel-image-mask {
   position: absolute;
   width: 100%;
   z-index: 500;
 }
-.carousel-text {
+.carousel-text-box {
   position: absolute;
-  width: 35rem;
+  width: 100%;
+  height: 100%;
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  margin: 3rem;
+  justify-content: flex-end;
+}
+.carousel-text-box::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.7) 5.03%,
+    rgba(0, 0, 0, 0) 29.12%
+  );
+  transform: rotate(-180deg);
+}
+.carousel-text-content {
+  width: 40rem;
+  position: absolute;
+  z-index: 500;
+  margin-left: 3rem;
+  margin-bottom: 2rem;
 }
 .carousel-text-title {
   font-family: "Arimo";
@@ -271,6 +421,7 @@ export default {
   line-height: 3.5rem;
   text-transform: uppercase;
   color: #ffffff;
+  margin-bottom: 1rem;
 }
 .carousel-text-details {
   font-family: "Inter";
@@ -284,7 +435,6 @@ export default {
 
 .top5 {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -322,6 +472,7 @@ export default {
 }
 .top5-swiper {
   width: 90%;
+  height: 40rem;
   margin: auto;
 }
 .top5-swiper .swiper {
@@ -329,26 +480,39 @@ export default {
   justify-content: center;
   align-items: center;
   width: 90%;
+  height: 100%;
 }
+.top5-swiper >>> .swiper-wrapper {
+  align-items: center;
+  justify-content: center;
+  margin-left: 75rem;
+  height: 100%;
+}
+
 .top5-swiper .swiper-slide {
   text-align: center;
-  height: 70%;
-  /* width: 50%; */
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 300ms;
   transform: scale(0.7);
+  margin-right: -14rem !important;
 }
 .top5-swiper .swiper-item {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
   position: relative;
+  height: 100%;
+  cursor: pointer;
+}
+.top5-swiper .el-image {
+  height: 100%;
 }
 .top5-swiper .swiper-slide-active,
 .top5-swiper .swiper-slide-duplicate-active {
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 .top5-swiper .swiper-slide-next {
   transform: scale(0.8);
@@ -367,16 +531,16 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  color: #ffffff;
+  color: #754abc;
   z-index: 1000;
-  margin: 3rem;
+  margin: 0 3rem;
 }
 .top5-swiper .swiper-item-category {
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
+  font-size: 2rem;
+  line-height: 2rem;
   text-transform: uppercase;
 }
 .top5-swiper .swiper-item-description {
@@ -388,6 +552,63 @@ export default {
   text-transform: uppercase;
   margin-top: 0.5rem;
 }
+.top5-swiper >>> .el-image__inner {
+  background-color: white;
+}
+
+@media screen and (max-width:2450px) {
+  .top5-swiper >>> .swiper-wrapper {
+    margin-left: 63rem;
+  }
+  .top5-swiper .swiper-slide{
+    margin-right: -15rem !important;
+  }
+}
+@media screen and (max-width:2200px) {
+  .top5-swiper >>> .swiper-wrapper {
+    margin-left: 60rem;
+  }
+  .top5-swiper .swiper-slide{
+    margin-right: -16rem !important;
+  }
+}
+@media screen and (max-width:2100px) {
+  .top5-swiper >>> .swiper-wrapper {
+    margin-left: 71rem;
+  }
+  .top5-swiper .swiper-slide{
+    margin-right: -20rem !important;
+  }
+}
+@media screen and (max-width:2000px) {
+  .top5-swiper >>> .swiper-wrapper {
+    margin-left: 68rem;
+  }
+  .top5-swiper .swiper-slide{
+    margin-right: -20rem !important;
+  }
+}
+@media screen and (max-width:1900px) {
+  .top5-swiper >>> .swiper-wrapper {
+    margin-left: 58rem;
+  }
+  .top5-swiper .swiper-slide{
+    margin-right: -20rem !important;
+  }
+}
+@media screen and (max-width:1700px) {
+  .top5-swiper >>> .swiper-wrapper {
+    margin-left: 53rem;
+  }
+  .top5-swiper .swiper-slide{
+    margin-right: -20rem !important;
+  }
+}
+/* @media screen and (min-width: 2200px) and (max-width: 2300px) {
+  .top5-swiper >>> .swiper-wrapper {
+    margin-left: 65rem;
+  }
+} */
 
 .category {
   width: 90%;

@@ -68,45 +68,123 @@
       </div>
     </div>
 
-    <div class="title">{{SubjectCnName}}</div>
-    <div class="titleDesc">项目系统开发与运营、宣传与活动</div>
+    <div class="title" v-if="false">{{ SubjectCnName }}</div>
+    <div class="titleDesc" v-if="false">项目系统开发与运营、宣传与活动</div>
 
     <div class="member">
       <div class="member-detailItem">
-        <img src="../assets/Rectangle5773.svg" class="member-detailItem-img" />
-        <div class="member-detailItem-name">贾吕山</div>
+        <img src="../assets/陈春华.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">陈春华</div>
         <div class="member-detailItem-occupation">华南理工大学 教授</div>
+        <div class="member-detailItem-workfor">项目成员</div>
+      </div>
+      <div class="member-detailItem">
+        <img src="../assets/董诗语.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">董诗语</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
+        <div class="member-detailItem-workfor">项目成员</div>
+      </div>
+      <div class="member-detailItem">
+        <img src="../assets/方惠锋.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">方惠锋</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
+        <div class="member-detailItem-workfor">项目成员</div>
+      </div>
+      <div class="member-detailItem">
+        <img src="../assets/龚小榆.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">龚小榆</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
+        <div class="member-detailItem-workfor">项目成员</div>
+      </div>
+      <div class="member-detailItem">
+        <img src="../assets/胡辰昕.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">胡辰昕</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
+        <div class="member-detailItem-workfor">项目成员</div>
+      </div>
+      <div class="member-detailItem">
+        <img src="../assets/郭琳莹.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">郭琳莹</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
+        <div class="member-detailItem-workfor">项目成员</div>
+      </div>
+      <div class="member-detailItem">
+        <img src="../assets/赖柏瀛.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">赖柏瀛</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
+        <div class="member-detailItem-workfor">项目成员</div>
+      </div>
+      <div class="member-detailItem">
+        <img src="../assets/肖承栋.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">肖承栋</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
         <div class="member-detailItem-workfor">项目负责人</div>
       </div>
       <div class="member-detailItem">
-        <img src="../assets/Rectangle5773.svg" class="member-detailItem-img" />
-        <div class="member-detailItem-name">贾吕山</div>
-        <div class="member-detailItem-occupation">华南理工大学 教授</div>
-        <div class="member-detailItem-workfor">项目负责人</div>
+        <img src="../assets/罗冠宇.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">罗冠宇</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
+        <div class="member-detailItem-workfor">项目成员</div>
       </div>
       <div class="member-detailItem">
-        <img src="../assets/Rectangle5773.svg" class="member-detailItem-img" />
-        <div class="member-detailItem-name">贾吕山</div>
-        <div class="member-detailItem-occupation">华南理工大学 教授</div>
-        <div class="member-detailItem-workfor">项目负责人</div>
+        <img src="../assets/简合谊.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">简合谊</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
+        <div class="member-detailItem-workfor">项目成员</div>
       </div>
       <div class="member-detailItem">
-        <img src="../assets/Rectangle5773.svg" class="member-detailItem-img" />
-        <div class="member-detailItem-name">贾吕山</div>
-        <div class="member-detailItem-occupation">华南理工大学 教授</div>
-        <div class="member-detailItem-workfor">项目负责人</div>
+        <img src="../assets/章宇思.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">章宇思</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
+        <div class="member-detailItem-workfor">项目成员</div>
       </div>
       <div class="member-detailItem">
-        <img src="../assets/Rectangle5773.svg" class="member-detailItem-img" />
-        <div class="member-detailItem-name">贾吕山</div>
-        <div class="member-detailItem-occupation">华南理工大学 教授</div>
-        <div class="member-detailItem-workfor">项目负责人</div>
+        <img src="../assets/王晶晶.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">王晶晶</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
+        <div class="member-detailItem-workfor">项目成员</div>
       </div>
       <div class="member-detailItem">
-        <img src="../assets/Rectangle5773.svg" class="member-detailItem-img" />
-        <div class="member-detailItem-name">贾吕山</div>
-        <div class="member-detailItem-occupation">华南理工大学 教授</div>
-        <div class="member-detailItem-workfor">项目负责人</div>
+        <img src="../assets/柳羽默.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">柳羽默</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
+        <div class="member-detailItem-workfor">项目成员</div>
+      </div>
+      <div class="member-detailItem">
+        <img src="../assets/林雯尉.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">林雯尉</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
+        <div class="member-detailItem-workfor">项目成员</div>
+      </div>
+      <div class="member-detailItem">
+        <img src="../assets/林伊霞.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">林伊霞</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
+        <div class="member-detailItem-workfor">项目成员</div>
+      </div>
+      <div class="member-detailItem">
+        <img src="../assets/巫睿燊.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">巫睿燊</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
+        <div class="member-detailItem-workfor">项目成员</div>
+      </div>
+      <div class="member-detailItem">
+        <img src="../assets/孙昌隆.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">孙昌隆</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
+        <div class="member-detailItem-workfor">项目成员</div>
+      </div>
+      <div class="member-detailItem">
+        <img src="../assets/周逸凡.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">周逸凡</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
+        <div class="member-detailItem-workfor">项目成员</div>
+      </div>
+      <div class="member-detailItem">
+        <img src="../assets/王悦力.png" class="member-detailItem-img" />
+        <div class="member-detailItem-name">王悦力</div>
+        <div class="member-detailItem-occupation">华南理工大学 学生</div>
+        <div class="member-detailItem-workfor">项目成员</div>
       </div>
     </div>
     <FooterNav></FooterNav>
@@ -127,25 +205,24 @@ export default {
   components: { HeadNav, FooterNav },
   data() {
     return {
-      subject:'computer'
+      subject: "computer",
     };
   },
-  methods:{
-    selectSubject(subjectName)
-    {
-      this.subject=subjectName;
-    }
+  methods: {
+    selectSubject(subjectName) {
+      this.subject = subjectName;
+    },
   },
-  computed:{
-    SubjectCnName(){
-      if(this.subject=='computer')return '计算机与软件'
-      else if(this.subject=='design')return '建筑/艺术设计'
-      else if(this.subject=='math')return '数学'
-      else if(this.subject=='information')return '信息与交互设计'
-      else if(this.subject=='finance')return '金融/工商管理'
-      else return ''
-    }
-  }
+  computed: {
+    SubjectCnName() {
+      if (this.subject == "computer") return "计算机与软件";
+      else if (this.subject == "design") return "建筑/艺术设计";
+      else if (this.subject == "math") return "数学";
+      else if (this.subject == "information") return "信息与交互设计";
+      else if (this.subject == "finance") return "金融/工商管理";
+      else return "";
+    },
+  },
 };
 </script>
 
@@ -244,7 +321,7 @@ export default {
 
   position: relative;
 
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 .subject-subjectname-subjectimg {
   width: 100%;
@@ -255,10 +332,8 @@ export default {
 }
 .selected {
   border: solid 0.9375rem transparent;
-
   left: -0.9375rem;
   top: -0.9375rem;
-
   border-radius: 50%;
   background-image: linear-gradient(#fff, #fff),
     linear-gradient(180deg, #531dab 0%, rgba(0, 159, 232, 0) 100%);
@@ -270,7 +345,7 @@ export default {
   position: absolute;
   vertical-align: center;
 }
-.notselected {
+/* .notselected {
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 0%,
@@ -282,6 +357,21 @@ export default {
 
   z-index: 100;
   position: absolute;
+} */
+.notselected {
+  border: solid 0.9375rem transparent;
+  left: -0.9375rem;
+  top: -0.9375rem;
+  border-radius: 50%;
+  background-image: linear-gradient(#fff, #fff),
+    linear-gradient(180deg, #531dab 0%, rgba(0, 159, 232, 0) 100%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  display: inline-grid;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  vertical-align: center;
 }
 .title {
   margin-top: 8rem;

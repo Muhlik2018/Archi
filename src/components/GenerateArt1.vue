@@ -12,32 +12,52 @@
         <div class="choose-your-scenario">第一步</div>
       </div>
       <div class="Generate">
-        <div
+        <template v-for="(item, index) in scenerioList" :key="index">
+          <template v-if="index < 4">
+            <div
+              @click="handleClickScenerio(item.scene)"
+              :class="{ currentGenerate: scenerio == item.scene }"
+            >
+              <img :src="item.url" />
+              <p>{{ item.scene }}</p>
+            </div>
+          </template>
+        </template>
+        <!-- <div
           @click="handleClickScenerio('sketch')"
-          :class="{ currentGenerate: scenerio=='sketch' }"
+          :class="{ currentGenerate: scenerio == 'sketch' }"
         >
           <img src="../assets/image18.svg" />
           <p>天际线</p>
         </div>
         <div
           @click="handleClickScenerio('grid')"
-          :class="{ currentGenerate: scenerio=='grid' }"
+          :class="{ currentGenerate: scenerio == 'grid' }"
         >
           <img src="../assets/3c3ee662d122cf2e2a7279fc9c3c1a612.svg" />
           <p>网格</p>
         </div>
         <div
           @click="handleClickScenerio('raster')"
-          :class="{ currentGenerate: scenerio=='raster' }"
+          :class="{ currentGenerate: scenerio == 'raster' }"
         >
           <img src="../assets/image17.svg" />
           <p>条纹</p>
         </div>
+        <div
+          @click="handleClickScenerio('fractal')"
+          :class="{ currentGenerate: scenerio == 'fractal' }"
+        >
+          <img src="../assets/image17.svg" />
+          <p>条纹</p>
+        </div> -->
       </div>
-      <div class="nextStep" v-show="scenerio" @click="goPage('GenerateArt2')">
-        下一步
+      <div class="nextStep">
+        <div class="nextStepBtn" v-show="scenerio" @click="goPage('GenerateArt2')">下一步</div>
       </div>
-      <div class="wave"></div>
+      <div class="todo-button-outer">
+        <div class="todo-button-inner"></div>
+      </div>
     </div>
     <FooterNav></FooterNav>
   </div>
@@ -48,6 +68,7 @@
 import FooterNav from "./FooterNav.vue";
 import HeadNav from "./HeadNav.vue";
 import { useRouter } from "vue-router";
+import axios from "axios";
 export default {
   setup() {
     const router = useRouter();
@@ -59,24 +80,34 @@ export default {
     HeadNav,
     FooterNav,
   },
+  beforeMount() {
+    axios.get("/ac/api/image/scene").then(({ data }) => {
+      if (data.code === 200) {
+        data = data.data;
+        this.scenerioList = data.filter((item)=>{
+          return item.scene=='grid'||item.scene=='sketch'||item.scene=='fractal'||item.scene=='raster'
+        });
+      } else {
+        alert("请求失败请重试");
+      }
+    });
+  },
   data() {
     return {
-      scenerio:''
+      scenerio: "",
+      scenerioList: [],
     };
   },
-  computed: {
-  },
+  computed: {},
   methods: {
     goPage(pageName) {
-      this.router.push({ name: pageName, params: {Scenerio:this.scenerio} });
+      this.router.push({ name: pageName, params: { Scenerio: this.scenerio } });
     },
     handleClickScenerio: function (name) {
-      if(name==this.scenerio){
-        this.scenerio=''
-      }
-      else this.scenerio=name
+      if (name == this.scenerio) {
+        this.scenerio = "";
+      } else this.scenerio = name;
     },
-
   },
 };
 </script>
@@ -167,48 +198,43 @@ export default {
 }
 
 .Generate {
-  height: 40.625rem;
-  width: 87.5%;
-
   margin: 0 auto;
   margin-top: 3.875rem;
-
-  display: flex;
-  flex-wrap: wrap;
+  height: 70rem;
+  width: 70%;
+  /* display: flex;
+  flex-wrap: wrap; */
   /* position: relative; */
 }
 
-.Generate div:nth-of-type(1) {
-  margin-left: 5.7%;
-}
 .Generate div {
-  height: 40.625rem;
-  width: 25%;
-
-  margin-right: 5.7%;
-  margin-bottom: 6.25rem;
-  border-radius: 1.25rem;
+  height: 30rem;
+  width: 45%;
+  /* border: 1px solid; */
   box-sizing: border-box;
-
+  margin-right: 10%;
+  margin-bottom: 6rem;
   background: rgba(83, 29, 171, 0.2);
-
+  border-radius: 1.25rem;
   position: relative;
 
   cursor: pointer;
+
+  display: inline-block;
 }
 
-/* .Generate div:nth-last-of-type(-n + 1) {
+.Generate div:nth-last-of-type(-n + 2) {
   margin-bottom: 0px;
-} */
+}
 
-.Generate div:nth-of-type(n + 3) {
+.Generate div:nth-of-type(2n) {
   margin-right: 0px;
 }
 .Generate p {
   height: auto;
 
   left: 50%;
-  top: 35.5rem;
+  top: 80%;
   transform: translateX(-50%);
   margin: 0;
 
@@ -227,10 +253,10 @@ export default {
   background: rgba(83, 29, 171, 0.4);
 }
 .Generate img {
-  width: 60%;
+  width: 70%;
 
   left: 50%;
-  top: 10%;
+  top: 20%;
   transform: translateX(-50%);
 
   position: absolute;
@@ -238,14 +264,14 @@ export default {
 .nextStep {
   width: 16.6%;
   height: 6.25rem;
-
   margin: 0 auto;
   margin-top: 8rem;
+}
+.nextStepBtn{
+  width: 100%;
   border-radius: 1.25rem;
-
   background: #faed00;
   box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
-
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -254,14 +280,26 @@ export default {
   text-align: center;
   text-transform: uppercase;
   color: #531dab;
-
   cursor: pointer;
 }
-.wave{
+.wave {
   width: 100%;
   margin-top: 5.6875rem;
-  height: 25rem;
-  background: url('../assets/wave.svg');
+  height: 12.5rem;
+  background: url("../assets/wave.svg");
+}
+.todo-button-inner {
+  margin-bottom: 3rem;
+}
+.todo-button-outer {
+  width: 100%;
+  height: 20rem;
+  background-image: url("~@/assets/Detail-bottom-background.svg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
 }
 /* .wave>img{
   width: 100%;

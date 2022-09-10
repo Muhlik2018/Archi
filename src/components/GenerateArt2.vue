@@ -1,5 +1,5 @@
 <template>
-  <div class="GenerateArt2">
+  <div class="GenerateArt2" v-loading="loading">
     <HeadNav></HeadNav>
     <div class="top">
       <!-- <el-image src="GenerateArtTopLogo.jpg" fit="cover"></el-image> -->
@@ -13,26 +13,32 @@
       </div>
       <div class="canChoose">
         <div class="canChooseTitle">选择元素</div>
-        <Swiper navigation :modules="modules" :slidesPerView="3.5">
-          <swiper-slide v-for="item in canChooseItem" :key="item.id">
-            <el-image
-              :src="item.src"
-              fit="cover"
+        <div class="outSwiperBox">
+          <Swiper navigation :modules="modules" :slidesPerView="3.5">
+            <swiper-slide
+              v-for="item in canChooseItem"
+              :key="item.id"
               @click="SwitchElement(item.id)"
               :class="{ haveSelected: item.selected }"
-            ></el-image>
-          </swiper-slide>
-        </Swiper>
+            >
+              <el-image :src="item.url" fit="contain"></el-image>
+            </swiper-slide>
+          </Swiper>
+        </div>
       </div>
       <div class="haveChosenAndGenerated">
         <div class="haveChoosen">
           <div class="haveChoosenTitle">已选元素：</div>
+          <div class="haveChoosenUpDiv">
+            <div class="haveChoosenUp">^</div>
+          </div>
           <Swiper
             v-show="haveChoosenItem"
-            navigation
+            class="haveChoosenSwiper"
+            :navigation="haveChoosenSwiperButton.navigation"
             direction="vertical"
             :modules="modules"
-            :slidesPerView="3.5"
+            :slidesPerView="4"
           >
             <swiper-slide
               v-for="item in haveChoosenItem"
@@ -42,11 +48,14 @@
             >
               <el-image
                 class="haveChoosenContentImg"
-                :src="item.src"
-                fit="cover"
+                :src="item.url"
+                fit="contain"
               ></el-image>
             </swiper-slide>
           </Swiper>
+          <div class="haveChoosenDownDiv">
+            <div class="haveChoosenDown">^</div>
+          </div>
           <!-- <div class="haveChoosenContent">
             <img
               class="haveChoosenContentImg"
@@ -65,7 +74,13 @@
         <div class="generateSize">
           <div class="generateSizeIcon">+</div>
           <div class="generateSizeSlider">
-            <el-slider v-model="generateSize" vertical height="40rem" />
+            <el-slider
+              v-model="generateSize"
+              :step="0.1"
+              :max="1"
+              vertical
+              height="40rem"
+            />
           </div>
           <div class="generateSizeIcon">-</div>
         </div>
@@ -74,11 +89,24 @@
         <div class="chooseColorTitle">选择配色：</div>
         <div class="colorDiv">
           <Swiper navigation :modules="modules" :slidesPerView="3.5">
-            <swiper-slide v-for="item in 7" :key="item">
-              <div class="colorBox">
-                <div class="colorBoxInner1" style="background-color:red">
-                  <div class="colorBoxInner2" style="background-color:gold">
-                    <div class="colorBoxInner3" style="background-color:green"></div>
+            <swiper-slide v-for="item in colorSet" :key="item.id">
+              <div
+                class="colorBox"
+                :class="{ haveSelected: whetherColorSelected(item.id) }"
+                @click="selectColor(item.id)"
+              >
+                <div
+                  class="colorBoxInner1"
+                  :style="{ backgroundColor: item.colorSet[0] }"
+                >
+                  <div
+                    class="colorBoxInner2"
+                    :style="{ backgroundColor: item.colorSet[1] }"
+                  >
+                    <div
+                      class="colorBoxInner3"
+                      :style="{ backgroundColor: item.colorSet[2] }"
+                    ></div>
                   </div>
                 </div>
               </div>
@@ -90,9 +118,8 @@
       </div>
       <div class="todo-button-outer">
         <div class="todo-button-inner">
-          <button class="todo-button" @click="goPage('GenerateArt3')">
-            去创作
-          </button>
+          <!-- <button class="todo-button" @click="goPage('GenerateArt3')"> -->
+          <button class="todo-button" @click="generatePhoto()">去创作</button>
         </div>
       </div>
     </div>
@@ -107,6 +134,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { reactive, ref } from "@vue/reactivity";
 import { useRouter } from "vue-router";
+import { onBeforeMount } from "@vue/runtime-core";
+import axios from "axios";
 
 import HeadNav from "./HeadNav.vue";
 import FooterNav from "./FooterNav.vue";
@@ -124,66 +153,71 @@ export default {
   // },
   setup() {
     const router = useRouter();
-    let canChooseItem = reactive([
-      {
-        id: 1,
-        src: "Detail3-1.svg",
+    let canChooseItem = reactive([]);
+    let haveChoosenItem = reactive([]);
+    let generateImg = ref("");
+    let generateSize = ref(0.5);
+    let colorSet = reactive([]);
+    let colorSelected = ref("");
+    let loading = ref(false);
+    let haveChoosenSwiperButton = reactive({
+      navigation: {
+        prevEl: ".haveChoosenUp",
+        nextEl: ".haveChoosenDown",
       },
-      {
-        id: 2,
-        src: "Detail3-2.svg",
-      },
-      {
-        id: 3,
-        src: "Detail3-3.svg",
-      },
-      {
-        id: 4,
-        src: "Detail3-4.svg",
-      },
-      {
-        id: 5,
-        src: "Detail3-3.svg",
-      },
-      {
-        id: 6,
-        src: "Detail3-3.svg",
-      },
-      {
-        id: 7,
-        src: "Detail3-3.svg",
-      },
-    ]);
-    let haveChoosenItem = reactive([
-      // {
-      //   id: 1,
-      //   src: "Detail3-1.svg",
-      //   selected: false,
-      // },
-      // {
-      //   id: 2,
-      //   src: "Detail3-2.svg",
-      //   selected:false,
-      // },
-      // {
-      //   id: 3,
-      //   src: "Detail3-3.svg",
-      //   selected:false,
-      // },
-      // {
-      //   id: 4,
-      //   src: "Detail3-3.svg",
-      //   selected:false,
-      // },
-      // {
-      //   id: 5,
-      //   src: "Detail3-3.svg",
-      //   selected:false,
-      // },
-    ]);
-    let generateImg = ref("Detail3-1.svg");
-    let generateSize = ref(50);
+    });
     const scenerio = ref(router.currentRoute.value.params.Scenerio);
+
+    onBeforeMount(() => {
+      if (scenerio.value === undefined) {
+        router.push({ name: "GenerateArt1" });
+      }
+      // 获取场景风格轮播图
+      axios
+        .get("/ac/api/image/scene")
+        .then(({ data }) => {
+          if (data.code === 200) {
+            data = data.data;
+            data.forEach((element) => {
+              if (element.scene === scenerio.value) {
+                generateImg.value = element.url;
+              }
+            });
+          } else {
+            alert("请求失败请重试");
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+
+      // 获取元素列表
+      axios
+        .get(`/ac/api/archi/${scenerio.value}`)
+        .then(({ data }) => {
+          if (data.code === 200) {
+            data = data.data;
+            canChooseItem.push(...data);
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+
+      axios
+        .get(`/ac/api/gen/color/${scenerio.value}`)
+        .then(({ data }) => {
+          if (data.code === 200) {
+            data = data.data;
+            colorSet.push(...data);
+          } else {
+            alert("请求失败请重试");
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+    });
 
     return {
       canChooseItem,
@@ -192,7 +226,11 @@ export default {
       generateSize,
       router,
       scenerio,
+      colorSelected,
+      colorSet,
+      loading,
       modules: [Navigation],
+      haveChoosenSwiperButton,
     };
   },
   methods: {
@@ -208,12 +246,85 @@ export default {
         this.haveChoosenItem.splice(removeTarget, 1);
         this.canChooseItem[target].selected = false;
       } else {
-        this.haveChoosenItem.push({
-          id: id,
-          src: this.canChooseItem[target].src,
-        });
+        //分形只能选择一个
+        if (this.scenerio === "fractal" && this.haveChoosenItem.length > 0) {
+          alert("分形作画只能选择一个archi元素");
+          return;
+        }
+        this.haveChoosenItem.push(this.canChooseItem[target]);
         this.canChooseItem[target].selected = true;
       }
+    },
+    whetherColorSelected(id) {
+      return id === this.colorSelected ? true : false;
+    },
+    selectColor(id) {
+      this.colorSelected = id;
+    },
+    generatePhoto() {
+      if (this.haveChoosenItem.length > 0 && this.colorSelected) {
+        const archi_id = this.haveChoosenItem.map((element) => {
+          return element.id;
+        });
+        const scale = this.generateSize;
+        const color_id = this.colorSelected;
+        const scene = this.scenerio;
+        this.loading = true;
+        // console.log(archi_id, scale, color_id, scene);
+        axios
+          .post("/ac/api/gen", {
+            archi_id,
+            scale,
+            color_id,
+            scene,
+          })
+          .then(({ data }) => {
+            if (data.code === 200) {
+              data = data.data;
+              this.getGeneratePhoto(data.id);
+            } else {
+              alert("网络错误");
+              this.loading = false;
+            }
+          })
+          .catch((err) => {
+            console.log("err", err);
+          });
+      } else {
+        alert("元素和颜色必选！");
+      }
+    },
+    getGeneratePhoto(id) {
+      axios
+        .get(`/ac/api/gen/${id}`)
+        .then(({ data }) => {
+          if (data.code === 200) {
+            data = data.data;
+            console.log("data", data);
+            if (data.status === 200) {
+              this.router.push({
+                name: "GenerateArt3",
+                params: { id: data.id },
+              });
+            } else if (data.status === 300) {
+              this.loading = false;
+              alert("异常结束");
+            } else if (data.status === 400) {
+              this.loading = false;
+              alert("参数错误");
+            } else if (data.status === 500) {
+              this.loading = false;
+              alert("严重错误");
+            } else {
+              setTimeout(() => {
+                this.getGeneratePhoto(data.id);
+              }, 2000);
+            }
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };
@@ -268,6 +379,7 @@ export default {
   font-size: 1.5rem;
   line-height: 1.5rem;
   color: #000000;
+  cursor: pointer;
 }
 .step2 {
   width: 100%;
@@ -299,7 +411,7 @@ export default {
 
 .canChoose {
   width: 83.5%;
-  background: rgba(192, 192, 192, 0.2);
+  background: #b9c9fc;
   border-radius: 20px;
   padding: 4rem;
 }
@@ -314,22 +426,36 @@ export default {
   color: #531dab;
   margin: 2rem 0;
 }
+.canChoose .outSwiperBox {
+  position: relative;
+  padding: 0 3rem;
+}
 .canChoose .swiper {
   display: flex;
-  justify-content: center;
+  position: initial;
+  --swiper-navigation-size: 3.5rem;
 }
 .canChoose >>> .swiper-wrapper {
   width: 90% !important;
+  align-items: center;
 }
 .canChoose .swiper-slide {
   width: 15% !important;
+  height: 13rem;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 1rem;
+  background: rgba(255, 255, 255, 0.56);
+  border: 0.3125rem dashed rgba(255, 255, 255, 0.95);
+  border-radius: 1.875rem;
+  cursor: pointer;
+}
+.canChoose >>> .el-image__inner {
+  max-height: 10rem;
 }
 .canChoose .haveSelected {
-  border: 1rem double skyblue;
+  background: #ddd2ee;
 }
 
 .haveChosenAndGenerated {
@@ -345,6 +471,8 @@ export default {
   border: 4px dashed #9747ff;
   border-radius: 20px;
   border-left-style: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 .haveChoosenTitle {
   font-family: "Inter";
@@ -355,16 +483,24 @@ export default {
   text-align: center;
   text-transform: uppercase;
   color: #531dab;
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 .haveChoosen .swiper {
   height: 40rem;
+  margin: 0;
+  width: 100%;
+  cursor: move;
 }
 .haveChoosen .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0.5rem;
+  border-width: 3px 0px 3px 0px;
+  border-style: dashed;
+  border-color: #8b8b8b;
+}
+.haveChoosen .swiper-slide:nth-child(2n + 1) {
+  background: #ddd2ee;
 }
 .haveChoosenContent {
   width: 80%;
@@ -377,6 +513,28 @@ export default {
   width: 50%;
   margin: 1rem 0;
 }
+.haveChoosenContentImg >>> .el-image__inner {
+  max-height: 8rem;
+}
+.haveChoosen .haveChoosenUpDiv {
+  /* transform: rotate(90deg); */
+  cursor: pointer;
+  user-select: none;
+  color: #007aff;
+  font-size: 3.5rem;
+  height: 3.8rem;
+  line-height: 3.5rem;
+}
+.haveChoosen .haveChoosenDownDiv {
+  transform: rotate(-180deg);
+  cursor: pointer;
+  user-select: none;
+  color: #007aff;
+  font-size: 3.5rem;
+  height: 3.8rem;
+  line-height: 3.5rem;
+}
+
 .generateImgBox {
   width: 70%;
   display: flex;
@@ -388,6 +546,7 @@ export default {
 .generateImg {
   margin: 1rem;
   height: 95%;
+  max-width: 95%;
   /* border: 0.5px solid #a8a8a8;
   border-radius: 10px;
   display: block; */
@@ -397,6 +556,11 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.generateSize::after {
+  content: "大小";
+  color: #71c5fc;
+  font-size: 2rem;
 }
 .generateSizeIcon {
   font-family: "Inter";
@@ -422,10 +586,19 @@ export default {
   text-align: center;
   text-transform: uppercase;
   color: #531dab;
+  display: flex;
+  align-items: center;
 }
 .colorDiv {
   display: flex;
-  width: 35rem;
+  width: 40rem;
+  align-items: center;
+  position: relative;
+  padding: 0 3rem;
+}
+.colorDiv .swiper {
+  position: initial;
+  --swiper-navigation-size: 3.5rem;
 }
 .colorDiv .swiper-slide {
   width: 5.5rem !important;
@@ -434,31 +607,33 @@ export default {
 .colorBox {
   width: 5.5rem;
   height: 5.5rem;
-  margin: 1.5rem;
+  /* margin: 1.5rem; */
   /* background: linear-gradient(0deg, #4472c4, #4472c4),
     linear-gradient(0deg, #4472c4, #4472c4), #4472c4; */
   display: flex;
   justify-content: center;
   align-items: center;
+  border: #ffffff 0.35rem dashed;
+  cursor: pointer;
 }
-.colorBox .hadSelected{
-  border: #ab97ff 2px dotted;
+.colorDiv .haveSelected {
+  border: #71c5fc 0.35rem dashed;
 }
-.colorBoxInner1{
+.colorBoxInner1 {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 5rem;
   height: 5rem;
 }
-.colorBoxInner2{
+.colorBoxInner2 {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 3.5rem;
   height: 3.5rem;
 }
-.colorBoxInner3{
+.colorBoxInner3 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -491,5 +666,6 @@ export default {
   text-transform: uppercase;
   color: #000000;
   border: none;
+  cursor: pointer;
 }
 </style>

@@ -1,72 +1,56 @@
 <template>
   <div class="footerNav">
-    <span style="flex: 1" class="bottomnav">
-      <span @click="goPage('Home')">首页</span> | <span @click="goPage('Home')">收藏&周边</span> | <span @click="goPage('Home')">活动</span> |
-      <span @click="goPage('TeamMembers')">关于我们</span>
+    <div style="" class="bottomnav">
+      <span>首页</span> | <span>收藏&周边</span> | <span>活动</span> |
+      <span>关于我们</span>
       <div class="copyright">CiMEM 团队 版权所有 隐私保护</div>
-    </span>
+    </div>
 
-    <span style="flex: 1; display: flex">
-      <span style="flex: 1">
-        <div
-          style="
-            display: flex;
-            flex-direction: column;
-            width: 29.0625rem;
-            height: 12.8763rem;
-          "
-        >
-          <div style="flex: 2" class="bottomname">
+    <div style="display: flex">
+      <div style="display: flex">
+        <div>
+          <div style="" class="bottomname">
             <img src="../assets/Archi&Casca.svg" alt="" />
           </div>
-          <div style="flex: 1" class="title">建筑是凝固的音乐。</div>
-          <div style="flex: 3" class="description">
+          <div style="" class="title">建筑是凝固的音乐。</div>
+          <div style="" class="description">
             <div>
               Archi 刻画建筑几何与色彩特征的元素符号， 凝聚建筑局部之美。 Casca
               由计算机以层叠交 汇形式布局到画布中，迭代优化和谐美丽的画作。
             </div>
           </div>
         </div>
-      </span>
-
-      <span style="flex: 1; position: relative"
-        ><div class="biglogo"><img src="../assets/BigLogo.svg" alt="" /></div
-      ></span>
-    </span>
-
-    <span class="contact" style="flex: 1">
-      <div style="display: flex">
-        <span style="flex: 1" class="qrcode">
-          <img src="../assets/QRCode.svg" />
-        </span>
-        <span style="flex: 1; display: flex; flex-direction: column">
-          <div style="flex: 1">
-            <div class="followus">Follow us</div>
-          </div>
-          <div style="flex: 1">
-            <div class="phone">
-              相关事务联系请发邮件至我站公共邮箱：chunhuachen@scut.edu.cn
-              联系电话：15013153445
-            </div>
-          </div>
-        </span>
+        <div class="biglogo">
+          <img src="../assets/BigLogo.png" alt="" />
+        </div>
       </div>
-    </span>
+
+      <div class="contact">
+        <!-- <span style="flex: 1" class="qrcode">
+          <img src="../assets/QRCode.svg" />
+        </span> -->
+          <div class="followus">Follow us</div>
+          <div class="phone">
+            相关事务联系请发邮件至我站公共邮箱：chunhuachen@scut.edu.cn
+            联系电话：15013153445
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { useRouter } from "vue-router";
 export default {
-    setup() {
+  setup() {
     const router = useRouter();
     return {
       router,
     };
   },
-    methods: {
+  methods: {
     goPage(pageName) {
-      this.router.push({name: pageName});
+      this.router.push({ name: pageName });
     },
   },
 };
@@ -76,13 +60,13 @@ export default {
 .footerNav {
   width: 100%;
   height: 15.9375rem;
-  
+
   margin: 0 auto;
   border-top: 0.0625rem solid;
   margin-top: 10rem;
 
   display: flex;
-  
+  justify-content: space-between;
 }
 
 .bottomnav {
@@ -100,7 +84,7 @@ export default {
 .bottomnav span {
   color: #000000;
 
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .copyright {
@@ -112,7 +96,6 @@ export default {
   font-size: 0.75rem;
   line-height: 1.5625rem;
   color: #8c8c8c;
-  
 }
 
 .bottomname {
@@ -131,8 +114,6 @@ export default {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
-
-  
 }
 .bottomname img {
   width: 16.75rem;
@@ -150,7 +131,6 @@ export default {
   line-height: 1.5625rem;
   color: #597ef7;
   text-align: center;
-  
 }
 .description {
   font-family: "Abel";
@@ -169,38 +149,30 @@ export default {
   margin-top: 0.625rem;
 }
 
-.contact {
+/* .contact {
   position: relative;
-}
+} */
 
-.contact > div {
-  width: 100%;
-  height: 11.25rem;
-
-  border-left: 0.0625rem solid #597ef7; 
+.contact {
+  /* border-left: 0.0625rem solid #597ef7;
   padding: 0 1.875rem;
-  box-sizing: border-box;
-
-  position: absolute;
-
-  top: 50%;
-  transform: translateY(-50%);
+  box-sizing: border-box; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .followus {
   width: 12rem;
-  height: 2.25rem;
 
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 700;
   font-size: 2rem;
-  line-height: 3.125rem;
+  line-height: 4rem;
   color: #000000;
-
 }
 .phone {
   width: 11.5625rem;
-  height: 6.625rem;
 
   font-family: "Inter";
   font-style: normal;
@@ -210,16 +182,25 @@ export default {
   color: #000000;
 }
 .biglogo {
-  margin-left: -5rem;
+  /* margin-left: -5rem;
 
   position: absolute;
 
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%); */
+  display: flex;
+  width: 15rem;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2rem;
 }
 .biglogo img {
-  width: 8.25rem;
-  height: 11.3087rem;
+  /* width: 8.25rem;
+  height: 11.3087rem; */
+  width: 80%;
+  height: 70%;
+  border-right: 0.0625rem solid #597ef7;
+  padding: 0 1rem;
 }
 .qrcode {
   /* display: flex;

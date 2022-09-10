@@ -1,28 +1,41 @@
 <template>
-    <div class="Page">
-        <HeadNav></HeadNav>
-        <div class="carousel">
-            <el-carousel height="61.875em" :autoplay="true">
-                <el-carousel-item v-for="item in 4" :key="item">
-                    <div class="carousel-box">
-                        <div class="carousel-text">
-                            <div class="carousel-text-title">岭南古建</div>
-                            <div class="carousel-text-details">
-                                岭南文化作为中华民族传统文化中最具特色和活力的地域文化之一，拥有两千多年历史，浩如烟海，源远流长。岭南建筑作为岭南文化的重要载体，更是岭南文化的精髓。
-                            </div>
-                        </div>
-                        <el-image src="linnan1.svg" fit="contain" style="width: 100%"></el-image>
-                        <el-image class="carousel-image-mask" src="Home2-1.svg" fit="contain" style="width: 100%">
-                        </el-image>
-                    </div>
-                </el-carousel-item>
-            </el-carousel>
-        </div>
-        <div @scroll="handleScroll">
-            <WaterFall :list="imgData" />
-        </div>
-        <FooterNav></FooterNav>
+  <div class="Page">
+    <HeadNav></HeadNav>
+    <div v-if="homeScene.length > 0" class="carousel">
+      <el-carousel height="61.875em" arrow="always" :autoplay="false" @change="turnPage" >
+        <el-carousel-item v-for="(item, index) in homeScene" :key="index">
+          <div class="carousel-box">
+            <div class="carousel-text-box">
+              <div class="carousel-text">
+                <div class="carousel-text-title">{{ scene_name }}</div>
+                <div class="carousel-text-details">
+                  {{scene_descripe}}
+                </div>
+              </div>
+            </div>
+            <el-image :src="item.url" fit="contain" style="width: 100%">
+            </el-image>
+          </div>
+        </el-carousel-item>
+      </el-carousel>
     </div>
+    <div v-if="show == 0">
+      <WaterFall ref="freedomWaterFall" :list="freedom_list" />
+    </div>
+    <div v-if="show == 1">
+      <WaterFall ref="freedomWaterFall" :list="grid_list" />
+    </div>
+    <div v-if="show == 2">
+      <WaterFall ref="freedomWaterFall" :list="raster_list" />
+    </div>
+    <div v-if="show == 3">
+      <WaterFall4 ref="freedomWaterFall" :list="sketch_list" />
+    </div>
+    <div v-if="show == 4">
+      <WaterFall ref="freedomWaterFall" :list="fractal_list" />
+    </div>
+    <FooterNav></FooterNav>
+  </div>
 </template>
 
 <script>
@@ -32,248 +45,381 @@ import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useRouter } from "vue-router";
-import WaterFall from "./WaterFall.vue"
+import WaterFall from "./WaterFall.vue";
+import axios from "axios";
+import { reactive, ref } from "@vue/reactivity";
+import { onBeforeMount } from "@vue/runtime-core";
+import WaterFall4 from "./WaterFall4.vue";
 
 export default {
-    name: "HomePage",
-    components: {
-        HeadNav,
-        FooterNav,
-        WaterFall
-    },
-    data: function () {
-        return {
-            imgData: [{
-                url: "wf1.svg",
-                describe: 'bdbdbdbdgbsdbs',
-                userName: '',
-                userAvatar: '',
-                latitude: 23.1,
-                longitude: 113.4,
-                width: 30,
-                height: 30,
-                iconPath: 'wf1.svg',
-                class: 'advertisement',
-                joinCluster: true,
-            },
-            {
-                id: 2,
-                name: '测试图片2',
-                url: 'wf2.svg',
-                describe: '我真的',
-                latitude: 23.2,
-                longitude: 113.5,
-                width: 30,
-                height: 30,
-                iconPath: 'wf2.svg',
-                joinCluster: true
-            },
-            {
-                id: 3,
-                name: '测试图片3',
-                url: 'wf3.svg',
-                describe: '我真的有好多好多好',
-                latitude: 23.3,
-                longitude: 113.6,
-                width: 30,
-                height: 30,
-                iconPath: 'wf3.svg',
-                joinCluster: true
-            },
-            {
-                id: 4,
-                name: '测试图片3',
-                url: 'wf4.svg',
-                describe: '骑楼',
-                latitude: 23.1,
-                longitude: 113.6,
-                width: 30,
-                height: 30,
-                iconPath: 'wf4.svg',
-                joinCluster: true
-            },
-            {
-                id: 5,
-                name: '测试图片3',
-                url: 'wf5.svg',
-                describe: '我真的',
-                latitude: 23.2,
-                longitude: 113.3,
-                width: 30,
-                height: 30,
-                iconPath: 'wf5.svg',
-                joinCluster: true
-            },
-            {
-                id: 6,
-                name: '测试图片3',
-                url: 'wf6.svg',
-                describe: '屋脊',
-                latitude: 23.4,
-                longitude: 113.5,
-                width: 30,
-                height: 30,
-                iconPath: 'wf6.svg',
-                joinCluster: true
-            },
-            {
-                id: 7,
-                name: '测试图片3',
-                url: 'wf7.svg',
-                describe: '我真的',
-                latitude: 23.6,
-                longitude: 113.7,
-                width: 30,
-                height: 30,
-                iconPath: 'wf7.svg',
-                joinCluster: true
-            },
-            {
-                id: 8,
-                url: 'wf8.svg',
-                describe: '土建',
-                latitude: 23.3,
-                longitude: 113.1,
-                width: 30,
-                height: 30,
-                iconPath: 'wf8.svg',
-                joinCluster: true
-            },
-            {
-                id: 9,
-                url: 'wf9.svg',
-                describe: '满周窗',
-                latitude: 23.3,
-                longitude: 113.1,
-                width: 30,
-                height: 30,
-                iconPath: 'wf9.svg',
-                joinCluster: true
-            },
-            {
-                id: 10,
-                url: 'wf10.svg',
-                describe: '图片描述',
-                latitude: 23.3,
-                longitude: 113.1,
-                width: 30,
-                height: 30,
-                iconPath: 'wf10.svg',
-                joinCluster: true
-            },
-            {
-                id: 11,
-                url: 'wf11.svg',
-                describe: '祠堂',
-                latitude: 23.3,
-                longitude: 113.1,
-                width: 30,
-                height: 30,
-                iconPath: 'wf11.svg',
-                joinCluster: true
-            },
-            {
-                id: 12,
-                url: 'wf12.svg',
-                describe: '湖与桥',
-                latitude: 23.3,
-                longitude: 113.1,
-                width: 30,
-                height: 30,
-                iconPath: 'wf12.svg',
-                joinCluster: true
-            },
-            {
-                id: 13,
-                url: 'wf13.svg',
-                describe: '图片描述',
-                latitude: 23.3,
-                longitude: 113.1,
-                width: 30,
-                height: 30,
-                iconPath: 'wf13.svg',
-                joinCluster: true
-            },
-            ]
-        }
-    },
-    setup() {
-        const router = useRouter();
-        return {
-            router,
-            modules: [Navigation],
-        };
-    },
-    methods: {
-        goDetail(id) {
-            this.router.push({ name: "detail", params: { id } });
+  components: {
+    HeadNav,
+    FooterNav,
+    WaterFall,
+    WaterFall4,
+  },
+  data() {
+    return {
+      scene_name:"",
+      scene_descripe:''
+    };
+  },
+  created() {
+    this.getinfo();
+  },
+  setup() {
+    const router = useRouter();
+    const scene = ref(router.currentRoute.value.params.scene);
+    let show = ref(0);
+    let start = ref(0);
+    let freedom_list = reactive([]);
+    let grid_list = reactive([]);
+    let sketch_list = reactive([]);
+    let fractal_list = reactive([]);
+    let raster_list = reactive([]);
+    // console.log("scene.value", scene.value);
+    if (scene.value === "freedom") {
+      // console.log(0);
+      show.value = 0;
+      start.value = 0;
+    } else if (scene.value === "grid") {
+      // console.log(1);
+      show.value = 1;
+      start.value = 1;
+    } else if (scene.value === "raster") {
+      // console.log(2);
+      show.value = 2;
+      start.value = 2;
+    } else if (scene.value === "sketch") {
+      // console.log(3);
+      show.value = 3;
+      start.value = 3;
+    } else if (scene.value === "fractal") {
+      // console.log(4);
+      show.value = 4;
+      start.value = 4;
+    } else {
+      // console.log(0);
+      show.value = 0;
+      start.value = 0;
+    }
+
+    let homeScene = reactive([]);
+
+    let getPic = () => {
+      axios({
+        method: "get",
+        url: "/ac/api/archicasca/freedom",
+        headers: {
+          "Content-Type": "x-www-form-urlencoded",
         },
+      })
+        .then((res) => {
+             console.log("pic data", res);
+          if (res.data.code === 200) {
+            freedom_list.push(...res.data.data);
+            // console.log(freedom_list);
+            // console.log("freedom");
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        })
+        .finally(() => {
+          if (scene.value === "freedom") {
+            show.value = -1;
+            setTimeout(() => {
+              show.value = 0;
+            }, 20);
+          }
+        });
+
+      axios({
+        method: "get",
+        url: "/ac/api/archicasca/grid",
+        headers: {
+          "Content-Type": "x-www-form-urlencoded",
+        },
+      })
+        .then((res) => {
+          console.log("pic data", res);
+          if (res.data.code === 200) {
+            res.data.data.forEach((element) => {
+              if (element.type === "svg") {
+                element.url = element.url.replace(".svg", ".png");
+              }
+            });
+            grid_list.push(...res.data.data);
+            // console.log(grid_list);
+            // console.log("grid");
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        })
+        .finally(() => {
+          if (scene.value === "grid") {
+            show.value = -1;
+            setTimeout(() => {
+              show.value = 1;
+            }, 20);
+          }
+        });
+
+      axios({
+        method: "get",
+        url: "/ac/api/archicasca/sketch",
+        headers: {
+          "Content-Type": "x-www-form-urlencoded",
+        },
+      })
+        .then((res) => {
+          //   console.log("pic data", res);
+          if (res.data.code === 200) {
+            res.data.data.forEach((element) => {
+              if (element.type === "svg") {
+                element.url = element.url.replace(".svg", ".png");
+              }
+            });
+            sketch_list.push(...res.data.data);
+            // console.log(sketch_list);
+            // console.log("sketch");
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        })
+        .finally(() => {
+          if (scene.value === "sketch") {
+            show.value = -1;
+            setTimeout(() => {
+              show.value = 3;
+            }, 20);
+          }
+        });
+
+      axios({
+        method: "get",
+        url: "/ac/api/archicasca/fractal",
+        headers: {
+          "Content-Type": "x-www-form-urlencoded",
+        },
+      })
+        .then((res) => {
+          //   console.log("pic data", res);
+          if (res.data.code === 200) {
+            res.data.data.forEach((element) => {
+              if (element.type === "svg") {
+                element.url = element.url.replace(".svg", ".png");
+              }
+            });
+            fractal_list.push(...res.data.data);
+            // console.log(fractal_list);
+            // console.log("fractal");
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        })
+        .finally(() => {
+          if (scene.value === "fractal") {
+            show.value = -1;
+            setTimeout(() => {
+              show.value = 4;
+            }, 20);
+          }
+        });
+
+      axios({
+        method: "get",
+        url: "/ac/api/archicasca/raster",
+        headers: {
+          "Content-Type": "x-www-form-urlencoded",
+        },
+      })
+        .then((res) => {
+          //   console.log("pic data", res);
+          if (res.data.code === 200) {
+            res.data.data.forEach((element) => {
+              if (element.type === "svg") {
+                element.url = element.url.replace(".svg", ".png");
+              }
+            });
+            raster_list.push(...res.data.data);
+            // console.log(raster_list);
+            // console.log("fraster");
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        })
+        .finally(() => {
+          if (scene.value === "raster") {
+            show.value = -1;
+            setTimeout(() => {
+              show.value = 2;
+            }, 20);
+          }
+        });
+    };
+
+    onBeforeMount(() => {
+      // 获取场景风格轮播图
+      axios
+        .get("/ac/api/image/scene")
+        .then(({ data }) => {
+          //   console.log("scene data", data);
+          if (data.code === 200) {
+            data = data.data;
+            // homeScene.value = data;
+            homeScene.push(...data);
+          }
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+
+      getPic();
+    });
+    return {
+      router,
+      modules: [Navigation],
+      homeScene,
+      show,
+      scene,
+      getPic,
+      freedom_list,
+      grid_list,
+      sketch_list,
+      fractal_list,
+      raster_list,
+      start
+    };
+  },
+  methods: {
+    turnPage(index) {
+      this.show = index;
+      this.getinfo();
     },
+    getinfo(){
+      if (this.show === 0) {
+      this.scene_name="自由创作"
+      this.scene_descripe="携建筑之形意，运层叠之技法，展城市记忆与文化艺术神韵。"
+    } else if (this.show === 1) {
+      this.scene_name="格子风格"
+      this.scene_descripe="以窗格为基，嵌入建筑形意，大美至简。"
+    } else if  (this.show === 2)  {
+      this.scene_name="光栅风格"
+      this.scene_descripe="斑斓光栅，建筑浮动，城市日夜美景。"
+    } else if (this.show === 3)  {
+      this.scene_name="轮廓风格"
+      this.scene_descripe="水平线上，层叠建筑形意、江河远山，勾勒城市印象。"
+    } else if  (this.show === 4)  {
+      this.scene_name="分形风格"
+      this.scene_descripe="传统建筑，几何构图，分形展和谐美丽。"
+    } else {
+      this.scene_name="自由创作"
+      this.scene_descripe="携建筑之形意，运层叠之技法，展城市记忆与文化艺术神韵。"
+    }
+    }
+  },
 };
 </script>
 
 <style scoped>
 .Page {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 
 .carousel {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-
 .carousel-box {
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    position: relative;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+
+.carousel .el-carousel {
+  width: 100%;
+  margin: 3rem 1rem;
+}
+.carousel-text-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.carousel-text-box::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0.7) 5.03%,
+      rgba(0, 0, 0, 0) 29.12%);
+  transform: rotate(-180deg);
 }
 
 .carousel-image-mask {
-    position: absolute;
-    width: 100%;
-    z-index: 500;
+  position: absolute;
+  width: 100%;
+  z-index: 500;
+}
+
+.carousel>>>.el-carousel__arrow {
+  transform: scale(3);
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #000000;
+  margin: 0 3rem;
 }
 
 .carousel-text {
-    position: absolute;
-    width: 46rem;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    margin: 3rem;
+  position: absolute;
+  width: 52rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  margin: 4rem;
 }
 
 .carousel-text-title {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 6rem;
-    line-height: 8rem;
-    text-transform: uppercase;
-    color: #ffffff;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 5.5rem;
+  line-height: 7rem;
+  text-transform: uppercase;
+  color: #ffffff;
 }
 
 .carousel-text-details {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.875rem;
-    line-height: 2rem;
-    text-transform: uppercase;
-    color: #C8C8C8;
-    margin-top: 1em;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.875rem;
+  line-height: 2rem;
+  text-transform: uppercase;
+  color: #c8c8c8;
+  margin-top: 1em;
 }
 </style>
 
 <style>
 .el-carousel {
-    width: 100%;
+  width: 100%;
 }
 </style>
