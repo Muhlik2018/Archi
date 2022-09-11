@@ -2,7 +2,7 @@
   <div class="Page">
     <HeadNav></HeadNav>
     <div v-if="homeScene.length > 0" class="carousel">
-      <el-carousel height="61.875em" arrow="always" :autoplay="false" @change="turnPage" >
+      <el-carousel height="61.875em" :initial-index="show" arrow="always" :autoplay="false" @change="turnPage" >
         <el-carousel-item v-for="(item, index) in homeScene" :key="index">
           <div class="carousel-box">
             <div class="carousel-text-box">

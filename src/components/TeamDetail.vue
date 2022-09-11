@@ -2,7 +2,7 @@
   <div class="TeamDetail">
     <HeadNav></HeadNav>
     <div class="ourTeam">
-      <img src="../assets/BigLogo.svg" />
+      <img src="../assets/BigLogo.png" />
       <div class="ourTeamBottom">
         <div class="ourTeamTitle">我们的团队</div>
         <div class="ourTeamSlogan">团队理念/slogan</div>
@@ -76,7 +76,7 @@
         <img src="../assets/陈春华.png" class="member-detailItem-img" />
         <div class="member-detailItem-name">陈春华</div>
         <div class="member-detailItem-occupation">华南理工大学 教授</div>
-        <div class="member-detailItem-workfor">项目成员</div>
+        <div class="member-detailItem-workfor">助理教授</div>
       </div>
       <div class="member-detailItem">
         <img src="../assets/董诗语.png" class="member-detailItem-img" />
@@ -240,11 +240,10 @@ export default {
   position: relative;
 }
 .ourTeam > img {
-  width: 7.0625rem;
-  height: 10.25rem;
+  width: 14.96rem;
   position: absolute;
-  top: 14.6875rem;
-  left: 47%;
+  top: 11rem;
+  left: 43.5%;
 }
 .ourTeamTitle {
   position: absolute;

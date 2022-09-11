@@ -1,23 +1,25 @@
 <template>
   <div class="Headnav">
-    <div style="display: flex">
-      <div style="flex: 1; display: flex; align-items: center">
-        <div class="frame" @click="goPage('Home')">
-          <img src="../assets/ArchiLogo.svg" alt="" />
+    <el-affix :offset="0">
+      <div class="HeadNavDiv" style="display: flex">
+        <div style="flex: 1; display: flex; align-items: center">
+          <div class="frame" @click="goPage('Home')">
+            <img src="../assets/ArchiLogo.svg" alt="" />
+          </div>
+          <div class="home"><img src="../assets/Home.svg" alt="" /></div>
         </div>
-        <div class="home"><img src="../assets/Home.svg" alt="" /></div>
-      </div>
-      <div>
-        <div class="nav">
-          <!-- <div @click="goPage('TeamMembers')">关于我们</div> -->
-          <div @click="goPage('Home')">首页</div>
-          <!-- <div @click="goPage('CulturalCreation')">文创周边</div> -->
-          <!-- <div @click="goPage('ArchiActivities')">活动</div> -->
-          <div @click="goPage('GenerateArt1')">创作</div>
-          <div @click="goPage('TeamDetail')">关于我们</div>
+        <div>
+          <div class="nav">
+            <!-- <div @click="goPage('TeamMembers')">关于我们</div> -->
+            <div @click="goPage('Home')">首页</div>
+            <!-- <div @click="goPage('CulturalCreation')">文创周边</div> -->
+            <!-- <div @click="goPage('ArchiActivities')">活动</div> -->
+            <div @click="goPage('GenerateArt1')">创作</div>
+            <div @click="goPage('TeamDetail')">关于我们</div>
+          </div>
         </div>
       </div>
-    </div>
+    </el-affix>
   </div>
 </template>
 
@@ -50,8 +52,13 @@ export default {
 .Headnav > div {
   width: 100%;
   height: 4.5625rem;
-
+}
+.Headnav :deep(.el-affix--fixed) {
+  z-index: 90000 !important;
+}
+.Headnav .HeadNavDiv {
   box-shadow: 0 1rem 1rem -1rem #666;
+  background-color: white;
 }
 .nav {
   float: right;
