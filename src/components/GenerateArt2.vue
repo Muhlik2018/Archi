@@ -446,7 +446,7 @@ export default {
   justify-content: center;
   align-items: center;
   margin: 1rem;
-  background: rgba(255, 255, 255, 0.56);
+  background: rgba(255, 255, 255, 0.35);
   border: 0.3125rem dashed rgba(255, 255, 255, 0.95);
   border-radius: 1.875rem;
   cursor: pointer;
