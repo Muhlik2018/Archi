@@ -209,7 +209,8 @@ export default {
 
     //获取archi元素信息
     let printInfo = (e) => {
-      let archi = e.path.find((element) => {
+      let path=e.path|| (e.composedPath && e.composedPath());
+      let archi = path.find((element) => {
         // console.log("element", element.id);
         if (element.id === undefined) {
           return false;

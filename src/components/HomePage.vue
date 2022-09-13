@@ -298,6 +298,7 @@ export default {
   align-items: flex-end;
   position: relative;
   margin-top: 2rem;
+  height: 60rem;
 }
 .to-generate-footer {
   position: absolute;
